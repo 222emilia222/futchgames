@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://btl3pdhaw01mp"]
+
+[ext_resource type="Script" path="res://scenes/cursor.gd" id="1_micjj"]
+[ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://background.png" id="2_7x1vw"]
+[ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://char_laura_headcolor.png" id="3_2f1an"]
+[ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://char_laura_headoutlines.png" id="4_28dxq"]
+[ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://char_laura_eyes1.png" id="5_n1se7"]
+[ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://char_laura_body.png" id="6_fxwlj"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ygv7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vesh0"]
+size = Vector2(200, 200)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8q7pt"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_micjj")
+
+[node name="CharBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_7x1vw")
+
+[node name="Interactible" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactible"]
+texture = SubResource("ImageTexture_ygv7f")
+
+[node name="OutlineSprite" type="Sprite2D" parent="Interactible/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
+shape = SubResource("RectangleShape2D_vesh0")
+
+[node name="Character" type="Area2D" parent="."]
+top_level = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+shape = SubResource("CircleShape2D_8q7pt")
+
+[node name="HeadColorSprite" type="Sprite2D" parent="Character"]
+texture = ExtResource("3_2f1an")
+
+[node name="HeadOutlineSprite" type="Sprite2D" parent="Character/HeadColorSprite"]
+texture = ExtResource("4_28dxq")
+
+[node name="Eyes" type="Sprite2D" parent="Character/HeadColorSprite"]
+texture = ExtResource("5_n1se7")
+
+[node name="BodySprite" type="Sprite2D" parent="Character"]
+texture = ExtResource("6_fxwlj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Ryan Park
+
+Age 38"
+
+[connection signal="mouse_entered" from="Interactible" to="." method="_on_interactible_mouse_entered"]
+[connection signal="mouse_exited" from="Interactible" to="." method="_on_interactible_mouse_exited"]
