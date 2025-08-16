@@ -1,26 +1,45 @@
-[gd_scene load_steps=10 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=13 format=3 uid="uid://btl3pdhaw01mp"]
 
-[ext_resource type="Script" path="res://scenes/cursor.gd" id="1_micjj"]
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="1_micjj"]
 [ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_7x1vw"]
 [ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://sprites/chars/char_laura_headcolor.png" id="3_2f1an"]
+[ext_resource type="Texture2D" uid="uid://b1m30vdfle6mj" path="res://sprites/woodframe.png" id="3_3cuil"]
 [ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://sprites/chars/char_laura_headoutlines.png" id="4_28dxq"]
 [ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://sprites/chars/char_laura_eyes1.png" id="5_n1se7"]
 [ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://sprites/chars/char_laura_body.png" id="6_fxwlj"]
+[ext_resource type="Script" path="res://scripts/blinker.cs" id="6_uywod"]
+[ext_resource type="Texture2D" uid="uid://myf6dbm4g8pm" path="res://sprites/chars/char_laura_eyes2.png" id="8_fi2cu"]
+[ext_resource type="Script" path="res://scripts/breather.cs" id="10_ju2h3"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_ygv7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vesh0"]
 size = Vector2(200, 200)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8q7pt"]
-
-[node name="Main" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_micjj")
 
 [node name="CharBackground" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_7x1vw")
+
+[node name="woodframe" type="TextureRect" parent="CharBackground"]
+z_index = 5
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_3cuil")
+
+[node name="CharInfo" type="RichTextLabel" parent="."]
+offset_left = 1311.0
+offset_top = 35.0
+offset_right = 1876.0
+offset_bottom = 340.0
+text = "Ryan Park
+
+Age 38"
+tab_size = 10
 
 [node name="Interactible" type="Area2D" parent="."]
 
@@ -34,28 +53,30 @@ shape = SubResource("RectangleShape2D_vesh0")
 
 [node name="Character" type="Area2D" parent="."]
 top_level = true
+position = Vector2(615, 539)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
-shape = SubResource("CircleShape2D_8q7pt")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Character"]
 
-[node name="HeadColorSprite" type="Sprite2D" parent="Character"]
+[node name="Head (Color)" type="Sprite2D" parent="Character"]
 texture = ExtResource("3_2f1an")
+script = ExtResource("10_ju2h3")
+breatheInterval = 5.0
+movValue = 3.0
 
-[node name="HeadOutlineSprite" type="Sprite2D" parent="Character/HeadColorSprite"]
+[node name="HeadOutlineSprite" type="Sprite2D" parent="Character/Head (Color)"]
 texture = ExtResource("4_28dxq")
 
-[node name="Eyes" type="Sprite2D" parent="Character/HeadColorSprite"]
-texture = ExtResource("5_n1se7")
+[node name="Eyes" type="Sprite2D" parent="Character/Head (Color)"]
+script = ExtResource("6_uywod")
+eyes1 = ExtResource("5_n1se7")
+eyes2 = ExtResource("8_fi2cu")
 
 [node name="BodySprite" type="Sprite2D" parent="Character"]
+show_behind_parent = true
 texture = ExtResource("6_fxwlj")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-text = "Ryan Park
-
-Age 38"
+script = ExtResource("10_ju2h3")
+breatheInterval = 5.0
+movValue = 10.0
 
 [connection signal="mouse_entered" from="Interactible" to="." method="_on_interactible_mouse_entered"]
 [connection signal="mouse_exited" from="Interactible" to="." method="_on_interactible_mouse_exited"]
