@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://isjkakg208ff"
-path="res://.godot/imported/hand_open.png-e31ebe5af82eef0d7b28e745fd8b74e3.ctex"
+uid="uid://myf6dbm4g8pm"
+path="res://.godot/imported/char_laura_eyes2.png-5123df076c3026ffc0e689c754f01d4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hand_open.png"
-dest_files=["res://.godot/imported/hand_open.png-e31ebe5af82eef0d7b28e745fd8b74e3.ctex"]
+source_file="res://sprites/chars/char_laura_eyes2.png"
+dest_files=["res://.godot/imported/char_laura_eyes2.png-5123df076c3026ffc0e689c754f01d4c.ctex"]
 
 [params]
 

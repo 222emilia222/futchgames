@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scenes/cursor.gd" id="1_micjj"]
-[ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://background.png" id="2_7x1vw"]
-[ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://char_laura_headcolor.png" id="3_2f1an"]
-[ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://char_laura_headoutlines.png" id="4_28dxq"]
-[ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://char_laura_eyes1.png" id="5_n1se7"]
-[ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://char_laura_body.png" id="6_fxwlj"]
+[ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_7x1vw"]
+[ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://sprites/chars/char_laura_headcolor.png" id="3_2f1an"]
+[ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://sprites/chars/char_laura_headoutlines.png" id="4_28dxq"]
+[ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://sprites/chars/char_laura_eyes1.png" id="5_n1se7"]
+[ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://sprites/chars/char_laura_body.png" id="6_fxwlj"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_ygv7f"]
 

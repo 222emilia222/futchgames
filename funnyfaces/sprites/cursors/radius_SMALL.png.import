@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyxcmnhe67yc5"
-path="res://.godot/imported/char_laura_headoutlines.png-5581d6b0da00e90a8b0d5c23270187ea.ctex"
+uid="uid://c6evelxroe5ht"
+path="res://.godot/imported/radius_SMALL.png-fb5fc63a8f9f045993ba1ed71e159eec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://char_laura_headoutlines.png"
-dest_files=["res://.godot/imported/char_laura_headoutlines.png-5581d6b0da00e90a8b0d5c23270187ea.ctex"]
+source_file="res://sprites/cursors/radius_SMALL.png"
+dest_files=["res://.godot/imported/radius_SMALL.png-fb5fc63a8f9f045993ba1ed71e159eec.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4jb2hcmdt87r"
-path="res://.godot/imported/char_laura.png-677cca9efd747c919ced30046456bcc6.ctex"
+uid="uid://g2dvssnpd5qp"
+path="res://.godot/imported/shelf3.png-dd88594eafd8bac5e0fc093ec497048e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://char_laura.png"
-dest_files=["res://.godot/imported/char_laura.png-677cca9efd747c919ced30046456bcc6.ctex"]
+source_file="res://sprites/shelf3.png"
+dest_files=["res://.godot/imported/shelf3.png-dd88594eafd8bac5e0fc093ec497048e.ctex"]
 
 [params]
 

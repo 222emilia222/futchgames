@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lpv5k81j6aik"
-path="res://.godot/imported/char_laura_headcolor.png-021111fad58c29bf44f7b7147492200e.ctex"
+uid="uid://81awis5h6uh6"
+path="res://.godot/imported/hand_pointing.png-4bc6fda8132f7997f2447834fafb005f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://char_laura_headcolor.png"
-dest_files=["res://.godot/imported/char_laura_headcolor.png-021111fad58c29bf44f7b7147492200e.ctex"]
+source_file="res://sprites/cursors/hand_pointing.png"
+dest_files=["res://.godot/imported/hand_pointing.png-4bc6fda8132f7997f2447834fafb005f.ctex"]
 
 [params]
 
