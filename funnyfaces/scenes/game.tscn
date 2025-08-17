@@ -1,11 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=7 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_y1scj"]
 [ext_resource type="Texture2D" uid="uid://b1m30vdfle6mj" path="res://sprites/woodframe.png" id="3_vqqh3"]
-[ext_resource type="Texture2D" uid="uid://b33dkwbl3wxij" path="res://sprites/lipstick.png" id="4_0lehi"]
-[ext_resource type="Script" path="res://scripts/Interactible.cs" id="4_l8h51"]
-[ext_resource type="Texture2D" uid="uid://cf3wm7rytx24e" path="res://sprites/lipstick_frame.png" id="5_8tv6d"]
+[ext_resource type="PackedScene" uid="uid://cugwvitpkbawn" path="res://scenes/item.tscn" id="5_wpu8c"]
 [ext_resource type="PackedScene" uid="uid://b3oo4pdn2tine" path="res://scenes/char.tscn" id="8_52l46"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_1cnnm"]
@@ -25,9 +23,6 @@ public partial class manager : Control
 	}
 }
 "
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vesh0"]
-size = Vector2(73, 165)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7leby")
@@ -61,27 +56,9 @@ text = "Ryan Park
 Age 38"
 tab_size = 10
 
-[node name="Interactible" type="Area2D" parent="." node_paths=PackedStringArray("whiteFrame", "mainSprite")]
-position = Vector2(1416, 280)
-script = ExtResource("4_l8h51")
-whiteFrame = NodePath("Sprite2D/OutlineSprite")
-mainSprite = NodePath("Sprite2D")
-radiusKey = 1
+[node name="Char_Lauren" parent="." instance=ExtResource("8_52l46")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Interactible"]
-texture = ExtResource("4_0lehi")
+[node name="Item_Eyeliner" parent="." instance=ExtResource("5_wpu8c")]
+position = Vector2(1557, 282)
 
-[node name="OutlineSprite" type="Sprite2D" parent="Interactible/Sprite2D"]
-show_behind_parent = true
-texture = ExtResource("5_8tv6d")
-
-[node name="Coll2d" type="CollisionShape2D" parent="Interactible"]
-position = Vector2(-39.5, 19.5)
-shape = SubResource("RectangleShape2D_vesh0")
-
-[node name="Char_Laura" parent="." instance=ExtResource("8_52l46")]
-
-[connection signal="mouse_entered" from="Interactible" to="." method="_on_interactible_mouse_entered"]
-[connection signal="mouse_entered" from="Interactible" to="Interactible" method="On_mouse_entered"]
-[connection signal="mouse_exited" from="Interactible" to="." method="_on_interactible_mouse_exited"]
-[connection signal="mouse_exited" from="Interactible" to="Interactible" method="On_mouse_exited"]
+[node name="Item_Lipstick" parent="." instance=ExtResource("5_wpu8c")]
