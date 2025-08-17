@@ -7,13 +7,13 @@ public partial class Interactible : Area2D
 	[Export] CanvasItem mainSprite;
 	[Export] int radiusKey; //1 is small, 2 is medium, 3 is nose, 0 is default
 	bool hovered = false;
-	Node2D parent;
+	Node2D grandparent;
 
 	public override void _Ready()
 	{
 		whiteFrame.Visible = false;
 		mainSprite.Visible = true;
-		parent = GetNode<Node2D>("..");
+		grandparent = GetNode<Node2D>("../..");
     }
 
 	public override void _Process(double delta)
@@ -21,9 +21,10 @@ public partial class Interactible : Area2D
 		if (hovered && Input.IsMouseButtonPressed(MouseButton.Left))
 		{
             mainSprite.Visible = false;
-			GetNode<CollisionShape2D>("Coll2d").Disabled = true;
-			//subscribe visible und enable to event on other makeup
-			parent.Call("_set_cursor", radiusKey);
+			CollisionShape2D shape = GetNode<CollisionShape2D>("Coll2d");
+            shape.Disabled = true;
+			GetNode<itemmanager>("..").SwitchItem(mainSprite, shape);
+            grandparent.Call("_set_cursor", radiusKey);
         }
 	}
 
@@ -31,13 +32,13 @@ public partial class Interactible : Area2D
 	{
 		hovered = true;
 		whiteFrame.Visible = true;
-		parent.Call("_on_interactible_mouse_entered");
+		grandparent.Call("_on_interactible_mouse_entered");
 	}
 
 	void On_mouse_exited()
 	{
 		hovered = false;
         whiteFrame.Visible = false;
-        parent.Call("_on_interactible_mouse_exited");
+        grandparent.Call("_on_interactible_mouse_exited");
     }
 }

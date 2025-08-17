@@ -13,34 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://b3oo4pdn2tine" path="res://scenes/chars/char_lauren.tscn" id="8_52l46"]
 [ext_resource type="PackedScene" uid="uid://cvvjdgdl1ktqw" path="res://scenes/items/item_nose.tscn" id="8_qtcds"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_powder.tscn" id="9_8xksb"]
-
-[sub_resource type="CSharpScript" id="CSharpScript_1cnnm"]
-script/source = "using Godot;
-using System;
-
-public partial class manager : Control
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-}
-"
+[ext_resource type="Script" path="res://scripts/itemmanager.cs" id="9_cbaae"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7leby")
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = SubResource("CSharpScript_1cnnm")
 
 [node name="CharBackground" type="TextureRect" parent="."]
 offset_right = 40.0
@@ -92,34 +68,31 @@ offset_right = 1281.0
 offset_bottom = 930.0
 texture = ExtResource("7_sxooe")
 
-[node name="CharInfo" type="RichTextLabel" parent="."]
-offset_left = 1311.0
-offset_top = 35.0
-offset_right = 1876.0
-offset_bottom = 340.0
-text = "Ryan Park
-
-Age 38"
-tab_size = 10
-
 [node name="Char_Lauren" parent="." instance=ExtResource("8_52l46")]
 
-[node name="Item_lipstick" parent="." instance=ExtResource("5_wpu8c")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_cbaae")
+
+[node name="Item_lipstick" parent="Control" instance=ExtResource("5_wpu8c")]
 z_index = 4
 position = Vector2(1140, 464)
 
-[node name="Item_eyeliner" parent="." instance=ExtResource("6_3yuka")]
+[node name="Item_eyeliner" parent="Control" instance=ExtResource("6_3yuka")]
 z_index = 4
 position = Vector2(1133, 463)
 
-[node name="Item_colorbrushes" parent="." instance=ExtResource("7_w4i1w")]
+[node name="Item_colorbrushes" parent="Control" instance=ExtResource("7_w4i1w")]
 z_index = 4
 position = Vector2(150, 499)
 
-[node name="Item_nose" parent="." instance=ExtResource("8_qtcds")]
+[node name="Item_nose" parent="Control" instance=ExtResource("8_qtcds")]
 z_index = 4
 position = Vector2(1123, 721)
 
-[node name="Item_foundation" parent="." instance=ExtResource("9_8xksb")]
+[node name="Item_foundation" parent="Control" instance=ExtResource("9_8xksb")]
 z_index = 4
 position = Vector2(150, 711)
