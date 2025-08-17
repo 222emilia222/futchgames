@@ -1,28 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7wo1wdcvivmw"]
+[gd_scene load_steps=4 format=3 uid="uid://c7wo1wdcvivmw"]
 
 [ext_resource type="Script" path="res://scripts/interactible.cs" id="1_nwi3d"]
-[ext_resource type="Texture2D" uid="uid://cl35ijxh8fe3y" path="res://sprites/colorbrushes.png" id="2_vfeo3"]
-[ext_resource type="Texture2D" uid="uid://lti08n113utd" path="res://sprites/colorbrushes_frame.png" id="3_petfd"]
+[ext_resource type="Texture2D" uid="uid://dedtvvkghy7uv" path="res://sprites/items/item_redcolor.png" id="2_ang1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vesh0"]
-size = Vector2(212, 163)
+size = Vector2(58, 179)
 
-[node name="Item_colorbrushes" type="Area2D" node_paths=PackedStringArray("whiteFrame", "mainSprite")]
+[node name="Item_colorbrushes" type="Area2D" node_paths=PackedStringArray("mainSprite")]
 position = Vector2(1416, 280)
 script = ExtResource("1_nwi3d")
-whiteFrame = NodePath("Sprite2D/OutlineSprite")
 mainSprite = NodePath("Sprite2D")
 radiusKey = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vfeo3")
-
-[node name="OutlineSprite" type="Sprite2D" parent="Sprite2D"]
-show_behind_parent = true
-texture = ExtResource("3_petfd")
+texture = ExtResource("2_ang1t")
 
 [node name="Coll2d" type="CollisionShape2D" parent="."]
-position = Vector2(-6, -4.5)
+position = Vector2(-6, -0.5)
 shape = SubResource("RectangleShape2D_vesh0")
 
 [connection signal="mouse_entered" from="." to="." method="On_mouse_entered"]

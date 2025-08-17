@@ -1,29 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8x5helb8exwv"]
+[gd_scene load_steps=4 format=3 uid="uid://b8x5helb8exwv"]
 
 [ext_resource type="Script" path="res://scripts/interactible.cs" id="1_x1rdj"]
-[ext_resource type="Texture2D" uid="uid://ev0rudb1lqfw" path="res://sprites/foundation.png" id="2_2hrsa"]
-[ext_resource type="Texture2D" uid="uid://donwwpe0houtw" path="res://sprites/foundation_frame.png" id="3_35yp0"]
+[ext_resource type="Texture2D" uid="uid://cyfw5h76goodk" path="res://sprites/items/item_white.png" id="2_6b502"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vesh0"]
-size = Vector2(218, 110)
+[sub_resource type="CircleShape2D" id="CircleShape2D_gan4m"]
+radius = 56.5685
 
-[node name="Item_foundation" type="Area2D" node_paths=PackedStringArray("whiteFrame", "mainSprite")]
+[node name="Item_foundation" type="Area2D" node_paths=PackedStringArray("mainSprite")]
 position = Vector2(1416, 280)
 script = ExtResource("1_x1rdj")
-whiteFrame = NodePath("Sprite2D/OutlineSprite")
 mainSprite = NodePath("Sprite2D")
 radiusKey = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2hrsa")
-
-[node name="OutlineSprite" type="Sprite2D" parent="Sprite2D"]
-show_behind_parent = true
-texture = ExtResource("3_35yp0")
+texture = ExtResource("2_6b502")
 
 [node name="Coll2d" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 10)
-shape = SubResource("RectangleShape2D_vesh0")
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_gan4m")
 
 [connection signal="mouse_entered" from="." to="." method="On_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="On_mouse_exited"]

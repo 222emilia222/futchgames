@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=29 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_y1scj"]
@@ -9,13 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://dvlhqtidx6fpd" path="res://scenes/items/item_eyeliner.tscn" id="6_3yuka"]
 [ext_resource type="Texture2D" uid="uid://g2dvssnpd5qp" path="res://sprites/shelf3.png" id="6_p24bn"]
 [ext_resource type="Texture2D" uid="uid://14vu4h5put6r" path="res://sprites/shelf4.png" id="7_sxooe"]
-[ext_resource type="PackedScene" uid="uid://0ybvfqgtpc53" path="res://scenes/items/item_brushes.tscn" id="7_w4i1w"]
+[ext_resource type="PackedScene" uid="uid://0ybvfqgtpc53" path="res://scenes/items/item_yellow.tscn" id="7_w4i1w"]
 [ext_resource type="PackedScene" uid="uid://cvvjdgdl1ktqw" path="res://scenes/items/item_nose.tscn" id="8_qtcds"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_white.tscn" id="9_8xksb"]
+[ext_resource type="Texture2D" uid="uid://c0juynyv1m2xd" path="res://sprites/Powder.png" id="9_52ceq"]
 [ext_resource type="Script" path="res://scripts/itemmanager.cs" id="9_cbaae"]
+[ext_resource type="Texture2D" uid="uid://c0kea2vcuqb1m" path="res://sprites/Wet.png" id="10_g3j4d"]
 [ext_resource type="PackedScene" uid="uid://fei8u1wuvbj4" path="res://scenes/items/item_blue.tscn" id="12_5ka4s"]
 [ext_resource type="PackedScene" uid="uid://c7wo1wdcvivmw" path="res://scenes/items/item_red.tscn" id="14_j2355"]
-[ext_resource type="Texture2D" uid="uid://ci275eqtteo0b" path="res://sprites/nose.png" id="15_1pl6n"]
 [ext_resource type="Script" path="res://scripts/mouseMover.cs" id="15_84snk"]
 [ext_resource type="Shader" path="res://shader/painting_overlay.gdshader" id="17_qm37l"]
 [ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://sprites/chars/char_laura_headcolor.png" id="19_w6a4s"]
@@ -93,31 +94,42 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_cbaae")
+whitePowder = ExtResource("9_52ceq")
+colorPowder = ExtResource("9_52ceq")
+wetBrush = ExtResource("10_g3j4d")
+blue = Color(0.298709, 0.511871, 1, 1)
+yellow = Color(0.997412, 0.864769, 1.15514e-06, 1)
+red = Color(1, 0.319845, 0.403041, 1)
+spacingPowder = 2.0
+spacingWet = 0.1
 
 [node name="Item_lipstick" parent="Item Control" instance=ExtResource("5_wpu8c")]
 z_index = 4
-position = Vector2(1140, 464)
+position = Vector2(1092, 512)
 
 [node name="Item_eyeliner" parent="Item Control" instance=ExtResource("6_3yuka")]
 z_index = 4
-position = Vector2(1133, 463)
+position = Vector2(1177, 495)
 
 [node name="Item_blue" parent="Item Control" instance=ExtResource("12_5ka4s")]
-position = Vector2(1566, 779)
+z_index = 4
+position = Vector2(140, 488)
 
 [node name="Item_yellow" parent="Item Control" instance=ExtResource("7_w4i1w")]
 z_index = 4
-position = Vector2(150, 499)
+position = Vector2(73, 488)
 
 [node name="Item_nose" parent="Item Control" instance=ExtResource("8_qtcds")]
 z_index = 4
-position = Vector2(1123, 721)
+position = Vector2(1126, 740)
 
 [node name="Item_red" parent="Item Control" instance=ExtResource("14_j2355")]
+z_index = 4
+position = Vector2(212, 488)
 
 [node name="Item_white" parent="Item Control" instance=ExtResource("9_8xksb")]
 z_index = 4
-position = Vector2(150, 711)
+position = Vector2(134, 719)
 
 [node name="Char_Lauren" type="Node2D" parent="."]
 position = Vector2(615, 539)
@@ -128,7 +140,7 @@ material = SubResource("ShaderMaterial_wljux")
 texture = ExtResource("19_w6a4s")
 script = ExtResource("20_6t8aw")
 breatheInterval = 5.0
-movValue = 3.0
+movValue = 4.0
 
 [node name="Head (Nondraw)" type="Sprite2D" parent="Char_Lauren/Head (Draw)"]
 
@@ -167,6 +179,6 @@ render_target_update_mode = 4
 position = Vector2(610, 170)
 script = ExtResource("15_84snk")
 
-[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/Paint/MousePositon"]
+[node name="Brush" type="Sprite2D" parent="SubViewportContainer/Paint/MousePositon"]
+modulate = Color(0.262745, 0.466667, 0.258824, 1)
 z_index = 40
-texture = ExtResource("15_1pl6n")
