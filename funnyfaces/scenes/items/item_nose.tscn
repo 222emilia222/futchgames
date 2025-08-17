@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvvjdgdl1ktqw"]
+
+[ext_resource type="Script" path="res://scripts/Interactible.cs" id="1_15mf7"]
+[ext_resource type="Texture2D" uid="uid://ci275eqtteo0b" path="res://sprites/nose.png" id="2_1mtc5"]
+[ext_resource type="Texture2D" uid="uid://ds5jiwvw1tdiy" path="res://sprites/nose_frame.png" id="3_8r82r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sgaoi"]
+radius = 58.86
+
+[node name="Item_nose" type="Area2D" node_paths=PackedStringArray("whiteFrame", "mainSprite")]
+position = Vector2(1416, 280)
+script = ExtResource("1_15mf7")
+whiteFrame = NodePath("Sprite2D/OutlineSprite")
+mainSprite = NodePath("Sprite2D")
+radiusKey = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1mtc5")
+
+[node name="OutlineSprite" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("3_8r82r")
+
+[node name="Coll2d" type="CollisionShape2D" parent="."]
+position = Vector2(4, 15)
+shape = SubResource("CircleShape2D_sgaoi")
+
+[connection signal="mouse_entered" from="." to="." method="On_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="On_mouse_exited"]
