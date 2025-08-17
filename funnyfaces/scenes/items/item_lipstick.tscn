@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cugwvitpkbawn"]
 
-[ext_resource type="Script" path="res://scripts/Interactible.cs" id="4_qckvv"]
+[ext_resource type="Script" path="res://scripts/interactible.cs" id="4_qckvv"]
 [ext_resource type="Texture2D" uid="uid://b33dkwbl3wxij" path="res://sprites/lipstick.png" id="5_4klh8"]
 [ext_resource type="Texture2D" uid="uid://cf3wm7rytx24e" path="res://sprites/lipstick_frame.png" id="6_bhn06"]
 

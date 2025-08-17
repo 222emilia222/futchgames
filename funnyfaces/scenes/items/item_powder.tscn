@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8x5helb8exwv"]
 
-[ext_resource type="Script" path="res://scripts/Interactible.cs" id="1_x1rdj"]
+[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_x1rdj"]
 [ext_resource type="Texture2D" uid="uid://ev0rudb1lqfw" path="res://sprites/foundation.png" id="2_2hrsa"]
 [ext_resource type="Texture2D" uid="uid://donwwpe0houtw" path="res://sprites/foundation_frame.png" id="3_35yp0"]
 

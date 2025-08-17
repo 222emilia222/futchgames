@@ -5,6 +5,7 @@ public partial class blinker : Sprite2D
 {
 
 	[Export] Texture2D eyes1, eyes2;
+	[Export] int rInt1Min, rInt1Max, rInt2Min, rInt2Max;
 	float timer;
 	float blinkTimer;
 	bool timer2 = false;
@@ -24,8 +25,8 @@ public partial class blinker : Sprite2D
 		{
 			if (timer2) { Texture = eyes1; }
 			else { Texture = eyes2; }
-			blinkTimer = r.Next(4, 16) / 10f;
-            timer = r.Next(25, 65) / 10f;
+			blinkTimer = r.Next(rInt1Min, rInt1Max) / 10f;
+            timer = r.Next(rInt2Min, rInt2Max) / 10f;
             timer2 = !timer2;
 		}
 	}

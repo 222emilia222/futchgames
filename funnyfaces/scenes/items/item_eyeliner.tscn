@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dvlhqtidx6fpd"]
 
-[ext_resource type="Script" path="res://scripts/Interactible.cs" id="1_at4nq"]
+[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_at4nq"]
 [ext_resource type="Texture2D" uid="uid://ccfdk44nurl5v" path="res://sprites/eyeliner.png" id="2_ckv03"]
 [ext_resource type="Texture2D" uid="uid://da6huxprnrik8" path="res://sprites/eyeliner_frame.png" id="3_fl6f7"]
 

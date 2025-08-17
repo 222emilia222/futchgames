@@ -10,41 +10,30 @@
 [ext_resource type="Texture2D" uid="uid://g2dvssnpd5qp" path="res://sprites/shelf3.png" id="6_p24bn"]
 [ext_resource type="Texture2D" uid="uid://14vu4h5put6r" path="res://sprites/shelf4.png" id="7_sxooe"]
 [ext_resource type="PackedScene" uid="uid://0ybvfqgtpc53" path="res://scenes/items/item_brushes.tscn" id="7_w4i1w"]
-[ext_resource type="PackedScene" uid="uid://b3oo4pdn2tine" path="res://scenes/chars/char_lauren.tscn" id="8_52l46"]
 [ext_resource type="PackedScene" uid="uid://cvvjdgdl1ktqw" path="res://scenes/items/item_nose.tscn" id="8_qtcds"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_powder.tscn" id="9_8xksb"]
 [ext_resource type="Script" path="res://scripts/itemmanager.cs" id="9_cbaae"]
 [ext_resource type="Texture2D" uid="uid://ci275eqtteo0b" path="res://sprites/nose.png" id="15_1pl6n"]
-[ext_resource type="Script" path="res://scenes/MousePosition.cs" id="15_spfye"]
+[ext_resource type="Script" path="res://scripts/mouseMover.cs" id="15_84snk"]
 [ext_resource type="Shader" path="res://shader/painting_overlay.gdshader" id="17_qm37l"]
-[ext_resource type="Texture2D" uid="uid://dksbs6dtsobos" path="res://shader/paint.tres" id="18_80f66"]
 [ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://sprites/chars/char_laura_headcolor.png" id="19_w6a4s"]
 [ext_resource type="Script" path="res://scripts/breather.cs" id="20_6t8aw"]
+[ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://sprites/chars/char_laura_body.png" id="21_m71th"]
 [ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://sprites/chars/char_laura_headoutlines.png" id="21_xeii4"]
 [ext_resource type="Script" path="res://scripts/blinker.cs" id="22_pj2gu"]
 [ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://sprites/chars/char_laura_eyes1.png" id="23_dxkbk"]
 [ext_resource type="Texture2D" uid="uid://myf6dbm4g8pm" path="res://sprites/chars/char_laura_eyes2.png" id="24_bybvj"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_h47gk"]
+viewport_path = NodePath("SubViewportContainer/Paint")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wljux"]
 resource_local_to_scene = true
 shader = ExtResource("17_qm37l")
-shader_parameter/paint_texture = ExtResource("18_80f66")
+shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7leby")
-
-[node name="Paint" type="SubViewport" parent="."]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(1280, 1080)
-render_target_clear_mode = 1
-
-[node name="MousePositon" type="Node2D" parent="Paint"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Paint/MousePositon"]
-z_index = 40
-position = Vector2(500, 500)
-texture = ExtResource("15_1pl6n")
 
 [node name="CharBackground" type="TextureRect" parent="."]
 offset_right = 1280.0
@@ -96,55 +85,80 @@ offset_right = 1281.0
 offset_bottom = 930.0
 texture = ExtResource("7_sxooe")
 
-[node name="Char_Lauren" parent="." instance=ExtResource("8_52l46")]
-
-[node name="Control" type="Control" parent="."]
+[node name="Item Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_cbaae")
 
-[node name="Item_lipstick" parent="Control" instance=ExtResource("5_wpu8c")]
+[node name="Item_lipstick" parent="Item Control" instance=ExtResource("5_wpu8c")]
 z_index = 4
 position = Vector2(1140, 464)
 
-[node name="Item_eyeliner" parent="Control" instance=ExtResource("6_3yuka")]
+[node name="Item_eyeliner" parent="Item Control" instance=ExtResource("6_3yuka")]
 z_index = 4
 position = Vector2(1133, 463)
 
-[node name="Item_colorbrushes" parent="Control" instance=ExtResource("7_w4i1w")]
+[node name="Item_colorbrushes" parent="Item Control" instance=ExtResource("7_w4i1w")]
 z_index = 4
 position = Vector2(150, 499)
 
-[node name="Item_nose" parent="Control" instance=ExtResource("8_qtcds")]
+[node name="Item_nose" parent="Item Control" instance=ExtResource("8_qtcds")]
 z_index = 4
 position = Vector2(1123, 721)
 
-[node name="Item_foundation" parent="Control" instance=ExtResource("9_8xksb")]
+[node name="Item_foundation" parent="Item Control" instance=ExtResource("9_8xksb")]
 z_index = 4
 position = Vector2(150, 711)
 
-[node name="MouseGetter" type="Node" parent="." node_paths=PackedStringArray("MouseCursor")]
-script = ExtResource("15_spfye")
-MouseCursor = NodePath("../Paint/MousePositon")
+[node name="Char_Lauren" type="Node2D" parent="."]
+position = Vector2(615, 539)
 
-[node name="Head (Draw)" type="Sprite2D" parent="."]
-visible = false
+[node name="Head (Draw)" type="Sprite2D" parent="Char_Lauren"]
 z_index = 105
 material = SubResource("ShaderMaterial_wljux")
-position = Vector2(623, 531)
 texture = ExtResource("19_w6a4s")
 script = ExtResource("20_6t8aw")
 breatheInterval = 5.0
 movValue = 3.0
 
-[node name="Head (Nondraw)" type="Sprite2D" parent="Head (Draw)"]
+[node name="Head (Nondraw)" type="Sprite2D" parent="Char_Lauren/Head (Draw)"]
 
-[node name="HeadOutlineSprite" type="Sprite2D" parent="Head (Draw)"]
+[node name="HeadOutlineSprite" type="Sprite2D" parent="Char_Lauren/Head (Draw)"]
 texture = ExtResource("21_xeii4")
 
-[node name="Eyes" type="Sprite2D" parent="Head (Draw)"]
+[node name="Eyes" type="Sprite2D" parent="Char_Lauren/Head (Draw)"]
 script = ExtResource("22_pj2gu")
 eyes1 = ExtResource("23_dxkbk")
 eyes2 = ExtResource("24_bybvj")
+rInt1Min = 4
+rInt1Max = 16
+rInt2Min = 25
+
+[node name="BodySprite" type="Sprite2D" parent="Char_Lauren"]
+show_behind_parent = true
+texture = ExtResource("21_m71th")
+script = ExtResource("20_6t8aw")
+breatheInterval = 5.0
+movValue = 10.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Paint" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 1080)
+render_target_clear_mode = 1
+render_target_update_mode = 4
+
+[node name="MousePositon" type="Node2D" parent="SubViewportContainer/Paint"]
+position = Vector2(610, 170)
+script = ExtResource("15_84snk")
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/Paint/MousePositon"]
+z_index = 40
+texture = ExtResource("15_1pl6n")

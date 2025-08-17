@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://sprites/chars/char_laura_body.png" id="10_fqgbn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mn7rn"]
-resource_local_to_scene = true
 shader = ExtResource("1_dd54b")
 shader_parameter/paint_texture = ExtResource("2_v5j1n")
 
@@ -20,6 +19,7 @@ top_level = true
 position = Vector2(615, 539)
 
 [node name="Head (Draw)" type="Sprite2D" parent="."]
+z_index = 10
 material = SubResource("ShaderMaterial_mn7rn")
 texture = ExtResource("4_bcmbs")
 script = ExtResource("5_togjp")

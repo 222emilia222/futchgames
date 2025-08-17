@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0ybvfqgtpc53"]
 
-[ext_resource type="Script" path="res://scripts/Interactible.cs" id="1_6vafn"]
+[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_6vafn"]
 [ext_resource type="Texture2D" uid="uid://cl35ijxh8fe3y" path="res://sprites/colorbrushes.png" id="2_a7yox"]
 [ext_resource type="Texture2D" uid="uid://lti08n113utd" path="res://sprites/colorbrushes_frame.png" id="3_log83"]
 

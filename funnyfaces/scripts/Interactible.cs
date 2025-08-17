@@ -1,11 +1,12 @@
 using Godot;
 using System;
 
-public partial class Interactible : Area2D
+public partial class interactible : Area2D
 {
 	[Export] CanvasItem whiteFrame;
 	[Export] CanvasItem mainSprite;
 	[Export] int radiusKey; //1 is small, 2 is medium, 3 is nose, 0 is default
+	[Export] int itemKey; //1=white,2=red,3=blue,4=yellow,5=lipstick,6=eyeliner,7=nose.
 	bool hovered = false;
 	Node2D grandparent;
 
@@ -23,7 +24,7 @@ public partial class Interactible : Area2D
             mainSprite.Visible = false;
 			CollisionShape2D shape = GetNode<CollisionShape2D>("Coll2d");
             shape.Disabled = true;
-			GetNode<itemmanager>("..").SwitchItem(mainSprite, shape);
+			GetNode<itemmanager>("..").SwitchItem(mainSprite, shape, itemKey);
             grandparent.Call("_set_cursor", radiusKey);
         }
 	}
