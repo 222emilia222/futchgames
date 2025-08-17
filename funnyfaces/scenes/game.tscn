@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=28 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_y1scj"]
@@ -11,8 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://14vu4h5put6r" path="res://sprites/shelf4.png" id="7_sxooe"]
 [ext_resource type="PackedScene" uid="uid://0ybvfqgtpc53" path="res://scenes/items/item_brushes.tscn" id="7_w4i1w"]
 [ext_resource type="PackedScene" uid="uid://cvvjdgdl1ktqw" path="res://scenes/items/item_nose.tscn" id="8_qtcds"]
-[ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_powder.tscn" id="9_8xksb"]
+[ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_white.tscn" id="9_8xksb"]
 [ext_resource type="Script" path="res://scripts/itemmanager.cs" id="9_cbaae"]
+[ext_resource type="PackedScene" uid="uid://fei8u1wuvbj4" path="res://scenes/items/item_blue.tscn" id="12_5ka4s"]
+[ext_resource type="PackedScene" uid="uid://c7wo1wdcvivmw" path="res://scenes/items/item_red.tscn" id="14_j2355"]
 [ext_resource type="Texture2D" uid="uid://ci275eqtteo0b" path="res://sprites/nose.png" id="15_1pl6n"]
 [ext_resource type="Script" path="res://scripts/mouseMover.cs" id="15_84snk"]
 [ext_resource type="Shader" path="res://shader/painting_overlay.gdshader" id="17_qm37l"]
@@ -100,7 +102,10 @@ position = Vector2(1140, 464)
 z_index = 4
 position = Vector2(1133, 463)
 
-[node name="Item_colorbrushes" parent="Item Control" instance=ExtResource("7_w4i1w")]
+[node name="Item_blue" parent="Item Control" instance=ExtResource("12_5ka4s")]
+position = Vector2(1566, 779)
+
+[node name="Item_yellow" parent="Item Control" instance=ExtResource("7_w4i1w")]
 z_index = 4
 position = Vector2(150, 499)
 
@@ -108,7 +113,9 @@ position = Vector2(150, 499)
 z_index = 4
 position = Vector2(1123, 721)
 
-[node name="Item_foundation" parent="Item Control" instance=ExtResource("9_8xksb")]
+[node name="Item_red" parent="Item Control" instance=ExtResource("14_j2355")]
+
+[node name="Item_white" parent="Item Control" instance=ExtResource("9_8xksb")]
 z_index = 4
 position = Vector2(150, 711)
 
@@ -135,6 +142,7 @@ eyes2 = ExtResource("24_bybvj")
 rInt1Min = 4
 rInt1Max = 16
 rInt2Min = 25
+rInt2Max = 65
 
 [node name="BodySprite" type="Sprite2D" parent="Char_Lauren"]
 show_behind_parent = true

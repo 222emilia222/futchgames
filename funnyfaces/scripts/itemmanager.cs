@@ -3,6 +3,8 @@ using System;
 
 public partial class itemmanager : Control
 {
+    [Export] float spacingPowder, spacingWet;
+    float currentTimer = 0;
     int currentItem = 0;
 
     #region Item Switching
@@ -28,9 +30,20 @@ public partial class itemmanager : Control
 
     public override void _Process(double delta)
     {
-        switch (currentItem)
-        {
+        currentTimer -= Convert.ToSingle(delta);
 
+        if (Input.IsMouseButtonPressed(MouseButton.Left) && currentTimer <= 0)
+        {
+            switch (currentItem)
+            {
+                case 1:
+                    {
+
+                        currentTimer = spacingPowder;
+                        break;
+                    }
+            }
         }
+        else { currentTimer = 0; }
     }
 }
