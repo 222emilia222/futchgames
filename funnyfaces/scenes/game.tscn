@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=26 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_y1scj"]
@@ -14,13 +14,41 @@
 [ext_resource type="PackedScene" uid="uid://cvvjdgdl1ktqw" path="res://scenes/items/item_nose.tscn" id="8_qtcds"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_powder.tscn" id="9_8xksb"]
 [ext_resource type="Script" path="res://scripts/itemmanager.cs" id="9_cbaae"]
+[ext_resource type="Texture2D" uid="uid://ci275eqtteo0b" path="res://sprites/nose.png" id="15_1pl6n"]
+[ext_resource type="Script" path="res://scenes/MousePosition.cs" id="15_spfye"]
+[ext_resource type="Shader" path="res://shader/painting_overlay.gdshader" id="17_qm37l"]
+[ext_resource type="Texture2D" uid="uid://dksbs6dtsobos" path="res://shader/paint.tres" id="18_80f66"]
+[ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://sprites/chars/char_laura_headcolor.png" id="19_w6a4s"]
+[ext_resource type="Script" path="res://scripts/breather.cs" id="20_6t8aw"]
+[ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://sprites/chars/char_laura_headoutlines.png" id="21_xeii4"]
+[ext_resource type="Script" path="res://scripts/blinker.cs" id="22_pj2gu"]
+[ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://sprites/chars/char_laura_eyes1.png" id="23_dxkbk"]
+[ext_resource type="Texture2D" uid="uid://myf6dbm4g8pm" path="res://sprites/chars/char_laura_eyes2.png" id="24_bybvj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wljux"]
+resource_local_to_scene = true
+shader = ExtResource("17_qm37l")
+shader_parameter/paint_texture = ExtResource("18_80f66")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_7leby")
 
+[node name="Paint" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 1080)
+render_target_clear_mode = 1
+
+[node name="MousePositon" type="Node2D" parent="Paint"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Paint/MousePositon"]
+z_index = 40
+position = Vector2(500, 500)
+texture = ExtResource("15_1pl6n")
+
 [node name="CharBackground" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 1080.0
 texture = ExtResource("2_y1scj")
 
 [node name="woodframe" type="TextureRect" parent="CharBackground"]
@@ -96,3 +124,27 @@ position = Vector2(1123, 721)
 [node name="Item_foundation" parent="Control" instance=ExtResource("9_8xksb")]
 z_index = 4
 position = Vector2(150, 711)
+
+[node name="MouseGetter" type="Node" parent="." node_paths=PackedStringArray("MouseCursor")]
+script = ExtResource("15_spfye")
+MouseCursor = NodePath("../Paint/MousePositon")
+
+[node name="Head (Draw)" type="Sprite2D" parent="."]
+visible = false
+z_index = 105
+material = SubResource("ShaderMaterial_wljux")
+position = Vector2(623, 531)
+texture = ExtResource("19_w6a4s")
+script = ExtResource("20_6t8aw")
+breatheInterval = 5.0
+movValue = 3.0
+
+[node name="Head (Nondraw)" type="Sprite2D" parent="Head (Draw)"]
+
+[node name="HeadOutlineSprite" type="Sprite2D" parent="Head (Draw)"]
+texture = ExtResource("21_xeii4")
+
+[node name="Eyes" type="Sprite2D" parent="Head (Draw)"]
+script = ExtResource("22_pj2gu")
+eyes1 = ExtResource("23_dxkbk")
+eyes2 = ExtResource("24_bybvj")

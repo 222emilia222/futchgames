@@ -1,5 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3oo4pdn2tine"]
+[gd_scene load_steps=11 format=3 uid="uid://b3oo4pdn2tine"]
 
+[ext_resource type="Shader" path="res://shader/painting_overlay.gdshader" id="1_dd54b"]
+[ext_resource type="Texture2D" uid="uid://dksbs6dtsobos" path="res://shader/paint.tres" id="2_v5j1n"]
 [ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://sprites/chars/char_laura_headcolor.png" id="4_bcmbs"]
 [ext_resource type="Script" path="res://scripts/breather.cs" id="5_togjp"]
 [ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://sprites/chars/char_laura_headoutlines.png" id="6_3hsqo"]
@@ -8,11 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://myf6dbm4g8pm" path="res://sprites/chars/char_laura_eyes2.png" id="9_v5cfg"]
 [ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://sprites/chars/char_laura_body.png" id="10_fqgbn"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mn7rn"]
+resource_local_to_scene = true
+shader = ExtResource("1_dd54b")
+shader_parameter/paint_texture = ExtResource("2_v5j1n")
+
 [node name="Char" type="Node2D"]
 top_level = true
 position = Vector2(615, 539)
 
 [node name="Head (Draw)" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mn7rn")
 texture = ExtResource("4_bcmbs")
 script = ExtResource("5_togjp")
 breatheInterval = 5.0
