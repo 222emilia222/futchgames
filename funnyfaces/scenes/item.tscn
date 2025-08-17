@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://cugwvitpkbawn"]
+
+[ext_resource type="Script" path="res://scripts/cursor.gd" id="1_q8xkl"]
+[ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_6hlyc"]
+[ext_resource type="Texture2D" uid="uid://b1m30vdfle6mj" path="res://sprites/woodframe.png" id="3_ops4a"]
+[ext_resource type="Script" path="res://scripts/Interactible.cs" id="4_qckvv"]
+[ext_resource type="Texture2D" uid="uid://b33dkwbl3wxij" path="res://sprites/lipstick.png" id="5_4klh8"]
+[ext_resource type="Texture2D" uid="uid://cf3wm7rytx24e" path="res://sprites/lipstick_frame.png" id="6_bhn06"]
+[ext_resource type="PackedScene" uid="uid://b3oo4pdn2tine" path="res://scenes/char.tscn" id="7_yn3pe"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_1cnnm"]
+script/source = "using Godot;
+using System;
+
+public partial class manager : Control
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vesh0"]
+size = Vector2(73, 165)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_q8xkl")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("CSharpScript_1cnnm")
+
+[node name="CharBackground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6hlyc")
+
+[node name="woodframe" type="TextureRect" parent="CharBackground"]
+z_index = 5
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ops4a")
+
+[node name="CharInfo" type="RichTextLabel" parent="."]
+offset_left = 1311.0
+offset_top = 35.0
+offset_right = 1876.0
+offset_bottom = 340.0
+text = "Ryan Park
+
+Age 38"
+tab_size = 10
+
+[node name="Interactible" type="Area2D" parent="." node_paths=PackedStringArray("whiteFrame", "mainSprite")]
+position = Vector2(1416, 280)
+script = ExtResource("4_qckvv")
+whiteFrame = NodePath("Sprite2D/OutlineSprite")
+mainSprite = NodePath("Sprite2D")
+radiusKey = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactible"]
+texture = ExtResource("5_4klh8")
+
+[node name="OutlineSprite" type="Sprite2D" parent="Interactible/Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("6_bhn06")
+
+[node name="Coll2d" type="CollisionShape2D" parent="Interactible"]
+position = Vector2(-39.5, 19.5)
+shape = SubResource("RectangleShape2D_vesh0")
+
+[node name="Char_Laura" parent="." instance=ExtResource("7_yn3pe")]
+
+[connection signal="mouse_entered" from="Interactible" to="." method="_on_interactible_mouse_entered"]
+[connection signal="mouse_entered" from="Interactible" to="Interactible" method="On_mouse_entered"]
+[connection signal="mouse_exited" from="Interactible" to="." method="_on_interactible_mouse_exited"]
+[connection signal="mouse_exited" from="Interactible" to="Interactible" method="On_mouse_exited"]

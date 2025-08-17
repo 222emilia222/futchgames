@@ -11,7 +11,7 @@ public partial class breather : Sprite2D
     public override void _Ready()
     {
         Tween tween = GetTree().CreateTween().SetLoops().SetEase(Tween.EaseType.OutIn);
-        tween.TweenProperty(this, "position:y", -movValue, breatheInterval);
-        tween.TweenProperty(this, "position:y", 0, breatheInterval);
+        tween.TweenProperty(this, "position:y", this.Position.Y - movValue, breatheInterval);
+        tween.TweenProperty(this, "position:y", this.Position.Y + movValue, breatheInterval);
     }
 }

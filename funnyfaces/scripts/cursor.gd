@@ -5,10 +5,24 @@ var pointedHand = preload("res://sprites/cursors/hand_pointing.png")
 var radiusBig = preload("res://sprites/cursors/radius_NOSE.png") ##clownnose
 var radiusMid = preload("res://sprites/cursors/radius_MEDIUM.png") ##color and white powder
 var radiusSmall = preload("res://sprites/cursors/radius_SMALL.png") ##lipstick and kayal
+var current
 
 func _ready():
+	current = openHand
 	Input.set_custom_mouse_cursor(openHand, Input.CURSOR_ARROW)
 func _on_interactible_mouse_entered():
 	Input.set_custom_mouse_cursor(pointedHand, Input.CURSOR_ARROW)
 func _on_interactible_mouse_exited():
-	Input.set_custom_mouse_cursor(openHand, Input.CURSOR_ARROW)
+	Input.set_custom_mouse_cursor(current, Input.CURSOR_ARROW)
+
+func _set_cursor(key: int):
+	match key:
+		0:
+			current=openHand
+		1:
+			current=radiusSmall
+		2:
+			current=radiusMid
+		3:
+			current=radiusBig
+	Input.set_custom_mouse_cursor(current)
