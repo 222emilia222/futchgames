@@ -7,10 +7,16 @@ public partial class itemmanager : Control
 {
     [Export] Sprite2D currentBrush;
     [Export] Texture2D whitePowder, colorPowder, wetBrush;
-    [Export] Color blue, yellow, red;
-    [Export] float spacingPowder, spacingWet;
-    float currentTimer = 0;
+    [Export] Color blue, yellow, red, wetRed;
+    [Export] double spacingPowder, spacingWet;
+    [Export] double currentTimer;
     int currentItem = 0;
+    bool clicked = false;
+
+    public override void _Ready()
+    {
+        currentBrush.Modulate = Color.Color8(255, 255, 255, 255);
+    }
 
     #region Item Switching
     CanvasItem sprite;
@@ -34,7 +40,7 @@ public partial class itemmanager : Control
         switch (currentItem)
         {
             case 1:
-                { currentTimer = spacingPowder; currentBrush.Texture = whitePowder; break; }
+                { currentTimer = spacingPowder; currentBrush.Texture = whitePowder; currentBrush.Modulate = Color.Color8(255, 255, 255, 255); break; }
             case 2:
                 { currentTimer = spacingPowder; currentBrush.Texture = colorPowder; currentBrush.Modulate = red; break; }
             case 3:
@@ -42,9 +48,9 @@ public partial class itemmanager : Control
             case 4:
                 { currentTimer = spacingPowder; currentBrush.Texture = colorPowder; currentBrush.Modulate = yellow; break; }
             case 5:
-                { currentTimer = spacingWet; currentBrush.Texture = wetBrush; break; }
+                { currentTimer = spacingWet; currentBrush.Texture = wetBrush; currentBrush.Modulate = wetRed; break; }
             case 6:
-                { currentTimer = spacingWet; currentBrush.Texture = wetBrush; break; }
+                { currentTimer = spacingWet; currentBrush.Texture = wetBrush; currentBrush.Modulate = Color.Color8(0, 0, 0, 255); break; }
             case 7:
                 { currentBrush.Texture = null; break; }
         }
@@ -54,13 +60,22 @@ public partial class itemmanager : Control
     #region Painting
     public override void _Process(double delta)
     {
-        if (Input.IsMouseButtonPressed(MouseButton.Left)) { OnClick(); }
+        if (!Input.IsMouseButtonPressed(MouseButton.Left)) { clicked = false; }
+        if (Input.IsMouseButtonPressed(MouseButton.Left) && !clicked) { OnClick(); }
     }
 
     CancellationTokenSource _token;
 
     void OnClick()
     {
+        clicked = true;
+        if (currentItem == 7)
+        {
+            // nose placed!
+            // cursor open hand
+            // no clicky on items
+            // transition start
+        }
         if (_token != null)
         {
             _token.Cancel();
