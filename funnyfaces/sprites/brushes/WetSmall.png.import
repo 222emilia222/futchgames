@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4jb2hcmdt87r"
-path="res://.godot/imported/char_laura.png-ac7cc4d357a5386f05b86f64542b836d.ctex"
+uid="uid://cgrfmjqmdhvdm"
+path="res://.godot/imported/WetSmall.png-5eea8cf36b8a7a8d007f27f647727d48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/chars/char_laura.png"
-dest_files=["res://.godot/imported/char_laura.png-ac7cc4d357a5386f05b86f64542b836d.ctex"]
+source_file="res://sprites/brushes/WetSmall.png"
+dest_files=["res://.godot/imported/WetSmall.png-5eea8cf36b8a7a8d007f27f647727d48.ctex"]
 
 [params]
 

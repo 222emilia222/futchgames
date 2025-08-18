@@ -3,7 +3,7 @@ using System;
 
 public partial class interactible : Area2D
 {
-	[Export] CanvasItem mainSprite;
+	[Export] CanvasItem mainSprite, frameSprite;
 	[Export] int radiusKey; //1 is small, 2 is medium, 3 is nose, 0 is default
 	[Export] int itemKey; //1=white,2=red,3=blue,4=yellow,5=lipstick,6=eyeliner,7=nose.
 	bool hovered = false;
@@ -11,7 +11,8 @@ public partial class interactible : Area2D
 
 	public override void _Ready()
 	{
-		mainSprite.Visible = true;
+        frameSprite.Visible = false;
+        mainSprite.Visible = true;
 		grandparent = GetNode<Node2D>("../..");
     }
 
@@ -29,13 +30,15 @@ public partial class interactible : Area2D
 
 	void On_mouse_entered()
 	{
-		hovered = true;
+        frameSprite.Visible = true;
+        hovered = true;
 		grandparent.Call("_on_interactible_mouse_entered");
 	}
 
 	void On_mouse_exited()
 	{
-		hovered = false;
+        frameSprite.Visible = false;
+        hovered = false;
         grandparent.Call("_on_interactible_mouse_exited");
     }
 }

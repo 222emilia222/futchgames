@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=30 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Texture2D" uid="uid://byqtnc6aynce7" path="res://sprites/background.png" id="2_y1scj"]
@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://0ybvfqgtpc53" path="res://scenes/items/item_yellow.tscn" id="7_w4i1w"]
 [ext_resource type="PackedScene" uid="uid://cvvjdgdl1ktqw" path="res://scenes/items/item_nose.tscn" id="8_qtcds"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_white.tscn" id="9_8xksb"]
-[ext_resource type="Texture2D" uid="uid://c0juynyv1m2xd" path="res://sprites/Powder.png" id="9_52ceq"]
+[ext_resource type="Texture2D" uid="uid://c0juynyv1m2xd" path="res://sprites/brushes/Powder.png" id="9_52ceq"]
 [ext_resource type="Script" path="res://scripts/itemmanager.cs" id="9_cbaae"]
-[ext_resource type="Texture2D" uid="uid://c0kea2vcuqb1m" path="res://sprites/Wet.png" id="10_g3j4d"]
+[ext_resource type="Texture2D" uid="uid://c0kea2vcuqb1m" path="res://sprites/brushes/Wet.png" id="10_g3j4d"]
+[ext_resource type="Texture2D" uid="uid://cgrfmjqmdhvdm" path="res://sprites/brushes/WetSmall.png" id="11_q0led"]
 [ext_resource type="PackedScene" uid="uid://fei8u1wuvbj4" path="res://scenes/items/item_blue.tscn" id="12_5ka4s"]
 [ext_resource type="PackedScene" uid="uid://c7wo1wdcvivmw" path="res://scenes/items/item_red.tscn" id="14_j2355"]
 [ext_resource type="Script" path="res://scripts/mouseMover.cs" id="15_84snk"]
@@ -58,6 +59,7 @@ offset_bottom = 1080.0
 mouse_filter = 1
 
 [node name="Shelf 1" type="TextureRect" parent="CharBackground/shelves"]
+z_index = 6
 layout_mode = 0
 offset_top = 421.0
 offset_right = 300.0
@@ -98,6 +100,7 @@ currentBrush = NodePath("../SubViewportContainer/Paint/MousePositon/Brush")
 whitePowder = ExtResource("9_52ceq")
 colorPowder = ExtResource("9_52ceq")
 wetBrush = ExtResource("10_g3j4d")
+wetBrushSmall = ExtResource("11_q0led")
 blue = Color(0.298709, 0.511871, 1, 1)
 yellow = Color(0.997412, 0.864769, 1.15514e-06, 1)
 red = Color(0.991644, 0, 0.29676, 1)
@@ -105,38 +108,38 @@ wetRed = Color(0.705882, 0, 0, 1)
 spacingPowder = 0.2
 
 [node name="Item_lipstick" parent="Item Control" instance=ExtResource("5_wpu8c")]
-z_index = 4
-position = Vector2(1092, 512)
+z_index = 6
+position = Vector2(1135, 467)
 itemKey = 5
 
 [node name="Item_eyeliner" parent="Item Control" instance=ExtResource("6_3yuka")]
-z_index = 4
-position = Vector2(1177, 495)
+z_index = 6
+position = Vector2(1133, 473)
 itemKey = 6
 
 [node name="Item_blue" parent="Item Control" instance=ExtResource("12_5ka4s")]
-z_index = 4
-position = Vector2(140, 488)
+z_index = 6
+position = Vector2(140, 696)
 itemKey = 3
 
 [node name="Item_yellow" parent="Item Control" instance=ExtResource("7_w4i1w")]
-z_index = 4
-position = Vector2(73, 488)
+z_index = 6
+position = Vector2(73, 696)
 itemKey = 4
 
 [node name="Item_nose" parent="Item Control" instance=ExtResource("8_qtcds")]
-z_index = 4
-position = Vector2(1126, 740)
+z_index = 6
+position = Vector2(1147, 980)
 itemKey = 7
 
 [node name="Item_red" parent="Item Control" instance=ExtResource("14_j2355")]
-z_index = 4
-position = Vector2(212, 488)
+z_index = 6
+position = Vector2(212, 696)
 itemKey = 2
 
 [node name="Item_white" parent="Item Control" instance=ExtResource("9_8xksb")]
-z_index = 4
-position = Vector2(134, 719)
+z_index = 6
+position = Vector2(167, 983)
 itemKey = 1
 
 [node name="Char_Lauren" type="Node2D" parent="."]

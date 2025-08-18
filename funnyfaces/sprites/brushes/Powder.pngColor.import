@@ -2,16 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0ubpkflfckvu"
-path="res://.godot/imported/item_bluecolor.png-120c693f030e22c149c84b04344fd176.ctex"
+path="res://.godot/imported/Powder.png-e5f38604085a85f7ddd2dad5550d4cb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/items/item_bluecolor.png"
-dest_files=["res://.godot/imported/item_bluecolor.png-120c693f030e22c149c84b04344fd176.ctex"]
+source_file="res://sprites/brushes/Powder.png"
+dest_files=["res://.godot/imported/Powder.png-e5f38604085a85f7ddd2dad5550d4cb4.ctex"]
 
 [params]
 

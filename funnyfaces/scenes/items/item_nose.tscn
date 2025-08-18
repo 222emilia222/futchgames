@@ -1,23 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvvjdgdl1ktqw"]
+[gd_scene load_steps=5 format=3 uid="uid://cvvjdgdl1ktqw"]
 
 [ext_resource type="Script" path="res://scripts/interactible.cs" id="1_15mf7"]
-[ext_resource type="Texture2D" uid="uid://n82egcylkpjy" path="res://sprites/items/item_nose.png" id="2_6n2c1"]
+[ext_resource type="Texture2D" uid="uid://b51n802iq78eh" path="res://sprites/itemsPainted/nose.png" id="2_c8khu"]
+[ext_resource type="Texture2D" uid="uid://dh2cdmjepidg3" path="res://sprites/itemsPainted/nose_frame.png" id="3_lmhas"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sgaoi"]
-radius = 47.0106
+radius = 59.0339
 
-[node name="Item_nose" type="Area2D" node_paths=PackedStringArray("whiteFrame", "mainSprite")]
+[node name="Item_nose" type="Area2D" node_paths=PackedStringArray("mainSprite", "frameSprite")]
 position = Vector2(1416, 280)
 script = ExtResource("1_15mf7")
-whiteFrame = NodePath("")
 mainSprite = NodePath("Sprite2D")
+frameSprite = NodePath("Sprite2D/Frame")
 radiusKey = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6n2c1")
+texture = ExtResource("2_c8khu")
+
+[node name="Frame" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("3_lmhas")
 
 [node name="Coll2d" type="CollisionShape2D" parent="."]
-position = Vector2(1, 3)
+position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_sgaoi")
 
 [connection signal="mouse_entered" from="." to="." method="On_mouse_entered"]

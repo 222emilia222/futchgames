@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 public partial class itemmanager : Control
 {
     [Export] Sprite2D currentBrush;
-    [Export] Texture2D whitePowder, colorPowder, wetBrush;
+    [Export] Texture2D whitePowder, colorPowder, wetBrush, wetBrushSmall;
     [Export] Color blue, yellow, red, wetRed;
     [Export] double spacingPowder, spacingWet;
     [Export] double currentTimer;
@@ -50,7 +50,7 @@ public partial class itemmanager : Control
             case 5:
                 { currentTimer = spacingWet; currentBrush.Texture = wetBrush; currentBrush.Modulate = wetRed; break; }
             case 6:
-                { currentTimer = spacingWet; currentBrush.Texture = wetBrush; currentBrush.Modulate = Color.Color8(0, 0, 0, 255); break; }
+                { currentTimer = spacingWet; currentBrush.Texture = wetBrushSmall; currentBrush.Modulate = Color.Color8(0, 0, 0, 255); break; }
             case 7:
                 { currentBrush.Texture = null; break; }
         }

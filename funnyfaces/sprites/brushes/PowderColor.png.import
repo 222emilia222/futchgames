@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duwnknldiccqm"
-path="res://.godot/imported/char_ryan.png-851e61d24a4e03026a15561d02e30c6c.ctex"
+uid="uid://cxy7ek5e5tfi6"
+path="res://.godot/imported/PowderColor.png-80cf035291e01730d58df620d233558e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/chars/char_ryan.png"
-dest_files=["res://.godot/imported/char_ryan.png-851e61d24a4e03026a15561d02e30c6c.ctex"]
+source_file="res://sprites/brushes/PowderColor.png"
+dest_files=["res://.godot/imported/PowderColor.png-80cf035291e01730d58df620d233558e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n82egcylkpjy"
-path="res://.godot/imported/item_nose.png-a40c8ad0b2e520dddc784193ce688b79.ctex"
+uid="uid://duwnknldiccqm"
+path="res://.godot/imported/char_ryan.png-3cff3d787520d9297c1cd8f79bd7390a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/items/item_nose.png"
-dest_files=["res://.godot/imported/item_nose.png-a40c8ad0b2e520dddc784193ce688b79.ctex"]
+source_file="res://sprites/chars/full chars/char_ryan.png"
+dest_files=["res://.godot/imported/char_ryan.png-3cff3d787520d9297c1cd8f79bd7390a.ctex"]
 
 [params]
 
