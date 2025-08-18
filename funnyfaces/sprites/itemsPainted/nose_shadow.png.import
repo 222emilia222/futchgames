@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qt6dt7j74l56"
-path="res://.godot/imported/colorbrushes.png-58cddfa5e08d8df0908d035ce8be1ca3.ctex"
+uid="uid://c20dciats54tg"
+path="res://.godot/imported/nose_shadow.png-dc0d441384ab0570f19dc70f53dac3c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/itemsPainted/colorbrushes.png"
-dest_files=["res://.godot/imported/colorbrushes.png-58cddfa5e08d8df0908d035ce8be1ca3.ctex"]
+source_file="res://sprites/itemsPainted/nose_shadow.png"
+dest_files=["res://.godot/imported/nose_shadow.png-dc0d441384ab0570f19dc70f53dac3c6.ctex"]
 
 [params]
 

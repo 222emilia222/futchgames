@@ -18,7 +18,7 @@ public partial class interactible : Area2D
 
 	public override void _Process(double delta)
 	{
-		if (hovered && Input.IsMouseButtonPressed(MouseButton.Left))
+		if (hovered && Input.IsMouseButtonPressed(MouseButton.Left) && !GetNode<itemmanager>("..").nosePlaced)
 		{
             mainSprite.Visible = false;
 			CollisionShape2D shape = GetNode<CollisionShape2D>("Coll2d");
@@ -30,15 +30,18 @@ public partial class interactible : Area2D
 
 	void On_mouse_entered()
 	{
-        frameSprite.Visible = true;
-        hovered = true;
-		grandparent.Call("_on_interactible_mouse_entered");
-	}
+		if (!GetNode<itemmanager>("..").nosePlaced)
+		{ 	
+			frameSprite.Visible = true;
+			hovered = true;
+			grandparent.Call("_on_interactible_mouse_entered");
+        }
+    }
 
 	void On_mouse_exited()
 	{
-        frameSprite.Visible = false;
-        hovered = false;
-        grandparent.Call("_on_interactible_mouse_exited");
+		frameSprite.Visible = false;
+		hovered = false;
+		grandparent.Call("_on_interactible_mouse_exited");
     }
 }

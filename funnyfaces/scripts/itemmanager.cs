@@ -5,17 +5,20 @@ using System.Threading.Tasks;
 
 public partial class itemmanager : Control
 {
-    [Export] Sprite2D currentBrush;
+    [Export] public Sprite2D brush, nose;
+    [Export] Node2D mousePos;
     [Export] Texture2D whitePowder, colorPowder, wetBrush, wetBrushSmall;
     [Export] Color blue, yellow, red, wetRed;
     [Export] double spacingPowder, spacingWet;
     [Export] double currentTimer;
     int currentItem = 0;
     bool clicked = false;
+    public bool nosePlaced = false;
 
     public override void _Ready()
     {
-        currentBrush.Modulate = Color.Color8(255, 255, 255, 255);
+        nose.Visible = false;
+        brush.Modulate = Color.Color8(255, 255, 255, 255);
     }
 
     #region Item Switching
@@ -40,24 +43,24 @@ public partial class itemmanager : Control
         switch (currentItem)
         {
             case 1:
-                { currentTimer = spacingPowder; currentBrush.Texture = whitePowder; currentBrush.Modulate = Color.Color8(255, 255, 255, 255); break; }
+                { currentTimer = spacingPowder; brush.Texture = whitePowder; brush.Modulate = Color.Color8(255, 255, 255, 255); break; }
             case 2:
-                { currentTimer = spacingPowder; currentBrush.Texture = colorPowder; currentBrush.Modulate = red; break; }
+                { currentTimer = spacingPowder; brush.Texture = colorPowder; brush.Modulate = red; break; }
             case 3:
-                { currentTimer = spacingPowder; currentBrush.Texture = colorPowder; currentBrush.Modulate = blue; break; }
+                { currentTimer = spacingPowder; brush.Texture = colorPowder; brush.Modulate = blue; break; }
             case 4:
-                { currentTimer = spacingPowder; currentBrush.Texture = colorPowder; currentBrush.Modulate = yellow; break; }
+                { currentTimer = spacingPowder; brush.Texture = colorPowder; brush.Modulate = yellow; break; }
             case 5:
-                { currentTimer = spacingWet; currentBrush.Texture = wetBrush; currentBrush.Modulate = wetRed; break; }
+                { currentTimer = spacingWet; brush.Texture = wetBrush; brush.Modulate = wetRed; break; }
             case 6:
-                { currentTimer = spacingWet; currentBrush.Texture = wetBrushSmall; currentBrush.Modulate = Color.Color8(0, 0, 0, 255); break; }
+                { currentTimer = spacingWet; brush.Texture = wetBrushSmall; brush.Modulate = Color.Color8(0, 0, 0, 255); break; }
             case 7:
-                { currentBrush.Texture = null; break; }
+                { brush.Texture = null; break; }
         }
     }
     #endregion
 
-    #region Painting
+    #region Painting & Nose Placing
     public override void _Process(double delta)
     {
         if (!Input.IsMouseButtonPressed(MouseButton.Left)) { clicked = false; }
@@ -71,10 +74,12 @@ public partial class itemmanager : Control
         clicked = true;
         if (currentItem == 7)
         {
-            // nose placed!
-            // cursor open hand
-            // no clicky on items
-            // transition start
+            if (!nosePlaced)
+            {
+                PlaceNose();
+                GD.Print("nose placed! I repeat! nose placed!");
+            }
+            return;
         }
         if (_token != null)
         {
@@ -92,11 +97,21 @@ public partial class itemmanager : Control
         }
 
         var mainLoop = Engine.GetMainLoop();
-        currentBrush.Visible = true; //enable brush
+        brush.Rotation += 30f; // move brush rotation
+        brush.Visible = true; //enable brush
         await mainLoop.ToSignal(mainLoop, SceneTree.SignalName.ProcessFrame);
-        currentBrush.Visible = false; //disable brush
+        brush.Visible = false; //disable brush
         await ToSignal(GetTree().CreateTimer(currentTimer), Godot.Timer.SignalName.Timeout);
         Place(token);
+    }
+
+    void PlaceNose()
+    {
+        nosePlaced = true;
+        nose.Position = mousePos.Position + new Vector2(-24, -8);
+        nose.Visible = true;
+        GetNode<Node2D>("..").Call("_toggle_cursor_vis", false);
+        GetNode<gamemanager>("../..").TransitionStart();
     }
     #endregion
 }

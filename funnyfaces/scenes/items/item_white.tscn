@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8x5helb8exwv"]
+[gd_scene load_steps=6 format=3 uid="uid://b8x5helb8exwv"]
 
 [ext_resource type="Script" path="res://scripts/interactible.cs" id="1_x1rdj"]
 [ext_resource type="Texture2D" uid="uid://6abkyfbcoouk" path="res://sprites/itemsPainted/foundation.png" id="2_dx18a"]
 [ext_resource type="Texture2D" uid="uid://det6agawcvedc" path="res://sprites/itemsPainted/foundation_frame.png" id="3_x3qk5"]
+[ext_resource type="Texture2D" uid="uid://dxh8tuni7btvn" path="res://sprites/itemsPainted/foundation_shadow.png" id="4_mn5lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ibvi"]
 size = Vector2(232, 105)
@@ -20,6 +21,10 @@ texture = ExtResource("2_dx18a")
 [node name="Frame" type="Sprite2D" parent="Sprite2D"]
 show_behind_parent = true
 texture = ExtResource("3_x3qk5")
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D"]
+z_index = -1
+texture = ExtResource("4_mn5lc")
 
 [node name="Coll2d" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 9.5)
