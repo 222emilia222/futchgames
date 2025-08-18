@@ -1,9 +1,14 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 public partial class gamemanager : Node2D
 {
+    [ExportCategory("Order")]
+    [Export] Godot.Collections.Array<Node2D> characters;
+    int currentChar = 0;
+    [ExportCategory("Transition")]
     [Export] Node2D blackhole;
     ViewportTexture paintboardTex;
     float initScale;
@@ -13,10 +18,17 @@ public partial class gamemanager : Node2D
     public override void _Ready()
     {
         controller = GetNode<itemmanager>("CursorManager/Item Control");
+        for (int i = 1; i < characters.Count; i++)
+        {
+            characters[i].Visible = false;
+        }
+        characters[currentChar].Visible = true;
     }
 
     public void Resetup()
     {
+        characters[currentChar].Visible = false; currentChar++;
+        characters[currentChar].Visible = true;
         initScale= blackhole.Scale.X;
         blackhole.Visible = false;
         GetNode<itemmanager>("CursorManager/Item Control").nosePlaced = false;

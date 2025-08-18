@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=32 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Script" path="res://scripts/gamemanager.cs" id="1_ivxkp"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://scripts/blinker.cs" id="22_pj2gu"]
 [ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://sprites/chars/char_laura_eyes1.png" id="23_dxkbk"]
 [ext_resource type="Texture2D" uid="uid://myf6dbm4g8pm" path="res://sprites/chars/char_laura_eyes2.png" id="24_bybvj"]
+[ext_resource type="Texture2D" uid="uid://duwnknldiccqm" path="res://sprites/chars/full chars/char_ryan.png" id="25_8xarj"]
 [ext_resource type="Texture2D" uid="uid://bj44yyea0slxs" path="res://sprites/blackhole.png" id="27_pke48"]
 [ext_resource type="Texture2D" uid="uid://50empoiga20p" path="res://sprites/blackscreen.png" id="28_16upd"]
 
@@ -37,8 +38,9 @@ resource_local_to_scene = true
 shader = ExtResource("17_qm37l")
 shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("blackhole")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "blackhole")]
 script = ExtResource("1_ivxkp")
+characters = [NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Ryan")]
 blackhole = NodePath("Transitioner")
 finalScale = 0.15
 transitionShrinkTime = 3.5
@@ -139,6 +141,7 @@ position = Vector2(167, 983)
 itemKey = 1
 
 [node name="Char_Lauren" type="Node2D" parent="CursorManager"]
+visible = false
 position = Vector2(615, 539)
 
 [node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Lauren"]
@@ -173,6 +176,45 @@ rInt2Max = 65
 show_behind_parent = true
 position = Vector2(1, 0)
 texture = ExtResource("21_m71th")
+script = ExtResource("20_6t8aw")
+breatheInterval = 5.0
+movValue = 10.0
+
+[node name="Char_Ryan" type="Node2D" parent="CursorManager"]
+position = Vector2(615, 539)
+
+[node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Ryan"]
+z_index = 20
+material = SubResource("ShaderMaterial_wljux")
+position = Vector2(1, 0)
+texture = ExtResource("19_w6a4s")
+script = ExtResource("20_6t8aw")
+breatheInterval = 5.0
+movValue = 4.0
+
+[node name="Head (Backgroundcopy)" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
+show_behind_parent = true
+texture = ExtResource("19_w6a4s")
+
+[node name="HeadOutlineSprite" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
+texture = ExtResource("21_xeii4")
+
+[node name="Head (Non-draw)" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
+show_behind_parent = true
+
+[node name="Eyes" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
+script = ExtResource("22_pj2gu")
+eyes1 = ExtResource("23_dxkbk")
+eyes2 = ExtResource("24_bybvj")
+rInt1Min = 4
+rInt1Max = 16
+rInt2Min = 25
+rInt2Max = 65
+
+[node name="BodySprite" type="Sprite2D" parent="CursorManager/Char_Ryan"]
+show_behind_parent = true
+position = Vector2(1, 0)
+texture = ExtResource("25_8xarj")
 script = ExtResource("20_6t8aw")
 breatheInterval = 5.0
 movValue = 10.0
