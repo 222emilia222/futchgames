@@ -31,6 +31,7 @@ public partial class gamemanager : Node2D
 
     public void Resetup()
     {
+        if (currentChar == characters.Count + 1) { CueEndScene(); return; }
         characters[currentChar].Visible = false; currentChar++;
         characters[currentChar].Visible = true;
         blackhole.Scale = new Vector2(initScale, initScale);
@@ -54,5 +55,10 @@ public partial class gamemanager : Node2D
         await ToSignal(GetTree().CreateTimer(waitTime + fallSpeed), Godot.Timer.SignalName.Timeout);
 
         Resetup();
+    }
+
+    public void CueEndScene()
+    {
+        GetTree().ChangeSceneToFile("res://scenes/end.tscn");
     }
 }

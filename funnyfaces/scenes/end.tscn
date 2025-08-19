@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://lqrftxvnolne"]
+
+[ext_resource type="Texture2D" uid="uid://b51n802iq78eh" path="res://sprites/itemsPainted/nose.png" id="1_57rim"]
+[ext_resource type="Script" path="res://scripts/CreditsMover.cs" id="1_v6udk"]
+[ext_resource type="Script" path="res://scripts/Hint.cs" id="3_4jokk"]
+
+[node name="End" type="Node2D"]
+
+[node name="Credits" type="Node2D" parent="."]
+position = Vector2(640, 1400)
+script = ExtResource("1_v6udk")
+
+[node name="nose" type="Sprite2D" parent="Credits"]
+texture = ExtResource("1_57rim")
+
+[node name="Credits 1" type="RichTextLabel" parent="Credits"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Img 1" type="TextureRect" parent="Credits"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Escape Hint" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_4jokk")
