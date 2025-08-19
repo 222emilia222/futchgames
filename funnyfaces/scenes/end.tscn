@@ -9,6 +9,7 @@
 [node name="Credits" type="Node2D" parent="."]
 position = Vector2(640, 1400)
 script = ExtResource("1_v6udk")
+scrollSpeed = 10.0
 
 [node name="nose" type="Sprite2D" parent="Credits"]
 texture = ExtResource("1_57rim")
@@ -25,3 +26,4 @@ offset_bottom = 40.0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_4jokk")
+timeUntilHint = 5.0

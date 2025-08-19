@@ -13,6 +13,8 @@ public partial class gamemanager : Node2D
     ViewportTexture paintboardTex;
     [Export]
     SubViewport subViewport;
+    [Export]
+    Node2D cursorManager;
     float initScale;
     [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed;
     itemmanager controller;
@@ -38,7 +40,7 @@ public partial class gamemanager : Node2D
         blackhole.Visible = false;
         GetNode<itemmanager>("Item Control").currentItem = 0;
         GetNode<itemmanager>("CursorManager/Item Control").nosePlaced = false;
-        GetNode<Node2D>("CursorManager").Call("_toggle_cursor_vis", true); //doesnt work
+        cursorManager.Call("_set_cursor_vis", false);
         subViewport.RenderTargetClearMode = SubViewport.ClearMode.Once;
     }
 

@@ -112,7 +112,7 @@ public partial class itemmanager : Control
         nosePlaced = true;
         nose.Position = mousePos.Position + new Vector2(-24, -8);
         nose.Visible = true;
-        GetNode<Node2D>("..").Call("_toggle_cursor_vis", false);
+        GetNode<Node2D>("..").Call("_set_cursor_vis", false);
         GetNode<gamemanager>("../..").TransitionStart();
     }
     #endregion

@@ -27,8 +27,10 @@ func _set_cursor(key: int):
 			current=radiusBig
 	Input.set_custom_mouse_cursor(current, Input.CURSOR_ARROW, Vector2(32,32))
 
-func _toggle_cursor_vis(vis: bool):
+func _set_cursor_vis(vis: bool):
+	print("in vis method")
 	if (vis == false):
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	if (vis == true):
+	elif (vis == true):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		print("set visible")
