@@ -38,10 +38,11 @@ resource_local_to_scene = true
 shader = ExtResource("17_qm37l")
 shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "blackhole")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "blackhole", "subViewport")]
 script = ExtResource("1_ivxkp")
 characters = [NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Ryan")]
 blackhole = NodePath("Transitioner")
+subViewport = NodePath("CursorManager/SubViewportContainer/Paint")
 finalScale = 0.15
 transitionShrinkTime = 3.5
 waitTime = 0.8

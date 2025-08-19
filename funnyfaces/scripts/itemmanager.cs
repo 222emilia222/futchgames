@@ -11,7 +11,7 @@ public partial class itemmanager : Control
     [Export] Color blue, yellow, red, wetRed;
     [Export] double spacingPowder, spacingWet;
     [Export] double currentTimer;
-    int currentItem = 0;
+    public int currentItem = 0;
     bool clicked = false;
     public bool nosePlaced = false;
 
@@ -42,6 +42,8 @@ public partial class itemmanager : Control
         //change brush sprite & timer
         switch (currentItem)
         {
+            case 0:
+                { brush.Texture = null; break; }
             case 1:
                 { currentTimer = spacingPowder; brush.Texture = whitePowder; brush.Modulate = Color.Color8(255, 255, 255, 255); break; }
             case 2:

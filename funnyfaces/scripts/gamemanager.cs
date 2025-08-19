@@ -11,12 +11,16 @@ public partial class gamemanager : Node2D
     [ExportCategory("Transition")]
     [Export] Node2D blackhole;
     ViewportTexture paintboardTex;
+    [Export]
+    SubViewport subViewport;
     float initScale;
     [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed;
     itemmanager controller;
 
+
     public override void _Ready()
     {
+        initScale = blackhole.Scale.X;
         controller = GetNode<itemmanager>("CursorManager/Item Control");
         for (int i = 1; i < characters.Count; i++)
         {
@@ -29,11 +33,12 @@ public partial class gamemanager : Node2D
     {
         characters[currentChar].Visible = false; currentChar++;
         characters[currentChar].Visible = true;
-        initScale= blackhole.Scale.X;
+        blackhole.Scale = new Vector2(initScale, initScale);
         blackhole.Visible = false;
+        GetNode<itemmanager>("Item Control").currentItem = 0;
         GetNode<itemmanager>("CursorManager/Item Control").nosePlaced = false;
-        GetNode<Node2D>("CursorManager").Call("_toggle_cursor_vis", true);
-        //reset viewport texture
+        GetNode<Node2D>("CursorManager").Call("_toggle_cursor_vis", true); //doesnt work
+        subViewport.RenderTargetClearMode = SubViewport.ClearMode.Once;
     }
 
     public async Task TransitionStart()

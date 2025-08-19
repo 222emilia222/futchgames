@@ -30,5 +30,5 @@ func _set_cursor(key: int):
 func _toggle_cursor_vis(vis: bool):
 	if (vis == false):
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	else:
+	if (vis == true):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
