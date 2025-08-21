@@ -110,8 +110,10 @@ public partial class itemmanager : Control
     void PlaceNose()
     {
         nosePlaced = true;
-        nose.Position = mousePos.Position + new Vector2(-24, -8);
+        nose.Position = mousePos.Position + new Vector2(0, -15);
         nose.Visible = true;
+        sprite.Visible = true; //nose item back
+        coll.Disabled = false; //nose item back
         GetNode<Node2D>("..").Call("_set_cursor_vis", false);
         GetNode<gamemanager>("../..").TransitionStart();
     }

@@ -17,30 +17,29 @@ public partial class gamemanager : Node2D
     Node2D cursorManager;
     float initScale;
     [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed;
-    itemmanager controller;
 
 
     public override void _Ready()
     {
         initScale = blackhole.Scale.X;
-        controller = GetNode<itemmanager>("CursorManager/Item Control");
+        characters[currentChar].Visible = true;
         for (int i = 1; i < characters.Count; i++)
         {
             characters[i].Visible = false;
         }
-        characters[currentChar].Visible = true;
     }
 
     public void Resetup()
     {
-        if (currentChar == characters.Count + 1) { CueEndScene(); return; }
+        if (currentChar == characters.Count - 1) { CueEndScene(); GD.Print("credits!!"); return; }
         characters[currentChar].Visible = false; currentChar++;
         characters[currentChar].Visible = true;
         blackhole.Scale = new Vector2(initScale, initScale);
         blackhole.Visible = false;
-        GetNode<itemmanager>("Item Control").currentItem = 0;
+        GetNode<itemmanager>("CursorManager/Item Control").currentItem = 0;
         GetNode<itemmanager>("CursorManager/Item Control").nosePlaced = false;
-        cursorManager.Call("_set_cursor_vis", false);
+        cursorManager.Call("_set_cursor_vis", true);
+        cursorManager.Call("_set_cursor", 0);
         subViewport.RenderTargetClearMode = SubViewport.ClearMode.Once;
     }
 
@@ -53,7 +52,8 @@ public partial class gamemanager : Node2D
         await ToSignal(GetTree().CreateTimer(transitionShrinkTime + waitTime), Godot.Timer.SignalName.Timeout);
         Tween tween2 = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
         tween2.TweenProperty(blackhole, "position:y", blackhole.Position.Y + 1100, fallSpeed);
-        tween2.Parallel().TweenProperty(controller.nose, "position:y", controller.nose.Position.Y + 1100, fallSpeed);
+        Sprite2D nose = GetNode<itemmanager>("CursorManager/Item Control").nose;
+        tween2.Parallel().TweenProperty(nose, "position:y", nose.Position.Y + 1100, fallSpeed);
         await ToSignal(GetTree().CreateTimer(waitTime + fallSpeed), Godot.Timer.SignalName.Timeout);
 
         Resetup();

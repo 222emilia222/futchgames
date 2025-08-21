@@ -54,14 +54,14 @@ shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "blackhole", "subViewport", "cursorManager")]
 script = ExtResource("1_ivxkp")
-characters = [NodePath("CursorManager/Char_Syl"), NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Ryan"), NodePath("CursorManager/Char_Arno")]
+characters = [NodePath("CursorManager/Char_Ryan"), NodePath("CursorManager/Char_Syl"), NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Arno")]
 blackhole = NodePath("Transitioner")
 subViewport = NodePath("CursorManager/SubViewportContainer/Paint")
 cursorManager = NodePath("CursorManager")
 finalScale = 0.15
-transitionShrinkTime = 3.5
-waitTime = 0.8
-fallSpeed = 2.0
+transitionShrinkTime = 3.8
+waitTime = 1.0
+fallSpeed = 1.5
 
 [node name="CursorManager" type="Node2D" parent="."]
 script = ExtResource("1_7leby")
@@ -86,7 +86,6 @@ offset_bottom = 1080.0
 mouse_filter = 1
 
 [node name="Shelf 1" type="TextureRect" parent="CursorManager/CharBackground/shelves"]
-z_index = 6
 layout_mode = 0
 offset_top = 421.0
 offset_right = 300.0
@@ -158,7 +157,7 @@ itemKey = 1
 
 [node name="Char_Lauren" type="Node2D" parent="CursorManager"]
 visible = false
-position = Vector2(615, 539)
+position = Vector2(640, 540)
 
 [node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Lauren"]
 z_index = 20
@@ -171,9 +170,11 @@ movValue = 4.0
 
 [node name="Head (Backgroundcopy)" type="Sprite2D" parent="CursorManager/Char_Lauren/Head (Draw)"]
 show_behind_parent = true
+z_index = -1
 texture = ExtResource("19_w6a4s")
 
 [node name="HeadOutlineSprite" type="Sprite2D" parent="CursorManager/Char_Lauren/Head (Draw)"]
+z_index = 1
 texture = ExtResource("21_xeii4")
 
 [node name="Head (Non-draw)" type="Sprite2D" parent="CursorManager/Char_Lauren/Head (Draw)"]
@@ -199,8 +200,7 @@ movValue = 10.0
 
 [node name="Char_Ryan" type="Node2D" parent="CursorManager"]
 visible = false
-position = Vector2(683, 531)
-scale = Vector2(1.00334, 1.00334)
+position = Vector2(640, 540)
 
 [node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Ryan"]
 z_index = 20
@@ -213,9 +213,11 @@ movValue = 4.0
 
 [node name="Head (Backgroundcopy)" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
 show_behind_parent = true
+z_index = -1
 texture = ExtResource("25_p44rd")
 
 [node name="HeadOutlineSprite" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
+z_index = 1
 texture = ExtResource("26_d1dma")
 
 [node name="Head (Non-draw)" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
@@ -227,9 +229,9 @@ script = ExtResource("22_pj2gu")
 eyes1 = ExtResource("27_qcu4a")
 eyes2 = ExtResource("28_bbo2y")
 rInt1Min = 2
-rInt1Max = 12
-rInt2Min = 25
-rInt2Max = 65
+rInt1Max = 7
+rInt2Min = 45
+rInt2Max = 120
 
 [node name="BodySprite" type="Sprite2D" parent="CursorManager/Char_Ryan"]
 show_behind_parent = true
@@ -240,8 +242,7 @@ breatheInterval = 5.0
 movValue = 10.0
 
 [node name="Char_Arno" type="Node2D" parent="CursorManager"]
-visible = false
-position = Vector2(615, 539)
+position = Vector2(640, 540)
 
 [node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Arno"]
 z_index = 20
@@ -249,14 +250,16 @@ material = SubResource("ShaderMaterial_wljux")
 position = Vector2(1, 0)
 texture = ExtResource("30_wlbsu")
 script = ExtResource("20_6t8aw")
-breatheInterval = 5.0
+breatheInterval = 3.5
 movValue = 4.0
 
 [node name="Head (Backgroundcopy)" type="Sprite2D" parent="CursorManager/Char_Arno/Head (Draw)"]
 show_behind_parent = true
+z_index = -1
 texture = ExtResource("30_wlbsu")
 
 [node name="HeadOutlineSprite" type="Sprite2D" parent="CursorManager/Char_Arno/Head (Draw)"]
+z_index = 1
 texture = ExtResource("31_hsyf1")
 
 [node name="Head (Non-draw)" type="Sprite2D" parent="CursorManager/Char_Arno/Head (Draw)"]
@@ -278,54 +281,54 @@ position = Vector2(1, 0)
 texture = ExtResource("32_ohrdd")
 script = ExtResource("20_6t8aw")
 breatheInterval = 3.5
-movValue = 15.0
+movValue = 10.0
 
 [node name="Char_Syl" type="Node2D" parent="CursorManager"]
-z_index = 2
-position = Vector2(651, 553)
-scale = Vector2(0.879999, 0.879999)
-
-[node name="Shell (Draw)" type="Sprite2D" parent="CursorManager/Char_Syl"]
+visible = false
 z_index = 20
+position = Vector2(640, 540)
+
+[node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Syl"]
 material = SubResource("ShaderMaterial_wljux")
-position = Vector2(1, 0)
 texture = ExtResource("35_8tbu8")
 script = ExtResource("20_6t8aw")
 breatheInterval = 5.0
 movValue = 4.0
 
-[node name="Shell (Backgroundcopy)" type="Sprite2D" parent="CursorManager/Char_Syl/Shell (Draw)"]
+[node name="Head (Backgroundcopy)" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)"]
 show_behind_parent = true
-z_index = 1
+z_index = -1
 texture = ExtResource("35_8tbu8")
 
-[node name="HeadOutlineSprite" type="Sprite2D" parent="CursorManager/Char_Syl/Shell (Draw)"]
-z_index = 2
+[node name="HeadOutlineSprite" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)"]
+z_index = 1
 texture = ExtResource("36_4oeca")
 
-[node name="Head (Non-draw)" type="Sprite2D" parent="CursorManager/Char_Syl/Shell (Draw)"]
+[node name="Head (Non-draw)" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)"]
 show_behind_parent = true
 
-[node name="Head" type="Node2D" parent="CursorManager/Char_Syl/Shell (Draw)"]
-show_behind_parent = true
-position = Vector2(0.136358, 53.4091)
+[node name="Node2D" type="Node2D" parent="CursorManager/Char_Syl/Head (Draw)"]
+position = Vector2(0, -31)
 script = ExtResource("20_6t8aw")
-breatheInterval = 3.0
-movValue = 13.0
+breatheInterval = 5.0
+movValue = 10.0
 
-[node name="Eyes" type="Sprite2D" parent="CursorManager/Char_Syl/Shell (Draw)/Head"]
+[node name="Eyes" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)/Node2D"]
+show_behind_parent = true
+z_index = -2
+position = Vector2(14, 56)
 texture = ExtResource("37_j6nuk")
 script = ExtResource("22_pj2gu")
 eyes1 = ExtResource("37_j6nuk")
 eyes2 = ExtResource("38_q8rx6")
-rInt1Min = 8
-rInt1Max = 34
+rInt1Min = 4
+rInt1Max = 16
 rInt2Min = 25
 rInt2Max = 65
 
 [node name="BodySprite" type="Sprite2D" parent="CursorManager/Char_Syl"]
 show_behind_parent = true
-position = Vector2(1, 0)
+z_index = -2
 texture = ExtResource("39_sd8r0")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CursorManager"]
@@ -348,7 +351,7 @@ modulate = Color(0.262745, 0.466667, 0.258824, 1)
 z_index = 40
 
 [node name="Nose For End" type="Sprite2D" parent="CursorManager"]
-z_index = 25
+z_index = 150
 position = Vector2(166, -182)
 texture = ExtResource("12_4qf7o")
 
@@ -689,6 +692,62 @@ offset_left = 5984.0
 offset_top = -6003.71
 offset_right = 9984.0
 offset_bottom = -2003.71
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_16upd")
+
+[node name="Box30" type="TextureRect" parent="Transitioner"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9947.71
+offset_top = -9843.72
+offset_right = -5947.71
+offset_bottom = -5843.72
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_16upd")
+
+[node name="Box31" type="TextureRect" parent="Transitioner"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5984.0
+offset_top = -9880.29
+offset_right = 9984.0
+offset_bottom = -5880.29
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_16upd")
+
+[node name="Box32" type="TextureRect" parent="Transitioner"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9947.71
+offset_top = -13793.4
+offset_right = -5947.71
+offset_bottom = -9793.43
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("28_16upd")
+
+[node name="Box33" type="TextureRect" parent="Transitioner"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5984.0
+offset_top = -13830.0
+offset_right = 9984.0
+offset_bottom = -9830.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("28_16upd")

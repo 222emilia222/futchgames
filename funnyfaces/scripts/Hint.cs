@@ -10,7 +10,7 @@ public partial class Hint : RichTextLabel
 		if (timeUntilHint <= 0)
 		{
 			Tween tween = GetTree().CreateTween();
-			tween.TweenProperty(this, "modulate", new Color(255, 255, 255, 255), 1.2);
+			tween.TweenProperty(this, "modulate", new Color(255, 255, 255, 255), 1.2f);
 		}
 	}
     public override void _Ready()

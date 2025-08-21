@@ -7,7 +7,7 @@ public partial class CreditsMover : Node2D
 	public override void _Ready()
 	{
 		Tween tween = GetTree().CreateTween();
-		tween.TweenProperty(this, "position:y", Position.Y + 3000, scrollSpeed);
+		tween.TweenProperty(this, "position:y", Position.Y - 3000, scrollSpeed);
 	}
 
 	public override void _Process(double delta)
