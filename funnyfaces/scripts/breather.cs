@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class breather : Sprite2D
+public partial class breather : Node2D
 {
     [Export]
     float breatheInterval;
