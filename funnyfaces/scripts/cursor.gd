@@ -5,6 +5,7 @@ var pointedHand = preload("res://sprites/cursors/hand_pointing.png")
 var radiusBig = preload("res://sprites/cursors/radius_NOSE.png") ##clownnose
 var radiusMid = preload("res://sprites/cursors/radius_MEDIUM.png") ##color and white powder
 var radiusSmall = preload("res://sprites/cursors/radius_SMALL.png") ##lipstick and kayal
+var radiusStar = preload("res://sprites/cursors/radius_STAR.png")
 var current
 
 func _ready():
@@ -25,6 +26,8 @@ func _set_cursor(key: int):
 			current=radiusMid
 		3:
 			current=radiusBig
+		4:
+			current=radiusStar
 	Input.set_custom_mouse_cursor(current, Input.CURSOR_ARROW, Vector2(32,32))
 
 func _set_cursor_vis(vis: bool):

@@ -1,33 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8x5helb8exwv"]
+[gd_scene load_steps=6 format=3 uid="uid://uagh807jpr3m"]
 
-[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_x1rdj"]
-[ext_resource type="Texture2D" uid="uid://6abkyfbcoouk" path="res://sprites/itemsPainted/foundation.png" id="2_dx18a"]
-[ext_resource type="Texture2D" uid="uid://det6agawcvedc" path="res://sprites/itemsPainted/foundation_frame.png" id="3_x3qk5"]
-[ext_resource type="Texture2D" uid="uid://dxh8tuni7btvn" path="res://sprites/itemsPainted/foundation_shadow.png" id="4_mn5lc"]
+[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_p1arr"]
+[ext_resource type="Texture2D" uid="uid://c6dotm7iqwx3b" path="res://sprites/itemsPainted/powderBlue.png" id="2_ytk5j"]
+[ext_resource type="Texture2D" uid="uid://deaaoiwii5ttk" path="res://sprites/itemsPainted/powderBlue_frame.png" id="3_woaxx"]
+[ext_resource type="Texture2D" uid="uid://maiqeyiv50fr" path="res://sprites/itemsPainted/powderBlue_shadow.png" id="4_t5lt6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ibvi"]
-size = Vector2(232, 105)
+size = Vector2(60, 113)
 
 [node name="Item_foundation" type="Area2D" node_paths=PackedStringArray("mainSprite", "frameSprite")]
 position = Vector2(1416, 280)
-script = ExtResource("1_x1rdj")
+script = ExtResource("1_p1arr")
 mainSprite = NodePath("Sprite2D")
 frameSprite = NodePath("Sprite2D/Frame")
 radiusKey = 2
+itemKey = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dx18a")
+texture = ExtResource("2_ytk5j")
 
 [node name="Frame" type="Sprite2D" parent="Sprite2D"]
 show_behind_parent = true
-texture = ExtResource("3_x3qk5")
+texture = ExtResource("3_woaxx")
 
 [node name="Shadow" type="Sprite2D" parent="Sprite2D"]
 z_index = -1
-texture = ExtResource("4_mn5lc")
+texture = ExtResource("4_t5lt6")
 
 [node name="Coll2d" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 9.5)
+position = Vector2(-430, 192.5)
 shape = SubResource("RectangleShape2D_1ibvi")
 
 [connection signal="mouse_entered" from="." to="." method="On_mouse_entered"]

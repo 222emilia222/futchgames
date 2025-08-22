@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=56 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Script" path="res://scripts/gamemanager.cs" id="1_ivxkp"]
@@ -11,24 +11,33 @@
 [ext_resource type="Texture2D" uid="uid://g2dvssnpd5qp" path="res://sprites/shelf3.png" id="6_p24bn"]
 [ext_resource type="Texture2D" uid="uid://14vu4h5put6r" path="res://sprites/shelf4.png" id="7_sxooe"]
 [ext_resource type="PackedScene" uid="uid://cvvjdgdl1ktqw" path="res://scenes/items/item_nose.tscn" id="8_qtcds"]
-[ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_white.tscn" id="9_8xksb"]
 [ext_resource type="Texture2D" uid="uid://c0juynyv1m2xd" path="res://sprites/brushes/Powder.png" id="9_52ceq"]
 [ext_resource type="Script" path="res://scripts/itemmanager.cs" id="9_cbaae"]
 [ext_resource type="Texture2D" uid="uid://c0kea2vcuqb1m" path="res://sprites/brushes/Wet.png" id="10_g3j4d"]
+[ext_resource type="Texture2D" uid="uid://cxy7ek5e5tfi6" path="res://sprites/brushes/PowderColor.png" id="11_a41ma"]
 [ext_resource type="Texture2D" uid="uid://cgrfmjqmdhvdm" path="res://sprites/brushes/WetSmall.png" id="11_q0led"]
 [ext_resource type="Texture2D" uid="uid://b51n802iq78eh" path="res://sprites/itemsPainted/nose.png" id="12_4qf7o"]
+[ext_resource type="Texture2D" uid="uid://bse4ngjym43ej" path="res://sprites/brushes/star.png" id="14_nr0vv"]
 [ext_resource type="Script" path="res://scripts/mouseMover.cs" id="15_84snk"]
 [ext_resource type="Shader" path="res://shader/painting_overlay.gdshader" id="17_qm37l"]
+[ext_resource type="PackedScene" uid="uid://du5aiuyfbknso" path="res://scenes/items/item_powderWhite.tscn" id="18_4fa4a"]
 [ext_resource type="Texture2D" uid="uid://lpv5k81j6aik" path="res://sprites/chars/char_laura_headcolor.png" id="19_w6a4s"]
+[ext_resource type="Texture2D" uid="uid://bkfwpk0uis002" path="res://sprites/itemsPainted/cup.png" id="20_2yxop"]
 [ext_resource type="Script" path="res://scripts/breather.cs" id="20_6t8aw"]
+[ext_resource type="PackedScene" uid="uid://dorhmnuliww4d" path="res://scenes/items/item_powderRed.tscn" id="21_eouwa"]
 [ext_resource type="Texture2D" uid="uid://rundaya5p0c" path="res://sprites/chars/char_laura_body.png" id="21_m71th"]
 [ext_resource type="Texture2D" uid="uid://dyxcmnhe67yc5" path="res://sprites/chars/char_laura_headoutlines.png" id="21_xeii4"]
+[ext_resource type="PackedScene" uid="uid://uagh807jpr3m" path="res://scenes/items/item_powderBlue.tscn" id="22_e4hmd"]
 [ext_resource type="Script" path="res://scripts/blinker.cs" id="22_pj2gu"]
+[ext_resource type="PackedScene" uid="uid://y0hnbt5yfd0m" path="res://scenes/items/item_powderYellow.tscn" id="23_3tkvp"]
 [ext_resource type="Texture2D" uid="uid://dlawttrcia2bt" path="res://sprites/chars/char_laura_eyes1.png" id="23_dxkbk"]
 [ext_resource type="Texture2D" uid="uid://myf6dbm4g8pm" path="res://sprites/chars/char_laura_eyes2.png" id="24_bybvj"]
+[ext_resource type="PackedScene" uid="uid://dkrkn10m077r4" path="res://scenes/items/item_penBlue.tscn" id="24_vmxth"]
+[ext_resource type="PackedScene" uid="uid://brh0jaeec184t" path="res://scenes/items/item_penGreen.tscn" id="25_17tey"]
 [ext_resource type="Texture2D" uid="uid://c4sqqklb447f4" path="res://sprites/chars/char_ryan_body.png" id="25_46rq7"]
 [ext_resource type="Texture2D" uid="uid://bkdlbswp3tmla" path="res://sprites/chars/char_ryan_headcolor.png" id="25_p44rd"]
 [ext_resource type="Texture2D" uid="uid://df8ox0go4bbqg" path="res://sprites/chars/char_ryan_headoutlines.png" id="26_d1dma"]
+[ext_resource type="PackedScene" uid="uid://d3ya0vw5cr6k3" path="res://scenes/items/item_penYellow.tscn" id="26_pgli7"]
 [ext_resource type="Texture2D" uid="uid://bj44yyea0slxs" path="res://sprites/blackhole.png" id="27_pke48"]
 [ext_resource type="Texture2D" uid="uid://ssb6t4nua0v8" path="res://sprites/chars/char_laura_nose1.png" id="27_qcu4a"]
 [ext_resource type="Texture2D" uid="uid://50empoiga20p" path="res://sprites/blackscreen.png" id="28_16upd"]
@@ -43,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://bcxwv2egvr3kx" path="res://sprites/chars/char_syl_eyes1.png" id="37_j6nuk"]
 [ext_resource type="Texture2D" uid="uid://ddnit5hj1etrc" path="res://sprites/chars/char_syl_eyes2.png" id="38_q8rx6"]
 [ext_resource type="Texture2D" uid="uid://nl28a8jx71te" path="res://sprites/chars/char_syl_legs.png" id="39_sd8r0"]
+[ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_glitter.tscn" id="45_4guo3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h47gk"]
 viewport_path = NodePath("CursorManager/SubViewportContainer/Paint")
@@ -126,13 +136,15 @@ brush = NodePath("../SubViewportContainer/Paint/MousePositon/Brush")
 nose = NodePath("../Nose For End")
 mousePos = NodePath("../SubViewportContainer/Paint/MousePositon")
 whitePowder = ExtResource("9_52ceq")
-colorPowder = ExtResource("9_52ceq")
+colorPowder = ExtResource("11_a41ma")
 wetBrush = ExtResource("10_g3j4d")
 wetBrushSmall = ExtResource("11_q0led")
+star = ExtResource("14_nr0vv")
 blue = Color(0.298709, 0.511871, 1, 1)
 yellow = Color(0.997412, 0.864769, 1.15514e-06, 1)
 red = Color(0.991644, 0, 0.29676, 1)
 wetRed = Color(0.705882, 0, 0, 1)
+green = Color(0.054902, 0.584314, 0.0392157, 1)
 spacingPowder = 0.05
 
 [node name="Item_lipstick" parent="CursorManager/Item Control" instance=ExtResource("5_wpu8c")]
@@ -150,10 +162,39 @@ z_index = 40
 position = Vector2(1147, 980)
 itemKey = 7
 
-[node name="Item_white" parent="CursorManager/Item Control" instance=ExtResource("9_8xksb")]
+[node name="Item_foundation" parent="CursorManager/Item Control" instance=ExtResource("18_4fa4a")]
 z_index = 40
-position = Vector2(167, 983)
-itemKey = 1
+position = Vector2(176, 972)
+
+[node name="Item_glitter" parent="CursorManager/Item Control" instance=ExtResource("45_4guo3")]
+z_index = 40
+position = Vector2(651, 540)
+
+[node name="Cup" type="Sprite2D" parent="CursorManager/Item Control"]
+z_index = 40
+position = Vector2(644, 584)
+texture = ExtResource("20_2yxop")
+
+[node name="Item_redPowder" parent="CursorManager/Item Control" instance=ExtResource("21_eouwa")]
+z_index = 40
+position = Vector2(641, 526)
+
+[node name="Item_bluePowder" parent="CursorManager/Item Control" instance=ExtResource("22_e4hmd")]
+z_index = 40
+position = Vector2(645, 530)
+
+[node name="Item_yellowPowder" parent="CursorManager/Item Control" instance=ExtResource("23_3tkvp")]
+z_index = 40
+position = Vector2(647, 532)
+
+[node name="Item_bPen" parent="CursorManager/Item Control" instance=ExtResource("24_vmxth")]
+position = Vector2(644, 586)
+
+[node name="Item_gPen" parent="CursorManager/Item Control" instance=ExtResource("25_17tey")]
+position = Vector2(644, 586)
+
+[node name="Item_yPen" parent="CursorManager/Item Control" instance=ExtResource("26_pgli7")]
+position = Vector2(644, 586)
 
 [node name="Char_Lauren" type="Node2D" parent="CursorManager"]
 visible = false
@@ -366,10 +407,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -2000.0
-offset_top = -2000.0
-offset_right = 2000.0
-offset_bottom = 2000.0
+offset_left = -2023.71
+offset_top = -2020.0
+offset_right = 1976.29
+offset_bottom = 1980.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("27_pke48")

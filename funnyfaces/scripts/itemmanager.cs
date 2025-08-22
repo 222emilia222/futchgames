@@ -7,8 +7,8 @@ public partial class itemmanager : Control
 {
     [Export] public Sprite2D brush, nose;
     [Export] Node2D mousePos;
-    [Export] Texture2D whitePowder, colorPowder, wetBrush, wetBrushSmall;
-    [Export] Color blue, yellow, red, wetRed;
+    [Export] Texture2D whitePowder, colorPowder, wetBrush, wetBrushSmall, star;
+    [Export] Color blue, yellow, red, wetRed, green;
     [Export] double spacingPowder, spacingWet;
     [Export] double currentTimer;
     public int currentItem = 0;
@@ -58,6 +58,14 @@ public partial class itemmanager : Control
                 { currentTimer = spacingWet; brush.Texture = wetBrushSmall; brush.Modulate = Color.Color8(0, 0, 0, 255); break; }
             case 7:
                 { brush.Texture = null; break; }
+            case 8:
+                { currentTimer = spacingWet; brush.Texture = wetBrushSmall; brush.Modulate = green; break; }
+            case 9:
+                { currentTimer = spacingWet; brush.Texture = wetBrushSmall; brush.Modulate = yellow; break; }
+            case 10:
+                { currentTimer = spacingWet; brush.Texture = wetBrushSmall; brush.Modulate = blue; break; }
+            case 11:
+                { currentTimer = spacingPowder; brush.Texture = star; brush.Modulate = Color.Color8(255, 255, 255, 255); break; }
         }
     }
     #endregion

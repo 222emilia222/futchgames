@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkrkn10m077r4"]
+
+[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_fvcy5"]
+[ext_resource type="Texture2D" uid="uid://cieuf3mmm3hgn" path="res://sprites/itemsPainted/penblue.png" id="2_bxtmp"]
+[ext_resource type="Texture2D" uid="uid://rnpsg0mtia3k" path="res://sprites/itemsPainted/penblue_frame.png" id="3_0ewga"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ox2h"]
+radius = 19.3859
+height = 81.4059
+
+[node name="Item_foundation" type="Area2D" node_paths=PackedStringArray("mainSprite", "frameSprite")]
+position = Vector2(1416, 280)
+script = ExtResource("1_fvcy5")
+mainSprite = NodePath("Sprite2D")
+frameSprite = NodePath("Sprite2D/Frame")
+radiusKey = 1
+itemKey = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bxtmp")
+
+[node name="Frame" type="Sprite2D" parent="Sprite2D"]
+z_index = 1
+texture = ExtResource("3_0ewga")
+
+[node name="Coll2d" type="CollisionShape2D" parent="."]
+position = Vector2(-512, -152)
+rotation = -0.263545
+shape = SubResource("CapsuleShape2D_6ox2h")
+
+[connection signal="mouse_entered" from="." to="." method="On_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="On_mouse_exited"]

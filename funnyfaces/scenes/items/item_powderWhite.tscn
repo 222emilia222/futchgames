@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://du5aiuyfbknso"]
+
+[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_ubpg7"]
+[ext_resource type="Texture2D" uid="uid://6abkyfbcoouk" path="res://sprites/itemsPainted/foundation.png" id="2_ms1iv"]
+[ext_resource type="Texture2D" uid="uid://det6agawcvedc" path="res://sprites/itemsPainted/foundation_frame.png" id="3_vpgpf"]
+[ext_resource type="Texture2D" uid="uid://dxh8tuni7btvn" path="res://sprites/itemsPainted/foundation_shadow.png" id="4_t6kts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ibvi"]
+size = Vector2(232, 105)
+
+[node name="Item_foundation" type="Area2D" node_paths=PackedStringArray("mainSprite", "frameSprite")]
+position = Vector2(1416, 280)
+script = ExtResource("1_ubpg7")
+mainSprite = NodePath("Sprite2D")
+frameSprite = NodePath("Sprite2D/Frame")
+radiusKey = 2
+itemKey = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ms1iv")
+
+[node name="Frame" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("3_vpgpf")
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D"]
+z_index = -1
+texture = ExtResource("4_t6kts")
+
+[node name="Coll2d" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 9.5)
+shape = SubResource("RectangleShape2D_1ibvi")
+
+[connection signal="mouse_entered" from="." to="." method="On_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="On_mouse_exited"]

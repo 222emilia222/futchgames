@@ -4,8 +4,8 @@ using System;
 public partial class interactible : Area2D
 {
 	[Export] CanvasItem mainSprite, frameSprite;
-	[Export] int radiusKey; //1 is small, 2 is medium, 3 is nose, 0 is default
-	[Export] int itemKey; //1=white,2=red,3=blue,4=yellow,5=lipstick,6=eyeliner,7=nose.
+	[Export] int radiusKey; //1 is small, 2 is medium, 3 is nose, 4 is star, 0 is default
+	[Export] int itemKey; //1=white,2=red,3=blue,4=yellow,5=lipstick,6=eyeliner,7=nose,8/9/10=green,yellow,blue pen,11=starglitter.
 	bool hovered = false;
 	Node2D grandparent;
 
