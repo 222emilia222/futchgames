@@ -241,6 +241,17 @@ script = ExtResource("20_6t8aw")
 breatheInterval = 5.0
 movValue = 10.0
 
+[node name="RichTextLabel" type="RichTextLabel" parent="CursorManager/Char_Lauren"]
+offset_left = -629.0
+offset_top = 553.0
+offset_right = 625.0
+offset_bottom = 726.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[b]Lauren:[/b] 
+\"Please turn me into a scary clown. I want to play a prank on my best friend!\""
+
 [node name="Char_Ryan" type="Node2D" parent="CursorManager"]
 visible = false
 position = Vector2(640, 540)
@@ -284,7 +295,19 @@ script = ExtResource("20_6t8aw")
 breatheInterval = 5.0
 movValue = 10.0
 
+[node name="RichTextLabel2" type="RichTextLabel" parent="CursorManager/Char_Ryan"]
+offset_left = -629.0
+offset_top = 553.0
+offset_right = 625.0
+offset_bottom = 726.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[b]Ryan:[/b] 
+\"My youngest daughter is in the hospital. Nothing serious. Still, I would like to surprise her. I really loved clowns back in the day.\""
+
 [node name="Char_Arno" type="Node2D" parent="CursorManager"]
+visible = false
 position = Vector2(640, 540)
 
 [node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Arno"]
@@ -325,6 +348,17 @@ texture = ExtResource("32_ohrdd")
 script = ExtResource("20_6t8aw")
 breatheInterval = 3.5
 movValue = 10.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CursorManager/Char_Arno"]
+offset_left = -629.0
+offset_top = 553.0
+offset_right = 625.0
+offset_bottom = 726.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[b]Arno:[/b] 
+\"Whatever, mate. Go crazy, don't look back.\""
 
 [node name="Char_Syl" type="Node2D" parent="CursorManager"]
 visible = false
@@ -374,10 +408,21 @@ show_behind_parent = true
 z_index = -2
 texture = ExtResource("39_sd8r0")
 
+[node name="RichTextLabel4" type="RichTextLabel" parent="CursorManager/Char_Syl"]
+offset_left = -629.0
+offset_top = 553.0
+offset_right = 625.0
+offset_bottom = 726.0
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 45
+bbcode_enabled = true
+text = "[b]Syl:[/b] 
+\"Some people say they can see a face in the patterns on my shell. Personally, I don't see it.\""
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CursorManager"]
 modulate = Color(1, 1, 1, 0)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 1280.0
 
 [node name="Paint" type="SubViewport" parent="CursorManager/SubViewportContainer"]
 transparent_bg = true

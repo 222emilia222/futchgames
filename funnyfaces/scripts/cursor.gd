@@ -10,11 +10,11 @@ var current
 
 func _ready():
 	current = openHand
-	Input.set_custom_mouse_cursor(openHand, Input.CURSOR_ARROW, Vector2(32,32))
+	Input.set_custom_mouse_cursor(openHand, Input.CURSOR_ARROW, Vector2(64,64))
 func _on_interactible_mouse_entered():
-	Input.set_custom_mouse_cursor(pointedHand, Input.CURSOR_ARROW, Vector2(32,32))
+	Input.set_custom_mouse_cursor(pointedHand, Input.CURSOR_ARROW, Vector2(64,64))
 func _on_interactible_mouse_exited():
-	Input.set_custom_mouse_cursor(current, Input.CURSOR_ARROW, Vector2(32,32))
+	Input.set_custom_mouse_cursor(current, Input.CURSOR_ARROW, Vector2(64,64))
 
 func _set_cursor(key: int):
 	match key:
@@ -28,7 +28,7 @@ func _set_cursor(key: int):
 			current=radiusBig
 		4:
 			current=radiusStar
-	Input.set_custom_mouse_cursor(current, Input.CURSOR_ARROW, Vector2(32,32))
+	Input.set_custom_mouse_cursor(current, Input.CURSOR_ARROW, Vector2(64,64))
 
 func _set_cursor_vis(vis: bool):
 	print("in vis method")
