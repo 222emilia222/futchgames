@@ -9,11 +9,14 @@ public partial class itemmanager : Control
     [Export] Node2D mousePos;
     [Export] Texture2D whitePowder, colorPowder, wetBrush, wetBrushSmall, star;
     [Export] Color blue, yellow, red, wetRed, green;
-    [Export] double spacingPowder, spacingWet;
+    [Export] double spacingPowder, spacingWet, spacingGlitter;
+    [Export] Godot.Collections.Array<Color> starColors;
+    int colorRot = 0;
     [Export] double currentTimer;
     public int currentItem = 0;
     bool clicked = false;
     public bool nosePlaced = false;
+    Random random = new Random();
 
     public override void _Ready()
     {
@@ -38,6 +41,8 @@ public partial class itemmanager : Control
         sprite = newSprite;
         coll = newColl;
         isLoaded = true;
+
+        brush.Offset = new Vector2(0,0);
 
         //change brush sprite & timer
         switch (currentItem)
@@ -65,7 +70,7 @@ public partial class itemmanager : Control
             case 10:
                 { currentTimer = spacingWet; brush.Texture = wetBrushSmall; brush.Modulate = blue; break; }
             case 11:
-                { currentTimer = spacingPowder; brush.Texture = star; brush.Modulate = Color.Color8(255, 255, 255, 255); break; }
+                { currentTimer = spacingGlitter; brush.Texture = star; brush.Modulate = Color.Color8(255, 255, 255, 255); break; }
         }
     }
     #endregion
@@ -108,6 +113,13 @@ public partial class itemmanager : Control
 
         var mainLoop = Engine.GetMainLoop();
         brush.Rotation += 30f; // move brush rotation
+        if (currentItem == 11) 
+        { 
+            //brush.Offset = new Vector2(random.Next(10, 100), 0);
+            brush.Modulate = starColors[colorRot];
+            colorRot++;
+            if (colorRot == 3) { colorRot = 0; }
+        }
         brush.Visible = true; //enable brush
         await mainLoop.ToSignal(mainLoop, SceneTree.SignalName.ProcessFrame);
         brush.Visible = false; //disable brush

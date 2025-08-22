@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=1080
+window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image_hotspot=Vector2(64, 64)
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
