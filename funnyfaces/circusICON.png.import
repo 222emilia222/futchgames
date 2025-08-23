@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n82egcylkpjy"
-path="res://.godot/imported/item_nose.png-76f9931798621248ec1c05ccf6a0ecf0.ctex"
+uid="uid://b61twc8idaxki"
+path="res://.godot/imported/circusICON.png-cb1a579da6e665c0438a0fe37c81e94e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/itemsPhotos/item_nose.png"
-dest_files=["res://.godot/imported/item_nose.png-76f9931798621248ec1c05ccf6a0ecf0.ctex"]
+source_file="res://circusICON.png"
+dest_files=["res://.godot/imported/circusICON.png-cb1a579da6e665c0438a0fe37c81e94e.ctex"]
 
 [params]
 

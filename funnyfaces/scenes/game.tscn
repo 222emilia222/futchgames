@@ -304,7 +304,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
 text = "[b]Ryan:[/b] 
-\"My youngest daughter is in the hospital. Nothing serious. Still, I would like to surprise her. I really loved clowns back in the day.\""
+\"My youngest daughter is in the hospital. Nothing serious. Still, I would like to surprise her.\""
 
 [node name="Char_Arno" type="Node2D" parent="CursorManager"]
 visible = false

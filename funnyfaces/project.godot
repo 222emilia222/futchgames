@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="funnyfaces"
+config/name="Funny Faces"
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://circusICON.png"
+config/windows_native_icon="res://circusICON.ico"
 
 [display]
 
