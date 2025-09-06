@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dorhmnuliww4d"]
 
-[ext_resource type="Script" path="res://scripts/interactible.cs" id="1_75jrs"]
+[ext_resource type="Script" uid="uid://1w12tns0hlox" path="res://scripts/interactible.cs" id="1_75jrs"]
 [ext_resource type="Texture2D" uid="uid://dhfo2w1phxl2p" path="res://sprites/itemsPainted/powderRed.png" id="2_44je5"]
 [ext_resource type="Texture2D" uid="uid://0486p07m4bbb" path="res://sprites/itemsPainted/powderRed_frame.png" id="3_mrptr"]
 [ext_resource type="Texture2D" uid="uid://doowrjqpucr8g" path="res://sprites/itemsPainted/powderRed_shadow.png" id="4_gprdm"]
