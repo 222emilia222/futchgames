@@ -7,16 +7,12 @@ void fragment()
 	vec4 col = texture(TEXTURE, UV);
 	vec4 paint = texture(paint_texture, UV);
 
-	if(paint.a == 1.0)
-	{
-		COLOR = mix(col, paint, paint.a);
-		COLOR.a = col.a;
-	}
-	else
-	{
-	   //COLOR = vec4(1.0) - (vec4(1.0) - col)* (vec4(1.0) - paint);
+	//vec4 aCol = mix(col, paint, paint.a);
+	//vec4 bCol = col + paint - vec4(2.0) * col * paint;
+	//vec4(1.0) - (vec4(1.0) - col) * (vec4(1.0) - paint);
+	//COLOR = mix(bCol, aCol, paint.a);
 
-	}
-	//COLOR = paint.a < 0.5 ? (2.0 * col * paint) : (vec4(1.0) - 2.0 * (vec4(1.0) - col) * (vec4(1.0) - paint));
-
+	vec4 colorMix = mix(col + paint, paint, paint.a);
+	COLOR.rgb = colorMix.rgb;
+	COLOR.a = col.a;
 }
