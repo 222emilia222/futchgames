@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=57 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" uid="uid://dfaeyld4qwok" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Script" uid="uid://b3yco6rblht1n" path="res://scripts/gamemanager.cs" id="1_ivxkp"]
@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://ddnit5hj1etrc" path="res://sprites/chars/char_syl_eyes2.png" id="38_q8rx6"]
 [ext_resource type="Texture2D" uid="uid://nl28a8jx71te" path="res://sprites/chars/char_syl_legs.png" id="39_sd8r0"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_glitter.tscn" id="45_4guo3"]
+[ext_resource type="Script" uid="uid://bm78uvd8tkrbr" path="res://scenes/Audiomanager.cs" id="54_3hbvx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h47gk"]
 viewport_path = NodePath("CursorManager/SubViewportContainer/Paint")
@@ -953,3 +954,10 @@ offset_bottom = -9939.71
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("28_16upd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("54_3hbvx")
