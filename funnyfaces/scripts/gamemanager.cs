@@ -45,6 +45,7 @@ public partial class gamemanager : Node2D
 
     public async Task TransitionStart()
     {
+        if (currentChar == characters.Count - 1) { Audiomanager.Instance.SwitchToCreditsMusic(); }
         blackhole.Position = GetNode<itemmanager>("CursorManager/Item Control").nose.Position + new Vector2(0, 15);
         blackhole.Visible = true;
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
@@ -61,6 +62,8 @@ public partial class gamemanager : Node2D
 
     public void CueEndScene()
     {
-        GetTree().ChangeSceneToFile("res://scenes/end.tscn");
+        var scene =  GD.Load<PackedScene>("res://scenes/end.tscn");
+        var inst = scene.Instantiate();
+        AddChild(inst);
     }
 }

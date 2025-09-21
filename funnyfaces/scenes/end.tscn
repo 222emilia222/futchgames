@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://lqrftxvnolne"]
+[gd_scene load_steps=3 format=3 uid="uid://lqrftxvnolne"]
 
 [ext_resource type="Texture2D" uid="uid://b51n802iq78eh" path="res://sprites/itemsPainted/nose.png" id="1_57rim"]
 [ext_resource type="Script" uid="uid://dd334kkfrr8g7" path="res://scripts/CreditsMover.cs" id="1_v6udk"]
-[ext_resource type="Script" uid="uid://84jo0dsxb65n" path="res://scripts/Hint.cs" id="3_4jokk"]
 
 [node name="End" type="Node2D"]
+z_index = 1000
 
 [node name="Credits" type="Node2D" parent="."]
 position = Vector2(640, 1189)
@@ -31,15 +31,15 @@ text = "[center]a game by Emilia Kern
 
 
 
+music by Julio Villanueva
+
+
+
+
+
+
+
+
+
 
 additional programming by David Heurix[/center]"
-
-[node name="Img 1" type="TextureRect" parent="Credits"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Escape Hint" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_4jokk")
-timeUntilHint = 5.0

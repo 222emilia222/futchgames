@@ -4,7 +4,8 @@ using System;
 public partial class Audiomanager : Control
 {
     public static Audiomanager Instance { get; private set; }
-    [Export] AudioStreamPlayer2D musicPlayer, sfxPlayer;
+    [Export] AudioStreamPlayer2D sfxPlayer, musicPlayer;
+    [Export] Godot.Collections.Array<AudioStream> soundFX;
 
     public override void _Ready()
     {
@@ -17,23 +18,15 @@ public partial class Audiomanager : Control
     }
     public void SwitchToCreditsMusic()
     {
-
+        var musicPlayback = musicPlayer.GetStreamPlayback();
+        if (musicPlayback != null && musicPlayback is AudioStreamPlaybackInteractive pbi)
+        pbi.SwitchToClipByName("Credits");
     }
 
-    public void PlaySound_Powder()
+    public void PlaySound(int i)
     {
-
-    }
-    public void PlaySound_NosePlace()
-    {
-
-    }
-    public void PlaySound_PaperRustle()
-    {
-
-    }
-    public void PlaySound_NoseFall()
-    {
-
+        // 0 = paper Rustle; 1 = nose Placed; 2 = nose fell; 3 = powder applied;
+        sfxPlayer.Stream = soundFX[i];
+        sfxPlayer.Play();
     }
 }
