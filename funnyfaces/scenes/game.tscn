@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=60 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" uid="uid://dfaeyld4qwok" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Script" uid="uid://b3yco6rblht1n" path="res://scripts/gamemanager.cs" id="1_ivxkp"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://ecj8pq01u60l" path="res://sprites/chars/char_arno_headoutlines.png" id="31_hsyf1"]
 [ext_resource type="Texture2D" uid="uid://c8jhiig6sogvm" path="res://sprites/chars/char_arno_eyes2.png" id="31_l37k2"]
 [ext_resource type="Texture2D" uid="uid://b6fic76vnueix" path="res://sprites/chars/char_arno_body.png" id="32_ohrdd"]
+[ext_resource type="Theme" uid="uid://dgqgpkx12onr2" path="res://default_text_theme.tres" id="35_7ixpq"]
 [ext_resource type="Texture2D" uid="uid://dqd7datlrlklu" path="res://sprites/chars/char_syl_drawcolor.png" id="35_8tbu8"]
 [ext_resource type="Texture2D" uid="uid://duo6ojlvg6l0r" path="res://sprites/chars/char_syl_drawoutlines.png" id="36_4oeca"]
 [ext_resource type="Texture2D" uid="uid://bcxwv2egvr3kx" path="res://sprites/chars/char_syl_eyes1.png" id="37_j6nuk"]
@@ -54,7 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://nl28a8jx71te" path="res://sprites/chars/char_syl_legs.png" id="39_sd8r0"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_glitter.tscn" id="45_4guo3"]
 [ext_resource type="Script" uid="uid://bm78uvd8tkrbr" path="res://scenes/Audiomanager.cs" id="54_3hbvx"]
-[ext_resource type="AudioStream" uid="uid://bryuyyscv4lfh" path="res://audio/250918_GJ-003.ogg" id="55_ms3bu"]
+[ext_resource type="AudioStream" uid="uid://bryuyyscv4lfh" path="res://audio/music/250918_GJ-003.ogg" id="55_ms3bu"]
 [ext_resource type="AudioStream" uid="uid://bnex056645l3y" path="res://audio/FunnyFaces_AudioInteractive.tres" id="55_q8j3a"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h47gk"]
@@ -249,6 +250,9 @@ offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
 offset_bottom = -338.0
+theme = ExtResource("35_7ixpq")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
@@ -304,6 +308,8 @@ offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
 offset_bottom = -338.0
+theme = ExtResource("35_7ixpq")
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
@@ -359,6 +365,8 @@ offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
 offset_bottom = -338.0
+theme = ExtResource("35_7ixpq")
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
@@ -419,6 +427,8 @@ offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
 offset_bottom = -338.0
+theme = ExtResource("35_7ixpq")
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true

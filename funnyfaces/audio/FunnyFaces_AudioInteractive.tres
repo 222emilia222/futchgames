@@ -1,7 +1,7 @@
 [gd_resource type="AudioStreamInteractive" load_steps=3 format=3 uid="uid://bnex056645l3y"]
 
-[ext_resource type="AudioStream" uid="uid://dxfrflqssbfxs" path="res://audio/250918_GJ-001.ogg" id="1_pj2ig"]
-[ext_resource type="AudioStream" uid="uid://c4pkakhw3rvcx" path="res://audio/250918_GJ-002.ogg" id="2_2tmc6"]
+[ext_resource type="AudioStream" uid="uid://dxfrflqssbfxs" path="res://audio/music/250918_GJ-001.ogg" id="1_pj2ig"]
+[ext_resource type="AudioStream" uid="uid://c4pkakhw3rvcx" path="res://audio/music/250918_GJ-002.ogg" id="2_2tmc6"]
 
 [resource]
 clip_count = 2
