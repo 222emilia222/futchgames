@@ -54,7 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://ddnit5hj1etrc" path="res://sprites/chars/char_syl_eyes2.png" id="38_q8rx6"]
 [ext_resource type="Texture2D" uid="uid://nl28a8jx71te" path="res://sprites/chars/char_syl_legs.png" id="39_sd8r0"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_glitter.tscn" id="45_4guo3"]
-[ext_resource type="Script" uid="uid://bm78uvd8tkrbr" path="res://scenes/Audiomanager.cs" id="54_3hbvx"]
+[ext_resource type="Script" uid="uid://bm78uvd8tkrbr" path="res://scripts/Audiomanager.cs" id="54_3hbvx"]
 [ext_resource type="AudioStream" uid="uid://bryuyyscv4lfh" path="res://audio/music/250918_GJ-003.ogg" id="55_ms3bu"]
 [ext_resource type="AudioStream" uid="uid://bnex056645l3y" path="res://audio/FunnyFaces_AudioInteractive.tres" id="55_q8j3a"]
 

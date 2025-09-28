@@ -16,7 +16,6 @@ public partial class itemmanager : Control
     public int currentItem = 0;
     bool clicked = false;
     public bool nosePlaced = false;
-    Random random = new Random();
 
     public override void _Ready()
     {
@@ -92,7 +91,6 @@ public partial class itemmanager : Control
             if (!nosePlaced)
             {
                 PlaceNose();
-                GD.Print("nose placed! I repeat! nose placed!");
             }
             return;
         }
