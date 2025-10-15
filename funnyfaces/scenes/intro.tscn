@@ -1,9 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsiir5q8gs4ig"]
+[gd_scene load_steps=4 format=3 uid="uid://dsiir5q8gs4ig"]
 
 [ext_resource type="Script" uid="uid://dfw66tjw5t2on" path="res://scenes/Intro.cs" id="1_ioskq"]
+[ext_resource type="Texture2D" uid="uid://b1vl32l8tnlh3" path="res://sprites/_paper.png" id="2_yjqpq"]
+[ext_resource type="Texture2D" uid="uid://do10mdfri1jsk" path="res://sprites/_signature.png" id="3_4bx60"]
 
-[node name="Intro" type="Node2D"]
+[node name="Intro" type="Node2D" node_paths=PackedStringArray("contract", "signature")]
 script = ExtResource("1_ioskq")
-interactionCount = 2
+contract = NodePath("Paper")
+signature = NodePath("Paper/Sig")
+pos1 = Vector3(680, 1106, 0.5)
+pos2 = Vector3(568, 401, 1.5)
+posFin = Vector3(836, 1771, 0.5)
+startDelay = 1.0
+endDelay = 1.0
+transDelay = 1.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Paper" type="Sprite2D" parent="."]
+position = Vector2(836, 1771)
+rotation = -0.129842
+scale = Vector2(0.439251, 0.439251)
+texture = ExtResource("2_yjqpq")
+
+[node name="Sig" type="Sprite2D" parent="Paper"]
+visible = false
+texture = ExtResource("3_4bx60")

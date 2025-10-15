@@ -15,7 +15,8 @@ public partial class gamemanager : Node2D
     [Export]
     Node2D cursorManager;
     float initScale;
-    [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed;
+    [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed, hintTime;
+    [Export] RichTextLabel hint;
 
 
     public override void _Ready()
@@ -26,10 +27,13 @@ public partial class gamemanager : Node2D
         {
             characters[i].Visible = false;
         }
+        hint.Visible = false;
+        TimedHint();
     }
 
     public void Resetup()
     {
+        hint.Visible = false;
         if (currentChar == characters.Count - 1) { CueEndScene(); GD.Print("credits!!"); return; }
         characters[currentChar].Visible = false; currentChar++;
         characters[currentChar].Visible = true;
@@ -49,14 +53,20 @@ public partial class gamemanager : Node2D
         blackhole.Visible = true;
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
         tween.TweenProperty(blackhole, "scale", new Vector2(finalScale, finalScale), transitionShrinkTime);
-        await ToSignal(GetTree().CreateTimer(transitionShrinkTime + waitTime), Godot.Timer.SignalName.Timeout);
+        await ToSignal(GetTree().CreateTimer(transitionShrinkTime + waitTime), Timer.SignalName.Timeout);
         Tween tween2 = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
         tween2.TweenProperty(blackhole, "position:y", blackhole.Position.Y + 1100, fallSpeed);
         Sprite2D nose = GetNode<itemmanager>("CursorManager/Item Control").nose;
         tween2.Parallel().TweenProperty(nose, "position:y", nose.Position.Y + 1100, fallSpeed);
-        await ToSignal(GetTree().CreateTimer(waitTime + fallSpeed), Godot.Timer.SignalName.Timeout);
+        await ToSignal(GetTree().CreateTimer(waitTime + fallSpeed), Timer.SignalName.Timeout);
 
         Resetup();
+    }
+
+    private async Task TimedHint()
+    {
+        await ToSignal(GetTree().CreateTimer(hintTime), Timer.SignalName.Timeout);
+        hint.Visible = true;
     }
 
     public void CueEndScene()

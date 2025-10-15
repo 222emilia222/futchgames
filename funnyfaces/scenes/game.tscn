@@ -66,7 +66,7 @@ resource_local_to_scene = true
 shader = ExtResource("17_qm37l")
 shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "blackhole", "subViewport", "cursorManager")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "blackhole", "subViewport", "cursorManager", "hint")]
 script = ExtResource("1_ivxkp")
 characters = [NodePath("CursorManager/Char_Ryan"), NodePath("CursorManager/Char_Syl"), NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Arno")]
 blackhole = NodePath("Transitioner")
@@ -76,6 +76,8 @@ finalScale = 0.15
 transitionShrinkTime = 3.5
 waitTime = 1.0
 fallSpeed = 1.5
+hintTime = 4.0
+hint = NodePath("CursorManager/Hint_RTL")
 
 [node name="CursorManager" type="Node2D" parent="."]
 script = ExtResource("1_7leby")
@@ -458,6 +460,20 @@ z_index = 40
 z_index = 150
 position = Vector2(166, -182)
 texture = ExtResource("12_4qf7o")
+
+[node name="Hint_RTL" type="RichTextLabel" parent="CursorManager"]
+z_index = 100
+offset_left = 391.0
+offset_top = 985.0
+offset_right = 1595.0
+offset_bottom = 1154.0
+theme = ExtResource("35_7ixpq")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "[b]Place the clown nose to finish this scene --->"
 
 [node name="Transitioner" type="Node2D" parent="."]
 z_index = 100

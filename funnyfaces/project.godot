@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Funny Faces"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="uid://dsiir5q8gs4ig"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://circusICON.png"
 config/windows_native_icon="res://circusICON.ico"
