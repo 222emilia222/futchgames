@@ -48,6 +48,7 @@ public partial class gamemanager : Node2D
 
     public async Task TransitionStart()
     {
+        Audiomanager.Instance.PlaySound(0);
         if (currentChar == characters.Count - 1) { Audiomanager.Instance.SwitchToCreditsMusic(); }
         blackhole.Position = GetNode<itemmanager>("CursorManager/Item Control").nose.Position + new Vector2(0, 15);
         blackhole.Visible = true;
@@ -55,6 +56,8 @@ public partial class gamemanager : Node2D
         tween.TweenProperty(blackhole, "scale", new Vector2(finalScale, finalScale), transitionShrinkTime);
         await ToSignal(GetTree().CreateTimer(transitionShrinkTime + waitTime), Timer.SignalName.Timeout);
         Tween tween2 = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
+        Audiomanager.Instance.PlaySound(1);
+        //nose rotation
         tween2.TweenProperty(blackhole, "position:y", blackhole.Position.Y + 1100, fallSpeed);
         Sprite2D nose = GetNode<itemmanager>("CursorManager/Item Control").nose;
         tween2.Parallel().TweenProperty(nose, "position:y", nose.Position.Y + 1100, fallSpeed);

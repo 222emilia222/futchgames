@@ -118,6 +118,7 @@ public partial class itemmanager : Control
             colorRot++;
             if (colorRot == 3) { colorRot = 0; }
         }
+        if (currentItem < 5 && currentItem > 1) { Audiomanager.Instance.PlaySound(2); }
         brush.Visible = true; //enable brush
         await mainLoop.ToSignal(mainLoop, SceneTree.SignalName.ProcessFrame);
         brush.Visible = false; //disable brush

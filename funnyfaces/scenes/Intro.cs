@@ -39,6 +39,7 @@ public partial class Intro : Node2D
             GD.Print("clicked!");
             if (clickCount == 0 && isInStartPos)
             {
+                Audiomanager.Instance.PlaySound(0);
                 Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
                 tween.TweenProperty(contract, "position", new Vector2(pos2.X, pos2.Y), pos2.Z);
                 clickCount++;
@@ -50,6 +51,7 @@ public partial class Intro : Node2D
     private async Task Start()
     {
         await ToSignal(GetTree().CreateTimer(startDelay), Timer.SignalName.Timeout);
+        Audiomanager.Instance.PlaySound(0);
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.Out);
         tween.TweenProperty(contract, "position", new Vector2(pos1.X, pos1.Y), pos1.Z);
         await ToSignal(GetTree().CreateTimer(pos1.Z), Timer.SignalName.Timeout);
@@ -58,8 +60,10 @@ public partial class Intro : Node2D
 
     private async Task SwitchToGameScene()
     {
+        Audiomanager.Instance.PlaySound(1);
         signature.Visible = true;
         await ToSignal(GetTree().CreateTimer(endDelay + posFin.Z), Timer.SignalName.Timeout);
+        Audiomanager.Instance.PlaySound(2);
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.In);
         tween.TweenProperty(contract, "position", new Vector2(posFin.X, posFin.Y), posFin.Z);
         await ToSignal(GetTree().CreateTimer(transDelay + posFin.Z), Timer.SignalName.Timeout);

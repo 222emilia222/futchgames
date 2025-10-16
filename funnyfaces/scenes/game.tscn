@@ -995,7 +995,7 @@ script = ExtResource("54_3hbvx")
 creditsMusic = ExtResource("55_ms3bu")
 sfxPlayer = NodePath("SFXPlayer2D")
 musicPlayer = NodePath("MusicPlayer2D")
-soundFX = Array[AudioStream]([null, null, null, null])
+soundFX = Array[AudioStream]([null, null, null])
 
 [node name="MusicPlayer2D" type="AudioStreamPlayer2D" parent="AudioControl"]
 stream = ExtResource("55_q8j3a")
