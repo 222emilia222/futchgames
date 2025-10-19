@@ -6,17 +6,17 @@ public partial class gamemanager : Node2D
 {
     [ExportCategory("Order")]
     [Export] Godot.Collections.Array<Node2D> characters;
+    [Export] Godot.Collections.Array<Node2D> smiles;
+    [Export] float hintTime, smileDelay;
+    [Export] RichTextLabel hint;
     int currentChar = 0;
     [ExportCategory("Transition")]
     [Export] Node2D blackhole;
     ViewportTexture paintboardTex;
-    [Export]
-    SubViewport subViewport;
-    [Export]
-    Node2D cursorManager;
-    float initScale;
-    [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed, hintTime;
-    [Export] RichTextLabel hint;
+    [Export] SubViewport subViewport;
+    [Export] Node2D cursorManager;
+    private float initScale;
+    [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed;
 
 
     public override void _Ready()
@@ -26,6 +26,7 @@ public partial class gamemanager : Node2D
         for (int i = 1; i < characters.Count; i++)
         {
             characters[i].Visible = false;
+            smiles[i].Visible = false;
         }
         hint.Visible = false;
         TimedHint();
@@ -35,7 +36,7 @@ public partial class gamemanager : Node2D
     {
         hint.Visible = false;
         if (currentChar == characters.Count - 1) { CueEndScene(); GD.Print("credits!!"); return; }
-        characters[currentChar].Visible = false; currentChar++;
+        characters[currentChar].Visible = false; smiles[currentChar].Visible = false; currentChar++;
         characters[currentChar].Visible = true;
         blackhole.Scale = new Vector2(initScale, initScale);
         blackhole.Visible = false;
@@ -50,6 +51,8 @@ public partial class gamemanager : Node2D
     {
         Audiomanager.Instance.PlaySound(0);
         if (currentChar == characters.Count - 1) { Audiomanager.Instance.SwitchToCreditsMusic(); }
+        await ToSignal(GetTree().CreateTimer(smileDelay), Timer.SignalName.Timeout);
+        smiles[currentChar].Visible = true;
         blackhole.Position = GetNode<itemmanager>("CursorManager/Item Control").nose.Position + new Vector2(0, 15);
         blackhole.Visible = true;
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);

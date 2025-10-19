@@ -33,7 +33,11 @@ public partial class Audiomanager : Control
     {
         // 0 = paper Rustle; 1 = signature scribble; 2 = loud paper Rustle;
         // 0 = nose Placed; 1 = nose squeeze and falling; 2 = powder applied;
-        sfxPlayer.Stream = soundFX[i];
-        sfxPlayer.Play();
+        if (soundFX[i] != null)
+        {
+            sfxPlayer.Stream = soundFX[i];
+            sfxPlayer.Play();
+        }
+        else { GD.Print("sfx is null x("); }
     }
 }
