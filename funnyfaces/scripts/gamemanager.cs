@@ -7,6 +7,8 @@ public partial class gamemanager : Node2D
     [ExportCategory("Order")]
     [Export] Godot.Collections.Array<Node2D> characters;
     [Export] Godot.Collections.Array<Node2D> smiles;
+    [Export] Godot.Collections.Array<RichTextLabel> texts;
+    [Export] Godot.Collections.Array<string> names;
     [Export] float hintTime, smileDelay;
     [Export] RichTextLabel hint;
     int currentChar = 0;
@@ -50,6 +52,7 @@ public partial class gamemanager : Node2D
     public async Task TransitionStart()
     {
         Audiomanager.Instance.PlaySound(0);
+        texts[currentChar].Text = "[b]" + names[currentChar] + ":[/b] \r\n\"That ought to do it!\"";
         if (currentChar == characters.Count - 1) { Audiomanager.Instance.SwitchToCreditsMusic(); }
         await ToSignal(GetTree().CreateTimer(smileDelay), Timer.SignalName.Timeout);
         smiles[currentChar].Visible = true;

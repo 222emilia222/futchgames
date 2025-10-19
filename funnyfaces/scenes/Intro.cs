@@ -18,33 +18,19 @@ public partial class Intro : Node2D
         Start();
     }
 
-    public override void _Process(double delta)
-    {
-        //if (Input.IsMouseButtonPressed(MouseButton.Left))
-        //{
-        //    if (clickCount == 1) 
-        //    {
-        //        Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.In);
-        //        tween.TweenProperty(contract, "position", new Vector2(pos2.X, pos2.Y), pos2.Z);
-        //    }
-        //    else if (clickCount == interactionCount) { SwitchToGameScene(); }
-        //    clickCount++;
-        //}
-    }
-
     public override void _Input(InputEvent @event)
     {
         if (!@event.IsEcho() && Input.IsMouseButtonPressed(MouseButton.Left))
         {
             GD.Print("clicked!");
-            if (clickCount == 0 && isInStartPos)
+            if (clickCount == 1)
             {
                 Audiomanager.Instance.PlaySound(0);
                 Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
                 tween.TweenProperty(contract, "position", new Vector2(pos2.X, pos2.Y), pos2.Z);
                 clickCount++;
             }
-            else if (clickCount == 1) { SwitchToGameScene(); }
+            else if (clickCount == 2) { SwitchToGameScene(); }
         }
     }
 
@@ -55,14 +41,14 @@ public partial class Intro : Node2D
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.Out);
         tween.TweenProperty(contract, "position", new Vector2(pos1.X, pos1.Y), pos1.Z);
         await ToSignal(GetTree().CreateTimer(pos1.Z), Timer.SignalName.Timeout);
-        isInStartPos = true;
+        clickCount = 1;
     }
 
     private async Task SwitchToGameScene()
     {
         Audiomanager.Instance.PlaySound(1);
         signature.Visible = true;
-        await ToSignal(GetTree().CreateTimer(endDelay + posFin.Z), Timer.SignalName.Timeout);
+        await ToSignal(GetTree().CreateTimer(endDelay), Timer.SignalName.Timeout);
         Audiomanager.Instance.PlaySound(2);
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.In);
         tween.TweenProperty(contract, "position", new Vector2(posFin.X, posFin.Y), posFin.Z);

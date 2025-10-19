@@ -14,10 +14,6 @@ public partial class Audiomanager : Control
         Instance = this;
     }
 
-    public void StartMusic()
-    {
-        musicPlayer.Play();
-    }
     public async Task SwitchToCreditsMusic()
     {
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.In);

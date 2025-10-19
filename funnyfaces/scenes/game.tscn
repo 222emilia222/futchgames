@@ -66,10 +66,12 @@ resource_local_to_scene = true
 shader = ExtResource("17_qm37l")
 shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "smiles", "hint", "blackhole", "subViewport", "cursorManager")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "smiles", "texts", "hint", "blackhole", "subViewport", "cursorManager")]
 script = ExtResource("1_ivxkp")
 characters = [NodePath("CursorManager/Char_Ryan"), NodePath("CursorManager/Char_Syl"), NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Arno")]
 smiles = [null, null, null, null]
+texts = [NodePath("CursorManager/Char_Ryan/RichTextLabel"), NodePath("CursorManager/Char_Syl/RichTextLabel"), NodePath("CursorManager/Char_Lauren/RichTextLabel"), NodePath("CursorManager/Char_Arno/RichTextLabel")]
+names = Array[String](["Ryan", "Syl", "Lauren", "Arno"])
 hintTime = 4.0
 hint = NodePath("CursorManager/Hint_RTL")
 blackhole = NodePath("Transitioner")
