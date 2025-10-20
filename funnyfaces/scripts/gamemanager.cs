@@ -10,7 +10,7 @@ public partial class gamemanager : Node2D
     [Export] Godot.Collections.Array<RichTextLabel> texts;
     [Export] Godot.Collections.Array<string> names;
     [Export] float hintTime, smileDelay;
-    [Export] RichTextLabel hint;
+    [Export] public RichTextLabel hint;
     int currentChar = 0;
     [ExportCategory("Transition")]
     [Export] Node2D blackhole;
@@ -19,10 +19,14 @@ public partial class gamemanager : Node2D
     [Export] Node2D cursorManager;
     private float initScale;
     [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed;
+    public bool canHintBeVis = true;
+    [Export] private Area2D noseArea;
 
+    public static gamemanager Instance { get; private set; }
 
     public override void _Ready()
     {
+        Instance = this;
         initScale = blackhole.Scale.X;
         characters[currentChar].Visible = true;
         for (int i = 1; i < characters.Count; i++)
@@ -37,6 +41,7 @@ public partial class gamemanager : Node2D
     public void Resetup()
     {
         hint.Visible = false;
+        noseArea.Visible = true;
         if (currentChar == characters.Count - 1) { CueEndScene(); GD.Print("credits!!"); return; }
         characters[currentChar].Visible = false; smiles[currentChar].Visible = false; currentChar++;
         characters[currentChar].Visible = true;
@@ -51,6 +56,8 @@ public partial class gamemanager : Node2D
 
     public async Task TransitionStart()
     {
+        canHintBeVis = false;
+        noseArea.Visible = false;
         Audiomanager.Instance.PlaySound(0);
         texts[currentChar].Text = "[b]" + names[currentChar] + ":[/b] \r\n\"That ought to do it!\"";
         if (currentChar == characters.Count - 1) { Audiomanager.Instance.SwitchToCreditsMusic(); }
@@ -75,7 +82,7 @@ public partial class gamemanager : Node2D
     private async Task TimedHint()
     {
         await ToSignal(GetTree().CreateTimer(hintTime), Timer.SignalName.Timeout);
-        hint.Visible = true;
+        if (canHintBeVis) { hint.Visible = true; }
     }
 
     public void CueEndScene()

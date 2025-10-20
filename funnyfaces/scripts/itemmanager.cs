@@ -71,6 +71,8 @@ public partial class itemmanager : Control
             case 11:
                 { currentTimer = spacingGlitter; brush.Texture = star; brush.Modulate = Color.Color8(255, 255, 255, 255); break; }
         }
+
+        if (currentItem ==7) { gamemanager.Instance.hint.Visible  = false; gamemanager.Instance.canHintBeVis = false; }
     }
     #endregion
 

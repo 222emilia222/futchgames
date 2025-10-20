@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://btl3pdhaw01mp"]
+[gd_scene load_steps=64 format=3 uid="uid://btl3pdhaw01mp"]
 
 [ext_resource type="Script" uid="uid://dfaeyld4qwok" path="res://scripts/cursor.gd" id="1_7leby"]
 [ext_resource type="Script" uid="uid://b3yco6rblht1n" path="res://scripts/gamemanager.cs" id="1_ivxkp"]
@@ -47,13 +47,17 @@
 [ext_resource type="Texture2D" uid="uid://ecj8pq01u60l" path="res://sprites/chars/char_arno_headoutlines.png" id="31_hsyf1"]
 [ext_resource type="Texture2D" uid="uid://c8jhiig6sogvm" path="res://sprites/chars/char_arno_eyes2.png" id="31_l37k2"]
 [ext_resource type="Texture2D" uid="uid://b6fic76vnueix" path="res://sprites/chars/char_arno_body.png" id="32_ohrdd"]
+[ext_resource type="Texture2D" uid="uid://cg6pa6ysj5br6" path="res://sprites/chars/char_laura_tongue.png" id="34_bk1p3"]
 [ext_resource type="Theme" uid="uid://dgqgpkx12onr2" path="res://default_text_theme.tres" id="35_7ixpq"]
 [ext_resource type="Texture2D" uid="uid://dqd7datlrlklu" path="res://sprites/chars/char_syl_drawcolor.png" id="35_8tbu8"]
 [ext_resource type="Texture2D" uid="uid://duo6ojlvg6l0r" path="res://sprites/chars/char_syl_drawoutlines.png" id="36_4oeca"]
 [ext_resource type="Texture2D" uid="uid://bcxwv2egvr3kx" path="res://sprites/chars/char_syl_eyes1.png" id="37_j6nuk"]
 [ext_resource type="Texture2D" uid="uid://ddnit5hj1etrc" path="res://sprites/chars/char_syl_eyes2.png" id="38_q8rx6"]
 [ext_resource type="Texture2D" uid="uid://nl28a8jx71te" path="res://sprites/chars/char_syl_legs.png" id="39_sd8r0"]
+[ext_resource type="Texture2D" uid="uid://c8vsdr1ybvwm1" path="res://sprites/chars/char_ryan_smile.png" id="41_n8ral"]
 [ext_resource type="PackedScene" uid="uid://b8x5helb8exwv" path="res://scenes/items/item_glitter.tscn" id="45_4guo3"]
+[ext_resource type="Texture2D" uid="uid://b71egnwavtdt4" path="res://sprites/chars/char_arno_smile.png" id="47_yd4ix"]
+[ext_resource type="Texture2D" uid="uid://dsp0rfiefkn7" path="res://sprites/chars/char_syl_hand.png" id="53_66xif"]
 [ext_resource type="Script" uid="uid://bm78uvd8tkrbr" path="res://scripts/Audiomanager.cs" id="54_3hbvx"]
 [ext_resource type="AudioStream" uid="uid://bryuyyscv4lfh" path="res://audio/music/250918_GJ-003.ogg" id="55_ms3bu"]
 [ext_resource type="AudioStream" uid="uid://bnex056645l3y" path="res://audio/FunnyFaces_AudioInteractive.tres" id="55_q8j3a"]
@@ -66,13 +70,14 @@ resource_local_to_scene = true
 shader = ExtResource("17_qm37l")
 shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "smiles", "texts", "hint", "blackhole", "subViewport", "cursorManager")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "smiles", "texts", "hint", "blackhole", "subViewport", "cursorManager", "noseArea")]
 script = ExtResource("1_ivxkp")
 characters = [NodePath("CursorManager/Char_Ryan"), NodePath("CursorManager/Char_Syl"), NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Arno")]
-smiles = [null, null, null, null]
+smiles = [NodePath("CursorManager/Char_Ryan/Head (Draw)/Extra"), NodePath("CursorManager/Char_Syl/Head (Draw)/Extra"), NodePath("CursorManager/Char_Lauren/Head (Draw)/Extra"), NodePath("CursorManager/Char_Arno/Head (Draw)/Extra")]
 texts = [NodePath("CursorManager/Char_Ryan/RichTextLabel"), NodePath("CursorManager/Char_Syl/RichTextLabel"), NodePath("CursorManager/Char_Lauren/RichTextLabel"), NodePath("CursorManager/Char_Arno/RichTextLabel")]
 names = Array[String](["Ryan", "Syl", "Lauren", "Arno"])
 hintTime = 4.0
+smileDelay = 0.5
 hint = NodePath("CursorManager/Hint_RTL")
 blackhole = NodePath("Transitioner")
 subViewport = NodePath("CursorManager/SubViewportContainer/Paint")
@@ -81,6 +86,7 @@ finalScale = 0.15
 transitionShrinkTime = 3.5
 waitTime = 1.0
 fallSpeed = 1.5
+noseArea = NodePath("CursorManager/Item Control/Item_nose")
 
 [node name="CursorManager" type="Node2D" parent="."]
 script = ExtResource("1_7leby")
@@ -208,6 +214,7 @@ position = Vector2(644, 586)
 position = Vector2(644, 586)
 
 [node name="Char_Lauren" type="Node2D" parent="CursorManager"]
+visible = false
 position = Vector2(640, 540)
 
 [node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Lauren"]
@@ -241,6 +248,11 @@ rInt1Max = 16
 rInt2Min = 25
 rInt2Max = 65
 
+[node name="Extra" type="Sprite2D" parent="CursorManager/Char_Lauren/Head (Draw)"]
+z_index = 5
+position = Vector2(-14, 40)
+texture = ExtResource("34_bk1p3")
+
 [node name="BodySprite" type="Sprite2D" parent="CursorManager/Char_Lauren"]
 show_behind_parent = true
 position = Vector2(1, 0)
@@ -265,7 +277,6 @@ text = "[b]Lauren:[/b]
 \"Please turn me into a scary clown. I want to play a prank on my best friend!\""
 
 [node name="Char_Ryan" type="Node2D" parent="CursorManager"]
-visible = false
 position = Vector2(640, 540)
 
 [node name="Head (Draw)" type="Sprite2D" parent="CursorManager/Char_Ryan"]
@@ -298,6 +309,12 @@ rInt1Min = 2
 rInt1Max = 7
 rInt2Min = 45
 rInt2Max = 120
+
+[node name="Extra" type="Sprite2D" parent="CursorManager/Char_Ryan/Head (Draw)"]
+visible = false
+z_index = 5
+position = Vector2(-5, 66)
+texture = ExtResource("41_n8ral")
 
 [node name="BodySprite" type="Sprite2D" parent="CursorManager/Char_Ryan"]
 show_behind_parent = true
@@ -356,6 +373,11 @@ rInt1Max = 34
 rInt2Min = 25
 rInt2Max = 65
 
+[node name="Extra" type="Sprite2D" parent="CursorManager/Char_Arno/Head (Draw)"]
+z_index = 5
+position = Vector2(-4, -8)
+texture = ExtResource("47_yd4ix")
+
 [node name="BodySprite" type="Sprite2D" parent="CursorManager/Char_Arno"]
 show_behind_parent = true
 position = Vector2(1, 0)
@@ -402,13 +424,13 @@ texture = ExtResource("36_4oeca")
 [node name="Head (Non-draw)" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)"]
 show_behind_parent = true
 
-[node name="Node2D" type="Node2D" parent="CursorManager/Char_Syl/Head (Draw)"]
+[node name="EyeBreatherNode" type="Node2D" parent="CursorManager/Char_Syl/Head (Draw)"]
 position = Vector2(0, -31)
 script = ExtResource("20_6t8aw")
 breatheInterval = 5.0
 movValue = 10.0
 
-[node name="Eyes" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)/Node2D"]
+[node name="Eyes" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)/EyeBreatherNode"]
 show_behind_parent = true
 z_index = -2
 position = Vector2(14, 56)
@@ -420,6 +442,11 @@ rInt1Min = 4
 rInt1Max = 16
 rInt2Min = 25
 rInt2Max = 65
+
+[node name="Extra" type="Sprite2D" parent="CursorManager/Char_Syl/Head (Draw)"]
+z_index = -5
+position = Vector2(13, 11)
+texture = ExtResource("53_66xif")
 
 [node name="BodySprite" type="Sprite2D" parent="CursorManager/Char_Syl"]
 show_behind_parent = true
