@@ -56,6 +56,7 @@ public partial class gamemanager : Node2D
 
     public async Task TransitionStart()
     {
+        TakePhoto();
         canHintBeVis = false;
         noseArea.Visible = false;
         Audiomanager.Instance.PlaySound(0);
@@ -90,5 +91,11 @@ public partial class gamemanager : Node2D
         var scene =  GD.Load<PackedScene>("res://scenes/end.tscn");
         var inst = scene.Instantiate();
         AddChild(inst);
+    }
+
+    private void TakePhoto()
+    {
+        var img = GetViewport().GetTexture().GetImage();
+        img.SavePng("res://images/char_portrait_" + currentChar + ".png");
     }
 }

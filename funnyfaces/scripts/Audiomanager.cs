@@ -28,7 +28,7 @@ public partial class Audiomanager : Control
     public void PlaySound(int i)
     {
         // 0 = paper Rustle; 1 = signature scribble; 2 = loud paper Rustle;
-        // 0 = nose Placed; 1 = nose squeeze and falling; 2 = powder applied;
+        // 0 = nose Placed; 1 = nose squeeze and falling; 2 = powder applied; 3 = bing!;
         if (soundFX[i] != null)
         {
             sfxPlayer.Stream = soundFX[i];
