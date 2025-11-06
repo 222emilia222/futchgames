@@ -10,8 +10,7 @@ public partial class CreditsMover : Node2D
 	{
 		for (int i = 0; i < portraitSprites.Count; i++)
 		{
-			portraitSprites[i].Texture = ResourceLoader.Load("res://images/char_portrait_" + [i] + ".png");
-
+			portraitSprites[i].Texture = (Texture2D)ResourceLoader.Load("res://images/char_portrait_" + i + ".png");
         }
 		startPos = Position.Y;
 		Tween tween = GetTree().CreateTween();

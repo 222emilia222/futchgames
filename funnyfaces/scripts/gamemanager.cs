@@ -21,6 +21,8 @@ public partial class gamemanager : Node2D
     [Export] float finalScale, transitionShrinkTime, waitTime, fallSpeed;
     public bool canHintBeVis = true;
     [Export] private Area2D noseArea;
+    [ExportCategory("Transition")]
+    [Export] Godot.Collections.Array<Node2D> nonPhotoElements;
 
     public static gamemanager Instance { get; private set; }
 
@@ -95,7 +97,17 @@ public partial class gamemanager : Node2D
 
     private void TakePhoto()
     {
+        // turn off non-photo elements
+        for (int i = 0; i < nonPhotoElements.Count; i++)
+        {
+            nonPhotoElements[i].Visible = false;
+        }
         var img = GetViewport().GetTexture().GetImage();
         img.SavePng("res://images/char_portrait_" + currentChar + ".png");
+        // turn on non-photo elements
+        for (int i = 0; i < nonPhotoElements.Count; i++)
+        {
+            nonPhotoElements[i].Visible = true;
+        }
     }
 }
