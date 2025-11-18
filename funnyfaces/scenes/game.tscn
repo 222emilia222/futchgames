@@ -70,7 +70,7 @@ resource_local_to_scene = true
 shader = ExtResource("17_qm37l")
 shader_parameter/paint_texture = SubResource("ViewportTexture_h47gk")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "smiles", "texts", "hint", "blackhole", "subViewport", "cursorManager", "noseArea")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("characters", "smiles", "texts", "hint", "blackhole", "subViewport", "cursorManager", "noseArea", "controlNPE", "backgroundImages")]
 script = ExtResource("1_ivxkp")
 characters = [NodePath("CursorManager/Char_Ryan"), NodePath("CursorManager/Char_Syl"), NodePath("CursorManager/Char_Lauren"), NodePath("CursorManager/Char_Arno")]
 smiles = [NodePath("CursorManager/Char_Ryan/Head (Draw)/Extra"), NodePath("CursorManager/Char_Syl/Head (Draw)/Extra"), NodePath("CursorManager/Char_Lauren/Head (Draw)/Extra"), NodePath("CursorManager/Char_Arno/Head (Draw)/Extra")]
@@ -87,6 +87,8 @@ transitionShrinkTime = 3.5
 waitTime = 1.0
 fallSpeed = 1.5
 noseArea = NodePath("CursorManager/Item Control/Item_nose")
+controlNPE = [NodePath("CursorManager/Item Control"), NodePath("CursorManager/CharBackground/shelves"), NodePath("CursorManager/Char_Lauren/RichTextLabel"), NodePath("CursorManager/Char_Ryan/RichTextLabel"), NodePath("CursorManager/Char_Arno/RichTextLabel"), NodePath("CursorManager/Char_Syl/RichTextLabel")]
+backgroundImages = [null, null, null, null]
 
 [node name="CursorManager" type="Node2D" parent="."]
 script = ExtResource("1_7leby")
@@ -95,6 +97,13 @@ script = ExtResource("1_7leby")
 offset_right = 1280.0
 offset_bottom = 1080.0
 texture = ExtResource("2_y1scj")
+
+[node name="BG1" type="TextureRect" parent="CursorManager/CharBackground"]
+z_index = 25
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 1080.0
+texture = ExtResource("3_vqqh3")
 
 [node name="woodframe" type="TextureRect" parent="CursorManager/CharBackground"]
 z_index = 30
@@ -1025,7 +1034,7 @@ script = ExtResource("54_3hbvx")
 creditsMusic = ExtResource("55_ms3bu")
 sfxPlayer = NodePath("SFXPlayer2D")
 musicPlayer = NodePath("MusicPlayer2D")
-soundFX = Array[AudioStream]([null, null, null, null])
+soundFX = [null, null, null, null]
 
 [node name="MusicPlayer2D" type="AudioStreamPlayer2D" parent="AudioControl"]
 stream = ExtResource("55_q8j3a")
