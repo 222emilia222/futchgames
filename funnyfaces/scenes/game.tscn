@@ -283,7 +283,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
 text = "[b]Lauren:[/b] 
-\"Please turn me into a scary clown. I want to play a prank on my best friend!\""
+\"P-please turn me into a scary clown. I want to play a prank on my best friend!\""
 
 [node name="Char_Ryan" type="Node2D" parent="CursorManager"]
 position = Vector2(640, 540)
@@ -345,7 +345,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
 text = "[b]Ryan:[/b] 
-\"My youngest daughter is in the hospital. Nothing serious. Still, I would like to surprise her.\""
+\"My husband's in the hospital right now. It's nothing serious, really. I want to surprise him with a classic old-timey clown look.\""
 
 [node name="Char_Arno" type="Node2D" parent="CursorManager"]
 visible = false
@@ -474,7 +474,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 45
 bbcode_enabled = true
 text = "[b]Syl:[/b] 
-\"Some people say they can see a face in the patterns on my shell. Personally, I don't see it.\""
+\"Some people say they can see a face in the patterns on my shell. Personally, I don't see it. ...That's my request.\""
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CursorManager"]
 modulate = Color(1, 1, 1, 0)

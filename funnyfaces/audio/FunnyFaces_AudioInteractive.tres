@@ -1,11 +1,14 @@
-[gd_resource type="AudioStreamInteractive" format=3 uid="uid://bnex056645l3y"]
+[gd_resource type="AudioStreamInteractive" load_steps=3 format=3 uid="uid://bnex056645l3y"]
+
+[ext_resource type="AudioStream" uid="uid://dxfrflqssbfxs" path="res://audio/music/250918_GJ-001.ogg" id="1_7egtg"]
+[ext_resource type="AudioStream" uid="uid://c4pkakhw3rvcx" path="res://audio/music/250918_GJ-002.ogg" id="2_pj2ig"]
 
 [resource]
-_transitions = {
-Vector2i(1, 0): {
-"fade_beats": 1.0,
-"fade_mode": 0,
-"from_time": 3,
-"to_time": 1
-}
-}
+clip_count = 2
+clip_0/name = &"250918 Gj-001"
+clip_0/stream = ExtResource("1_7egtg")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"250918 Gj-002"
+clip_1/stream = ExtResource("2_pj2ig")
+clip_1/auto_advance = 0

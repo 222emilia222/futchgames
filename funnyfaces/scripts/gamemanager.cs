@@ -59,7 +59,6 @@ public partial class gamemanager : Node2D
 
     public async Task TransitionStart()
     {
-        TakePhoto();
         canHintBeVis = false;
         noseArea.Visible = false;
         Audiomanager.Instance.PlaySound(0);
@@ -67,6 +66,7 @@ public partial class gamemanager : Node2D
         if (currentChar == characters.Count - 1) { Audiomanager.Instance.SwitchToCreditsMusic(); }
         await ToSignal(GetTree().CreateTimer(smileDelay), Timer.SignalName.Timeout);
         smiles[currentChar].Visible = true;
+        await TakePhoto();
         blackhole.Position = GetNode<itemmanager>("CursorManager/Item Control").nose.Position + new Vector2(0, 15);
         blackhole.Visible = true;
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
@@ -96,12 +96,13 @@ public partial class gamemanager : Node2D
         AddChild(inst);
     }
 
-    private void TakePhoto()
+    private async Task TakePhoto()
     {
         // turn off non-photo elements
         //backgroundImages[currentChar].Visible = true;
         for (int i = 0; i < controlNPE.Count; i++) { controlNPE[i].Visible = false; }
         hint.Visible = false;
+        await ToSignal(GetTree().CreateTimer(0.1), Timer.SignalName.Timeout);
         var img = GetViewport().GetTexture().GetImage();
         img.SavePng("res://images/char_portrait_" + currentChar + ".png");
         // turn on non-photo elements
