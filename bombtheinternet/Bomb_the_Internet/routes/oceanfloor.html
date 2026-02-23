@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <p class="bottomText" id="Text">A familiar glow emanates from inside your bag. It can't be, you haven't had a phone in years...</p>
+        <button id="actionButton" onclick="Move()">Bomb the Internet</button>
+        <img class="backgroundIMG" id="BGIMG" src="../images/floor3.png">
+        <img id="phoneHand" class="phoneImage" src="../images/phone.png">
+        <audio id="messageSound"><source src="../audio/msgNotif.mp3"></audio>
+        <audio id="song"><source src="../audio/song.mp3"></audio>
+        <audio id="heartbeat"><source src="../audio/heartbeat.mp3"></audio>
+    </body>
+</html>
+
+<style>
+button{
+    margin-left: 100px;
+    font-size: large;
+    display: none;
+    z-index: 50;
+    position: absolute;
+}
+.bottomText{
+    color: white;
+    font-size: x-large;
+    margin-left: 20px;
+}
+.backgroundIMG{
+    width: 100%;
+    position: fixed;
+    mix-blend-mode: screen;
+    opacity: 20%;
+}
+.phoneImage
+{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    display: none; 
+    z-index: 20;
+}
+body{
+    position: fixed;
+    background-image: linear-gradient(to bottom, #0D0A23, #091841);
+}
+</style>
+
+<script>
+const phoneHand = document.getElementById("phoneHand");
+const bottomText = document.getElementById("Text");
+const actionButton = document.getElementById("actionButton");
+const heartbeatSound = document.getElementById("heartbeat");
+const init = initial();
+const texts = ["But here it is, snug in your hands, like a long lost limb. It tingles as your synapses reconnect.", "You just received a message. It's from Denver.", "It's a sound file.", "...", "You put the phone away, but the music doesn't leave you. You have a job to tend to."]
+let stepCount = 0;
+
+function nextStep()
+{
+    if (stepCount === 0) {
+        phoneHand.style.display = "block";
+    }
+    else if (stepCount === 1) {
+        phoneHand.src = "../images/phoneAlt.png";
+        document.getElementById("messageSound").play();
+    }
+    else if (stepCount === 3) {
+        document.getElementById("song").play();
+        heartbeatSound.pause();
+    }
+    else if (stepCount === 4) {
+        actionButton.style.display = "block";
+        setTimeout(() => { phoneHand.style.display = "none";}, 500);
+    }
+    bottomText.innerHTML = texts[stepCount];
+    stepCount++;
+}
+
+function Move(){
+    window.open("end.html");
+}
+
+function initial(){
+    heartbeatSound.loop = true;
+    heartbeatSound.play();
+}
+
+const KEY_HANDLERS = {
+  Space: () => nextStep(),
+};
+
+document.addEventListener('keydown', (e) => {
+    e.preventDefault();
+
+    const handler = KEY_HANDLERS[e.code];
+    
+    if (handler) {
+      handler();
+      return;
+    }
+    
+    console.log('Pressed a key without a handler.')
+});
+</script>

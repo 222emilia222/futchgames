@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <img class="backgroundIMG" id="BGIMG" src="../images/chat2_1.png">
+        <img class="backgroundIMG" style="z-index: 100;" id="lesbians" src="../images/chat2_1pp.png">
+        <div class="diaBox" style="bottom: -20px; left: 650px; display: none;" id="diaBox1"></div>
+        <div class="diaBox" style="bottom: 60px; left: 950px; display: none;" id="diaBox2"></div>
+        <img class="backgroundIMG" id="trainSnake">
+        <audio id="trainSound"><source src="../audio/wood_drop.wav"></audio>
+    </body>
+</html>
+
+<style>
+.diaBox
+{
+    position: absolute;
+    border: 3px solid white;
+    background-color: black;
+    color: aliceblue;
+    font-style: italic;
+    padding: 10px;
+    padding-bottom: 50px;
+    width: 150px;
+    z-index: 50;
+}
+body{
+    background-color: black;
+}
+.backgroundIMG{
+    position: absolute;
+    width: 100%;
+    display: none;
+}
+</style>
+
+<script>
+const BGIMG = document.getElementById("BGIMG");
+const init2 = setTimeout(() => { document.getElementById("lesbians").style.display = "block";}, 1000);
+let msgCount = -1;
+const diaBox = document.getElementById("diaBox1");
+const diaBox2 = document.getElementById("diaBox2");
+let currBox;
+let yourTurn = false;
+const words = ["I've read something new about Kaczynski recently.", "That's what you wanted to talk about?", "...", "Sorry, go on.", "So, one day he went to see his favorite spot in nature.", " ", "But when he got there, he saw train tracks tearing open the land.", "And just like that,", "It was his breaking point.", "Ha! And Jarrod tried really hard to make us believe he wasn't actually a primitivist.", "But don't you find it odd?", "Odd how? He was a psycho.", "...It's just so meaningless.", "Do you sometimes doubt what we are doing?", "What?!", "No! It must go! No one should suffer like us ever again.", "...But then we'll never talk to each other again, right?", "...", "I'll miss our chats.", "I think you should look at it this way:", "Without it we would have never met in the first place.", "Talking with someone on the other side of the globe.", "...", "It's unnatural."]
+const turns = [true, false, true, false, true, false, false, false, true, false, true, false, false, true, true, false, true, false, true, true, true, false, true, false]
+const trainImages = ["../images/chat2_4_1.png", "../images/chat2_4_2.png", "../images/chat2_4_3.png", "../images/chat2_4_4.png", "../images/chat2_4_5.png", "../images/chat2_4_6.png", "../images/chat2_4_7.png"]
+const snake = document.getElementById("trainSnake");
+let trainImgCount = 0;
+
+function nextMsg(){
+    if(msgCount < (words.length - 1)){
+        msgCount++;
+        if(msgCount === 0) {BGIMG.style.display = "block"}
+        else if(msgCount === 3) {BGIMG.src = "../images/chat2_2.png"; console.log("msgCount is 3 and there should be new image")}
+        else if (msgCount === 4) {BGIMG.src = "../images/chat2_3.png";}
+
+        if (yourTurn) {currBox = diaBox2; if(diaBox2.style.display === "none") {diaBox2.style.display = "block";}}
+        else {currBox = diaBox; if(diaBox.style.display === "none") {diaBox.style.display = "block";}}
+        currBox.innerHTML = " ";
+        setTimeout(() => {currBox.innerHTML = words[msgCount];}, 500);
+        yourTurn = turns[msgCount];
+    }
+    else{
+        trainSnake();
+    }
+}
+
+function trainSnake(){
+    snake.style.display = "block";
+    snake.src = trainImages[trainImgCount];
+    document.getElementById("trainSound").play();
+    trainImgCount++;
+    if (trainImgCount < 7) {setTimeout(trainSnake,900);}
+    else {setTimeout(() => {window.open("oceanfloor.html");}, 2000);}
+}
+
+const KEY_HANDLERS = {
+  Space: () => nextMsg(),
+};
+
+document.addEventListener('keydown', (e) => {
+    e.preventDefault();
+
+    const handler = KEY_HANDLERS[e.code];
+    
+    if (handler) {
+      handler();
+      return;
+    }
+    
+    console.log('Pressed a key without a handler.')
+});
+</script>

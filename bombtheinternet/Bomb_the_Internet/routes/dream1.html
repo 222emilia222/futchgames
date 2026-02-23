@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <br><br><br><br><br><br>
+        <h1 class="fade_away" id="disText">Shutting down...</h1>
+        <div class="dialogBox dialog c_sub" id="D2_1">...</div>
+        <div class="imageRow" id="imageBox">
+            <div class="selectionImg" onclick="showDialog2()" id="di1"><img id="i1"><span>A.</span></div>
+            <div class="selectionImg" onclick="showDialog2()" id="di2"><img id="i2"><span>B.</span></div>
+            <div class="selectionImg" onclick="showDialog2()" id="di3"><img id="i3"><span>C.</span></div>
+        </div>
+        <div class="dialogBox2 dialog c_you" id="D2_2">...</div>
+        </div>
+    </body>
+</html>
+
+<style>
+.imageRow
+{
+    position:absolute;
+    width:570px;
+    height:180px;
+    bottom:0px;
+    right:25%;
+    left:50%;
+    margin-left:-285px;
+}
+span
+{
+    color: red;
+    font-size: x-large;
+}
+.selectionImg
+{
+    padding: 30px;
+    display: none;
+}
+img
+{
+    width: 100px;
+    border: 2px solid red;
+}
+.selectionImg:hover
+{
+    padding: 28px;
+    border: 2px dashed azure;
+}
+body
+{
+    background-color: black;
+}
+h1
+{
+    text-align: center;
+    margin: auto;
+    color: azure;
+}
+.dialogBox
+{
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    border: 2px white solid;
+    width: 300px;
+    height: 60px;
+    color: azure;
+    padding: 10px;
+    background-color: black;
+}
+.dialogBox2
+{
+    position: absolute;
+    top: 250px;
+    right: 20px;
+    border: 2px white solid;
+    width: 300px;
+    height: 60px;
+    color: azure;
+    padding: 10px;
+    background-color: black;
+}
+</style>
+
+<script>
+    const init = setTimeout(showDialog1, 1000)
+    let msgCount = 0;
+    let imgDivCount = 1;
+    let imgCount = 0;
+    const images = ["../images/eye1.png", "../images/eye2.png", "../images/eye3.png", "../images/mem1.png", "../images/mem2.png", "../images/mem3.png", "../images/face1.png", "../images/face2.png", "../images/face3.png", "../images/sense1.png", "../images/sense2.png", "../images/sense3.png"];
+    const texts1 = ["I gave you eyes far from their sockets.", "I made your memory perfect.", "I gave you thousand faces to stare you down.", "After all I gave you... What is it that you miss the most?"]
+    const texts2 = ["So I could close them.", "So I could forget.", "..."]
+
+    function showDialog1()
+    {
+        document.getElementById("disText").style.display = "none";
+        document.getElementById("D2_1").style.display = "block";
+        document.getElementById("D2_1").innerHTML = texts1[msgCount];
+        document.getElementById("imageBox").style.display = "block";
+        setTimeout(ShowImage1, 1000);
+        setTimeout(ShowImage2, 2000);
+        setTimeout(ShowImage3, 3000);
+    }
+    function showDialog2()
+    {
+        document.getElementById("D2_2").style.display = "block";
+        document.getElementById("D2_2").innerHTML = texts2[msgCount];
+
+        document.getElementById("di1").style.display = "none";
+        document.getElementById("di2").style.display = "none";
+        document.getElementById("di3").style.display = "none";
+        msgCount++;
+        if (msgCount === 4) 
+        {
+            setTimeout(() => { window.open("interview1.html");}, 3000);
+        } else {setTimeout(showDialog1, 2000);}
+    }
+    function ShowImage1() 
+    {
+        document.getElementById("i1").src = images[imgCount];
+        imgCount++;
+        document.getElementById("di1").style.display = "inline-block";
+    }
+    function ShowImage2() 
+    {
+        document.getElementById("i2").src = images[imgCount];
+        imgCount++;
+        document.getElementById("di2").style.display = "inline-block";
+    }
+    function ShowImage3() 
+    {
+        document.getElementById("i3").src = images[imgCount];
+        imgCount++;
+        document.getElementById("di3").style.display = "inline-block";
+    }
+</script>

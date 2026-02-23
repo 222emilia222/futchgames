@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <br/><br/>
+        <div class="manifesto">
+            <img>
+            <p>We, the Neo-Luddite Offensive, are a global decentralised operation united under a singular goal. 
+                The NLO takes full credit for the attack of August 30th. We make the following demands:</p>
+            <p class="indent"><b>(1)</b> Effectively shut down the global internet.</p>
+            <p class="indent"><b>(2)</b> Dissolve all social media corporations. The destructive effects of instant messaging as well as social mechanics on the mind of the people, especially the young, is uncalculable and has to be stopped now.</p>
+            <p class="indent"><b>(3)</b> Full amnesty for the Altoona Six.</p>
+            <p class="indent"><b>(4)</b> ....</p>
+            <p>In the case these demands are not met and publicly acknowledged we will resume activity and continue as well as escalate attacks on 
+                central information infrastructure... and ... <span class="blinking" style="font-weight: bold;">|</span></p>
+        </div>
+        <br/>
+        <div class="call" id="call">
+            <div class="callInner">
+                <div class="buttonBox" id="buttonBox">
+                    <br>
+                    <audio id="callSound"><source src="../audio/ringtone.mp3"></audio>
+                    <p style="font-size: small;">Incoming call from<br>
+                    <span style="font-size: large; text-decoration: underline;" title="Father (dont pick up!!!!!!">Father (dont pick u</span></p>
+                    <button onclick="AcceptCall()" style="border: 5px solid #063;"><img class="telImg" src="../images/telAccept.png"> Accept</button>
+                    <button onclick="HideCall()" style="border: 5px solid rgb(102, 0, 0);"><img class="telImg" src="../images/telReject.png"> Refuse</button>
+                    <br/><br/>
+                </div>
+                <div class="dialogueFrame" id="dialogueBox">
+                    <img>
+                    <p style="font-size: large; text-decoration: underline;" title="Father (dont pick up!!!!!!">Father (dont pick u</p>
+                    <p class="c_dad dialogBox" id="D1_1">Oh!</p>
+                    <p class="c_dad dialogBox dialog" id="D1_2">Uh hullo, Marea, can you hear me?</p>
+                    <p class="c_dad dialogBox dialog" id="D1_3">I was just calling because you haven't responded to our 
+                        texts for a while. How's school?</p>
+                    <button id="hangup" onclick="Move()" style="display: none; margin: 0 auto; font-size: large;">Hang up.</button>
+                    <br>
+                </div>
+            <div>
+        </div>
+    </body>
+</html>
+
+<style>
+button{
+    align-items: center;
+}
+.telImg{
+    width: 10px;
+    display: inline-block;
+}
+.indent{
+    margin-left: 30px;
+}
+.dialogBox{
+    background-color: white;
+    font-style: italic;
+    color: black;
+    margin-left: 10px;
+    width: 150px;
+    padding: 5px;
+    text-align: left;
+    font-size: small;
+    border: 2px #609EA3 solid;
+}
+.call{
+    position: absolute;
+    display: none;
+    background-image: url("../images/rippleBG.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    top: 0px;
+    left: 0px;
+    padding: 30px;
+    text-align: center;
+    border: 5px white solid;
+}
+.callInner{
+    color: black;
+    width: 200px;
+    font-weight: bold;
+    margin: 0 auto;
+    background-color: grey;
+    border: 3px solid black;
+}
+.dialogueFrame {display: none;}
+.manifesto{
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px solid black;
+    padding: 20px;
+    width: 550px;
+    margin: 0 auto;
+    background-color: white; 
+    background-image: url("../images/paper.jpg");
+}
+body{
+    height: 100%;
+    margin: 0;
+    background-repeat: round;
+    background-image: url(../images/Kaufhaus2.jpg);
+    background-color: rgba(0, 0, 0, 0.842);
+    background-blend-mode: darken;
+}
+</style>
+
+<script>
+    const getCalled = setTimeout(ShowCall, 7000)
+    const ringtone = document.getElementById("callSound");
+    let msgCount = 1;
+
+    function AcceptCall()
+    {
+        document.getElementById("buttonBox").style.display = "none";
+        document.getElementById("dialogueBox").style.display = "block";
+        ringtone.pause();
+        setTimeout(nextMsg, 1000);
+    }
+    function HideCall()
+    {
+        document.getElementById("call").style.display = "none";
+        setTimeout(ShowCall, 4000);
+        ringtone.pause();
+    }
+    function ShowCall()
+    {
+        const callWindow = document.getElementById("call");
+        callWindow.style.left = Math.random() * (window.innerWidth * 0.75) + "px";
+        callWindow.style.top = Math.random() * (window.innerHeight * 0.75) + "px";
+        callWindow.style.display = "block";
+        ringtone.load();
+        ringtone.play();
+        ringtone.loop = true;
+    }
+    function nextMsg()
+    {
+        if (msgCount < 3){
+            msgCount += 1;
+            document.getElementById("D1_" + msgCount).style.display = "block";
+            setTimeout(nextMsg, 2000);
+        }
+        else {document.getElementById("hangup").style.display = "block";}
+    }
+    function Move(){
+        window.open("interview2.html");
+    }
+</script>

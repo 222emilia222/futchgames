@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body>
+        <img class="background" id="FGimg" style="z-index: 150;">
+        <img class="background" id="BGimg0" style="display: none;" src="../images/int2_1.png">
+        <img class="background" id="BGimg1">
+        <img class="background" id="BGimgJ">
+        <img class="background" id="BGimg3">
+        <img class="background" id="BGimg4">
+        <img class="background" id="BGimg6">
+        <img class="background" id="BGimg7">
+        <div id="optionBox" style="display: none;">
+            <p class="text">You haven't slept a lot last night. You try your best to stay focused, <span class="sleepButton" onclick="startSleep()">but</span></p>
+            <p></p>
+        </div>
+        <div id="FG" style="height: 100%; width: 100%; z-index: 100; position: fixed;"></div>
+        <div class="messageBox" id="messageBox">
+            <p class="chatName">Denver</p><img style="float: right; margin-top: -40px;" src="../images/Anon6.png" width="40px">
+            <p class="msg" id="message1">Heyyy!! #</p>
+            <p class="msg" id="message2">wAKE UP!</p>
+            <p class="msg" id="message3">Are u ok?</p>
+            <p class="msg" id="message4">Also do you wanna hang after this?</p>
+            <button onclick="Move()" id="answer">Accept offer :)</button>
+        </div>
+        <audio id="messageSound">
+            <source src="../audio/msgNotif.mp3">
+        </audio>
+    </body>
+</html>
+
+<style>
+button{
+    float: right;
+    margin: 20px;
+    font-size: x-large;
+    display: none;
+}
+.msg{
+    padding: 10px; color: white; display: none; font-weight: normal;
+}
+.chatName{
+    background-color: white;
+    margin: 0;
+    font-size: xx-large;
+}
+.messageBox{
+    background-color:black;
+    color: black;
+    position: absolute;
+    bottom: -500px;
+    left: 50px;
+    width: 500px;
+    font-weight: bold;
+    font-size: x-large;
+    border: 10px solid white;
+    z-index: 200;
+    display: none;
+}
+.background{
+    width: 100%;
+    position: absolute;
+}
+.body{
+    background-image: url("../images/interview2.png");
+}
+.sleepButton{
+    text-decoration: underline;
+    color: blue;
+    padding: 3px;
+}
+.text{
+    margin-bottom: 0px;
+    float: right;
+    font-size: xx-large;
+    margin-right: 20px;
+    position: absolute;
+    bottom: -550px;
+    z-index: 1000;
+    right: 20px;
+}
+.sleepButton:hover{
+    color: white;
+    background-color: black;
+    font-style: italic;
+    cursor: pointer;
+}
+</style>
+
+<script>
+    const init = setTimeout(showNextImage, 2000)
+    const images = ["../images/int2_1.png", "../images/int2_2.png", "../images/int2_3.png", "../images/int2_4.png", "../images/int2_5.png", "../images/int2_6.png", "../images/int2_7.png", "../images/int2_8.png", "../images/int2_9.png"]
+    let imgCount = 0;
+    let msgCount = 1;
+    const delays = [0,1000,3000,2500]
+
+    function showNextImage()
+    {
+        if (imgCount === 2 || imgCount === 5 || imgCount === 8) {
+            document.getElementById("BGimgJ").style.display = "block";
+            document.getElementById("BGimgJ").src = images[imgCount];
+            imgCount++;
+        }
+        else {
+            if  (imgCount === 0) {document.getElementById("BGimg0").style.display = "block";}
+            document.getElementById("BGimg" + imgCount).src = images[imgCount];
+            if (imgCount != 0) {
+                if (imgCount === 3 || imgCount === 6 || imgCount === 9)
+                {
+                    
+                }
+                else {document.getElementById("BGimg" + (imgCount-1)).style.display = "none";}
+            }
+            imgCount++;
+        }
+        if (imgCount < 9) {setTimeout(showNextImage, 2000);}
+        else {setTimeout(() => {document.getElementById("optionBox").style.display = "block";}, 3000);}
+    }
+    function getMsg()
+    {
+        document.getElementById("message" + msgCount).style.display = "block";
+        document.getElementById("messageSound").play();
+        if (msgCount < 4) {
+            setTimeout(getMsg, delays[msgCount])
+            msgCount++;
+        }
+        else { document.getElementById("answer").style.display = "block";}
+    }
+    function startSleep()
+    {
+        document.getElementById("optionBox").style.display = "none";
+        document.getElementById("FG").style.backgroundColor = "black";
+        document.getElementById("FGimg").src = "../images/int2_noiseOverlay.png";
+        setTimeout(getMsg, 6000);
+        setTimeout(() => {document.getElementById("messageBox").style.display = "block";}, 6000);
+    }
+    function Move()
+    {
+        setTimeout(() => { window.open("chat2.html");}, 1000);
+    }
+</script>
