@@ -272,6 +272,7 @@ movValue = 10.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CursorManager/Char_Lauren"]
 z_index = 100
+z_as_relative = false
 offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
@@ -335,6 +336,7 @@ movValue = 10.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CursorManager/Char_Ryan"]
 z_index = 100
+z_as_relative = false
 offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
@@ -397,6 +399,7 @@ movValue = 10.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CursorManager/Char_Arno"]
 z_index = 100
+z_as_relative = false
 offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
@@ -464,6 +467,7 @@ texture = ExtResource("39_sd8r0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CursorManager/Char_Syl"]
 z_index = 100
+z_as_relative = false
 offset_left = -602.0
 offset_top = -507.0
 offset_right = 602.0
@@ -515,7 +519,7 @@ bbcode_enabled = true
 text = "[b]Place the clown nose to finish this scene --->"
 
 [node name="Transitioner" type="Node2D" parent="."]
-z_index = 100
+z_index = 200
 position = Vector2(848, 656)
 scale = Vector2(7.62, 7.62)
 

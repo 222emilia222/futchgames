@@ -10,7 +10,8 @@ public partial class CreditsMover : Node2D
 	{
 		for (int i = 0; i < portraitSprites.Count; i++)
 		{
-			portraitSprites[i].Texture = (Texture2D)ResourceLoader.Load("res://images/char_portrait_" + i + ".png");
+			var img = Image.LoadFromFile("user://char_portrait_" + i + ".png");
+            portraitSprites[i].Texture = ImageTexture.CreateFromImage(img);
         }
 		startPos = Position.Y;
 		Tween tween = GetTree().CreateTween();
@@ -19,7 +20,7 @@ public partial class CreditsMover : Node2D
 
 	public override void _Process(double delta)
 	{
-        if (Input.IsKeyPressed(Key.Escape) || Position.Y < startPos - 3500)
+        if (Input.IsKeyPressed(Key.Escape) || Position.Y <= startPos - 3000)
 		{
 			GetTree().Quit();
 		}

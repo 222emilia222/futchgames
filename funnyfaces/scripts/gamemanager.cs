@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 public partial class gamemanager : Node2D
@@ -62,11 +63,12 @@ public partial class gamemanager : Node2D
         canHintBeVis = false;
         noseArea.Visible = false;
         Audiomanager.Instance.PlaySound(0);
-        texts[currentChar].Text = "[b]" + names[currentChar] + ":[/b] \r\n\"That ought to do it!\"";
+        texts[currentChar].Text = "[b]" + names[currentChar] + ":[/b]";
         if (currentChar == characters.Count - 1) { Audiomanager.Instance.SwitchToCreditsMusic(); }
         await ToSignal(GetTree().CreateTimer(smileDelay), Timer.SignalName.Timeout);
         smiles[currentChar].Visible = true;
         await TakePhoto();
+        texts[currentChar].Text = "[b]" + names[currentChar] + ":[/b] \r\n\"That ought to do it!\"";
         blackhole.Position = GetNode<itemmanager>("CursorManager/Item Control").nose.Position + new Vector2(0, 15);
         blackhole.Visible = true;
         Tween tween = GetTree().CreateTween().SetEase(Tween.EaseType.InOut);
@@ -102,11 +104,15 @@ public partial class gamemanager : Node2D
         //backgroundImages[currentChar].Visible = true;
         for (int i = 0; i < controlNPE.Count; i++) { controlNPE[i].Visible = false; }
         hint.Visible = false;
-        await ToSignal(GetTree().CreateTimer(0.1), Timer.SignalName.Timeout);
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
         var img = GetViewport().GetTexture().GetImage();
-        img.SavePng("res://images/char_portrait_" + currentChar + ".png");
+        img.SavePng("user://char_portrait_" + currentChar + ".png");
+        for (int i = 0; i < controlNPE.Count; i++) { controlNPE[i].Visible = true; }
+        //StreamWriter writer = new StreamWriter(new FileStream("file.txt", FileMode.Create));
+
+        //writer.BaseStream.Write(bytes, 0, bytes.Length);
+
         // turn on non-photo elements
         //backgroundImages[currentChar].Visible = false;
-        for (int i = 0; i < controlNPE.Count; i++) { controlNPE[i].Visible = true; }
     }
 }

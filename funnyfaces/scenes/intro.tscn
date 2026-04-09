@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsiir5q8gs4ig"]
+[gd_scene load_steps=7 format=3 uid="uid://dsiir5q8gs4ig"]
 
-[ext_resource type="Script" uid="uid://dfw66tjw5t2on" path="res://scenes/Intro.cs" id="1_ioskq"]
+[ext_resource type="Script" uid="uid://dfw66tjw5t2on" path="res://scripts/Intro.cs" id="1_ioskq"]
 [ext_resource type="Texture2D" uid="uid://b1vl32l8tnlh3" path="res://sprites/_paper.png" id="2_yjqpq"]
 [ext_resource type="Texture2D" uid="uid://do10mdfri1jsk" path="res://sprites/_signature.png" id="3_4bx60"]
 [ext_resource type="Script" uid="uid://bm78uvd8tkrbr" path="res://scripts/Audiomanager.cs" id="4_es01l"]
 [ext_resource type="AudioStream" uid="uid://bryuyyscv4lfh" path="res://audio/music/250918_GJ-003.ogg" id="5_0naf5"]
+[ext_resource type="Script" uid="uid://ch4hi21fw67v" path="res://scripts/QuitButton.cs" id="6_es01l"]
 
 [node name="Intro" type="Node2D" node_paths=PackedStringArray("contract", "signature")]
 script = ExtResource("1_ioskq")
@@ -44,3 +45,6 @@ bus = &"Music"
 
 [node name="SFXPlayer2D" type="AudioStreamPlayer2D" parent="AudioControl"]
 bus = &"SFX"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("6_es01l")
