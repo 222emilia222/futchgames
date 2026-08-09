@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class interactible : Area2D
+public partial class Interactible : Area2D
 {
 	[Export] CanvasItem mainSprite, frameSprite;
 	[Export] int radiusKey; //1 is small, 2 is medium, 3 is nose, 4 is star, 0 is default

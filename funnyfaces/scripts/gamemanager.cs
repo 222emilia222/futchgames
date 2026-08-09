@@ -106,9 +106,9 @@ public partial class gamemanager : Node2D
         hint.Visible = false;
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
         var img = GetViewport().GetTexture().GetImage();
-        img.SavePng("user://char_portrait_" + currentChar + ".png");
         for (int i = 0; i < controlNPE.Count; i++) { controlNPE[i].Visible = true; }
         //StreamWriter writer = new StreamWriter(new FileStream("file.txt", FileMode.Create));
+        img.SavePng("user://char_portrait_" + currentChar + ".png");
 
         //writer.BaseStream.Write(bytes, 0, bytes.Length);
 

@@ -43,7 +43,15 @@ music by Julio Villanueva
 
 
 
-additional programming by David Heurix[/center]"
+additional programming by David Heurix
+
+
+
+
+
+
+
+The screenshots shown can be found in the game folder[/center]"
 
 [node name="Sprite2D" type="Sprite2D" parent="Credits"]
 position = Vector2(341, 500)
