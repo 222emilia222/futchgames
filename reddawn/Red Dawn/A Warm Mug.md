@@ -1,0 +1,1 @@
+One of the central ideas of the Cowboy. It is Hunger and Comfort, the driving force behind both greed and solidarity. Pain, that is the one thing truly connecting everyone, a real existentialist that one.

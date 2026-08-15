@@ -1,0 +1,3 @@
+A mechanic to do with [[skills]] and the game's version of a leveling system. After every day the player gets the ability to decide what the cowboy is dreaming about. The dream represents a deepening of the cowboy's traits. Giving +2 for one skill and -1 for the complementary (opposite) skill on the wheel. 
+
+Visually represented by a wheel inside an anatomical drawing of a brain or perhaps by the head rotation of the cowboy's sleeping position. 

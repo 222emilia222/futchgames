@@ -1,0 +1,1 @@
+A volunteer army fighting for the [[Entente]] in hopes of gaining independence from Austria-Hungary. After WWI they continued the fight, this time against the Russian Red Army. They were heavily involved in the portion of the Civil War playing out in Siberia, controlling cities () and at times the entire [[Trans-Siberian railway]].

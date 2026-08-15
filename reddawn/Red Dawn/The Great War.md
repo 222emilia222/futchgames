@@ -1,0 +1,1 @@
+One of the central ideas of the game, the War is both an omen from the future and a specter of the past for the Cowboy. It represents humanity both in its most destructive and most productive.

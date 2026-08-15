@@ -1,0 +1,3 @@
+The ship's captain. Rumored to have been a great naval officer once, he is now grumpily looking over his nephews' shoulders in their Baikal ferry business. 
+
+"I have pitied the great admirals seinerzeit for all the steps that they took they were still surrounded by the vast ocean. But look at me now. I am sailing in a lake. On clear days I see every wall of my new prison. It is only fog that gives me respite."

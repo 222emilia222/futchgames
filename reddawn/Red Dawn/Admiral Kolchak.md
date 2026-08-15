@@ -1,0 +1,1 @@
+From November 1919 to March 1920, Kolchak was forced into a winter retreat, the Great Siberian Ice March from Omsk to Chita. 

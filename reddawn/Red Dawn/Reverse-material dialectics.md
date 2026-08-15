@@ -1,0 +1,1 @@
+An ideology the cowboy can develop over the game. Instead of the world changing him, he sees that it is actually him changing the world. 

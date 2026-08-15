@@ -1,0 +1,1 @@
+The beating heart of Transbaikalia is located on its sole artery, the [[Trans-Siberian railway]].

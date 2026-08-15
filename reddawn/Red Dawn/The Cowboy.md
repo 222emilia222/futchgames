@@ -1,0 +1,3 @@
+The nameless main character of the story. He awakens one morning having drunk so much and fallen from such a height, that he has lost all memory of his past and current objectives. He finds himself stranded in a small port town on Lake Baikal, reportedly waiting for the boat to carry him onto Transbaikalia. His goal is East, riding into Dawn. He is a true romantic. 
+
+Originally a courier sent by ???, he still carries his bag full of letters, but has lost the key to open it in his bender. 

@@ -1,0 +1,1 @@
+One of the central ideas of the Cowboy, it is both progress and escape, in short, movement. It is rather blunt about its cyclical nature too, keeping the Cowboy on his toes. It presupposes real enlightenment in velocity itself.

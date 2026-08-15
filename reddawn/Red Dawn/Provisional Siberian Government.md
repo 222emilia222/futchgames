@@ -1,0 +1,2 @@
+![[500px-Flag_of_Siberia_dark.svg.png]]
+In the summer of 1918, as a by-result of the uprising of the [[Czechoslovak Legion]], Soviet power over Siberia was overthrown. On Sept 23, 1918 the PSG was formed. In November it was dissolved after [[Admiral Kolchak]] led a British-sponsored coup d'état. 
