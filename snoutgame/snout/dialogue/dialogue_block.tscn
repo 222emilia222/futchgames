@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1pe0sdq2jg2x"]
 
-[ext_resource type="Script" uid="uid://btmowak31o258" path="res://dialogue_block.gd" id="1_foquq"]
+[ext_resource type="Script" uid="uid://btmowak31o258" path="res://dialogue/dialogue_block.gd" id="1_foquq"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.tscn" id="2_6vb5v"]
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
