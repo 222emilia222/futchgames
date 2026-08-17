@@ -70,6 +70,11 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %DialogueBlock.progress
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("mup"):
+		%ScrollContainer.scroll_vertical-=10
+	if Input.is_action_just_pressed("mdown"):
+		%ScrollContainer.scroll_vertical+=10
 
 func _ready() -> void:
 	balloon.hide()
@@ -172,6 +177,13 @@ func apply_dialogue_line() -> void:
 func next(next_id: String) -> void:
 	var new_block = %DialogueBlock.duplicate()
 	%BlockList.add_child(new_block)
+	%BlockList.move_child(new_block,-1)
+	%BlockList.move_child(%DialogueBlock,-1)
+	%BlockList.move_child(%EmptySpaceBlock,-1)
+	new_block.progress.hide()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	%ScrollContainer.set_deferred("scroll_vertical", %ScrollContainer.get_v_scroll_bar().max_value)
 	dialogue_line = await dialogue_resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 
