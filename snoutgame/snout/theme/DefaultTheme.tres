@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dbxb6jt0q8810"]
+
+[ext_resource type="FontFile" uid="uid://5qacel3j2hvi" path="res://theme/LibreBaskerville-VariableFont_wght.ttf" id="1_dx3b5"]
+
+[resource]
+default_font = ExtResource("1_dx3b5")
+default_font_size = 20

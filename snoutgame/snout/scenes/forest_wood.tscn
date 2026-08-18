@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cgmgboqwkb2xg"]
+
+[ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_p2x3r"]
+[ext_resource type="Script" uid="uid://l4jceqyrdemj" path="res://scripts/interactible.gd" id="2_ce1u7"]
+[ext_resource type="Material" uid="uid://bpv474ccy7lgk" path="res://skyboxes/forest_wood.tres" id="2_p2x3r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mcpl7"]
+
+[sub_resource type="Sky" id="Sky_sb48q"]
+sky_material = ExtResource("2_p2x3r")
+
+[sub_resource type="Environment" id="Environment_u44n3"]
+background_mode = 2
+sky = SubResource("Sky_sb48q")
+
+[node name="Forest_Wood" type="Node3D" unique_id=569529277]
+script = ExtResource("1_p2x3r")
+
+[node name="Interactibles" type="Node3D" parent="." unique_id=978717232]
+
+[node name="Area3D" type="Area3D" parent="Interactibles" unique_id=1560697360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7846849, 0, -0.86368376)
+script = ExtResource("2_ce1u7")
+key_name = "woodheap"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Area3D" unique_id=753240910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09287202, 0, -0.050694942)
+shape = SubResource("BoxShape3D_mcpl7")
+debug_color = Color(0, 0.6, 0.69803923, 0.6784314)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=663013680]
+environment = SubResource("Environment_u44n3")

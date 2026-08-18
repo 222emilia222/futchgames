@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bgywmiotslp5u"]
+
+[ext_resource type="Script" uid="uid://dhlixlcfeahfr" path="res://scripts/gamemanager.gd" id="1_t88pq"]
+[ext_resource type="Script" uid="uid://b5n6hivldi6ym" path="res://scripts/player.gd" id="2_sb48q"]
+[ext_resource type="Material" uid="uid://ctfqw1o6f1esb" path="res://shaders/dither_background.tres" id="3_t88pq"]
+[ext_resource type="Theme" uid="uid://dbxb6jt0q8810" path="res://theme/DefaultTheme.tres" id="4_sb48q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i3fui"]
+material = ExtResource("3_t88pq")
+orientation = 2
+
+[node name="Game" type="Node3D" unique_id=1139268457]
+script = ExtResource("1_t88pq")
+places = Dictionary[String, String]({
+"start": "res://scenes/forest_wood.tscn",
+"wood": "res://scenes/forest_wood.tscn"
+})
+dialogues = Dictionary[String, String]({
+"horse": "res://dialogue/Horse.dialogue",
+"woodheap": "res://dialogue/WoodHeap.dialogue"
+})
+
+[node name="Player" type="Node3D" parent="." unique_id=390887633]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("2_sb48q")
+rotation_speed = 0.01
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1640407252]
+unique_name_in_owner = true
+fov = 65.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D" unique_id=1656024671]
+extra_cull_margin = 3000.0
+mesh = SubResource("PlaneMesh_i3fui")
+
+[node name="SeeCast" type="RayCast3D" parent="Player/Camera3D" unique_id=1040941807]
+unique_name_in_owner = true
+transform = Transform3D(1.9106844e-15, -1.3118675e-07, -0.9999997, -0.99999976, -1.3118677e-07, 0, -4.371137e-08, 3.001203, -4.3711374e-08, 0, 0, 0)
+collision_mask = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=730105661]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=1904888046]
+offset_left = 400.0
+offset_top = 50.0
+offset_right = 800.0
+offset_bottom = 100.0
+
+[node name="InteractHint" type="Label" parent="CanvasLayer/CenterContainer" unique_id=283340126]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_sb48q")
+text = "PRESS  'X'  TO  INTERACT"
+horizontal_alignment = 1
