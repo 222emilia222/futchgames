@@ -11,13 +11,11 @@ orientation = 2
 
 [node name="Game" type="Node3D" unique_id=1139268457]
 script = ExtResource("1_t88pq")
+game_fov = 65.0
+camera_adj_speed = 1.0
 places = Dictionary[String, String]({
 "start": "res://scenes/forest_wood.tscn",
 "wood": "res://scenes/forest_wood.tscn"
-})
-dialogues = Dictionary[String, String]({
-"horse": "res://dialogue/Horse.dialogue",
-"woodheap": "res://dialogue/WoodHeap.dialogue"
 })
 
 [node name="Player" type="Node3D" parent="." unique_id=390887633]
@@ -30,13 +28,16 @@ unique_name_in_owner = true
 fov = 65.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D" unique_id=1656024671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4660952)
 extra_cull_margin = 3000.0
 mesh = SubResource("PlaneMesh_i3fui")
 
 [node name="SeeCast" type="RayCast3D" parent="Player/Camera3D" unique_id=1040941807]
 unique_name_in_owner = true
-transform = Transform3D(1.9106844e-15, -1.3118675e-07, -0.9999997, -0.99999976, -1.3118677e-07, 0, -4.371137e-08, 3.001203, -4.3711374e-08, 0, 0, 0)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -100)
 collision_mask = 2
+collide_with_areas = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=730105661]
 

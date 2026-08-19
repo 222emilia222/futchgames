@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var rotation_speed: float
+var seeing_interactible: bool
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,12 +13,16 @@ func _unhandled_input(_event: InputEvent) -> void:
 	var dir_vect = Input.get_vector("down", "up", "right", "left")
 	rotate_y(dir_vect.y * rotation_speed)
 	%Camera3D.rotate_x(dir_vect.x * rotation_speed)
+	if Input.is_action_just_pressed("action") and seeing_interactible:
+		%SeeCast.get_collider().get_parent().interact()
 
 func _physics_process(_delta: float) -> void:
 	%InteractHint.hide()
+	seeing_interactible = false
+	#%SeeCast.target_position = %Camera3D
 	if %SeeCast.is_colliding():
+		print("collision detected")
 		var target = %SeeCast.get_collider()
-		if target!= null and target.has_method("interact"):
+		if target != null and target.get_parent().has_method("interact"):
 			%InteractHint.show()
-			if Input.is_action_just_pressed("action"):
-				target.interact()
+			seeing_interactible = true

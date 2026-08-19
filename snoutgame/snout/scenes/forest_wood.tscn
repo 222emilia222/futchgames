@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cgmgboqwkb2xg"]
 
 [ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_p2x3r"]
+[ext_resource type="Texture2D" uid="uid://bq1175bjgm08y" path="res://poi.png" id="2_1mwcr"]
 [ext_resource type="Script" uid="uid://l4jceqyrdemj" path="res://scripts/interactible.gd" id="2_ce1u7"]
 [ext_resource type="Material" uid="uid://bpv474ccy7lgk" path="res://skyboxes/forest_wood.tres" id="2_p2x3r"]
+[ext_resource type="Resource" uid="uid://dw1f7aikudvbc" path="res://dialogue/WoodHeap.dialogue" id="3_hxqoi"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mcpl7"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_mcpl7"]
+radius = 0.5084356
 
 [sub_resource type="Sky" id="Sky_sb48q"]
 sky_material = ExtResource("2_p2x3r")
@@ -18,15 +21,25 @@ script = ExtResource("1_p2x3r")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=978717232]
 
-[node name="Area3D" type="Area3D" parent="Interactibles" unique_id=1560697360]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7846849, 0, -0.86368376)
+[node name="POI" type="Node3D" parent="Interactibles" unique_id=629486769]
 script = ExtResource("2_ce1u7")
-key_name = "woodheap"
+dialogue = ExtResource("3_hxqoi")
+interact_fov = 50.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Area3D" unique_id=753240910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09287202, 0, -0.050694942)
-shape = SubResource("BoxShape3D_mcpl7")
-debug_color = Color(0, 0.6, 0.69803923, 0.6784314)
+[node name="Sprite3D" type="Sprite3D" parent="Interactibles/POI" unique_id=1614907435]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.1554327, -0.1779998, -1.1084765)
+billboard = 1
+render_priority = 1
+texture = ExtResource("2_1mwcr")
+
+[node name="Area3D" type="Area3D" parent="Interactibles/POI" unique_id=515941271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1554327, -0.1779998, -1.1084765)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/POI/Area3D" unique_id=1021550677]
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_mcpl7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=663013680]
 environment = SubResource("Environment_u44n3")
