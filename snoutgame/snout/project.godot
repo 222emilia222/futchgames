@@ -38,6 +38,11 @@ project/assembly_name="snout"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[gui]
+
+theme/custom="uid://dbxb6jt0q8810"
+theme/custom_font="uid://5qacel3j2hvi"
+
 [input]
 
 mup={
