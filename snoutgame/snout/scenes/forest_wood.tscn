@@ -25,6 +25,7 @@ script = ExtResource("1_p2x3r")
 script = ExtResource("2_ce1u7")
 dialogue = ExtResource("3_hxqoi")
 interact_fov = 50.0
+interact_angle = Vector2(100, 100)
 
 [node name="Sprite3D" type="Sprite3D" parent="Interactibles/POI" unique_id=1614907435]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.1554327, -0.1779998, -1.1084765)

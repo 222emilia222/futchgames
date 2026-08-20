@@ -21,7 +21,6 @@ func _physics_process(_delta: float) -> void:
 	seeing_interactible = false
 	#%SeeCast.target_position = %Camera3D
 	if %SeeCast.is_colliding():
-		print("collision detected")
 		var target = %SeeCast.get_collider()
 		if target != null and target.get_parent().has_method("interact"):
 			%InteractHint.show()
