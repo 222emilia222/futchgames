@@ -1,37 +1,42 @@
 [gd_scene format=3 uid="uid://cgmgboqwkb2xg"]
 
-[ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_p2x3r"]
-[ext_resource type="Texture2D" uid="uid://bq1175bjgm08y" path="res://poi.png" id="2_1mwcr"]
-[ext_resource type="Script" uid="uid://l4jceqyrdemj" path="res://scripts/interactible.gd" id="2_ce1u7"]
-[ext_resource type="Material" uid="uid://bpv474ccy7lgk" path="res://skyboxes/forest_wood.tres" id="2_p2x3r"]
-[ext_resource type="Resource" uid="uid://dw1f7aikudvbc" path="res://dialogue/WoodHeap.dialogue" id="3_hxqoi"]
+[ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_hxqoi"]
+[ext_resource type="Script" uid="uid://l4jceqyrdemj" path="res://scripts/interactible.gd" id="2_84pul"]
+[ext_resource type="Resource" uid="uid://dw1f7aikudvbc" path="res://dialogue/WoodHeap.dialogue" id="3_7whjq"]
+[ext_resource type="SpriteFrames" uid="uid://xudbd8su8g5i" path="res://sprites/point_of_interest.tres" id="4_61tal"]
+[ext_resource type="Texture2D" uid="uid://ctgdnk148ilax" path="res://sprites/path_sign.png" id="5_84pul"]
+[ext_resource type="Material" uid="uid://bpv474ccy7lgk" path="res://skyboxes/forest_wood.tres" id="5_f8olt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mcpl7"]
-radius = 0.5084356
+radius = 0.292051
 
 [sub_resource type="Sky" id="Sky_sb48q"]
-sky_material = ExtResource("2_p2x3r")
+sky_material = ExtResource("5_f8olt")
 
 [sub_resource type="Environment" id="Environment_u44n3"]
 background_mode = 2
 sky = SubResource("Sky_sb48q")
 
 [node name="Level" type="Node3D" unique_id=569529277]
-script = ExtResource("1_p2x3r")
+script = ExtResource("1_hxqoi")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=978717232]
 
 [node name="POI" type="Node3D" parent="Interactibles" unique_id=629486769]
-script = ExtResource("2_ce1u7")
-dialogue = ExtResource("3_hxqoi")
+script = ExtResource("2_84pul")
+dialogue = ExtResource("3_7whjq")
 interact_fov = 50.0
 interact_angle = Vector2(-6, -58)
 
-[node name="Sprite3D" type="Sprite3D" parent="Interactibles/POI" unique_id=1614907435]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.1554327, -0.1779998, -1.1084765)
+[node name="Animator" type="AnimatedSprite3D" parent="Interactibles/POI" unique_id=1548189961]
+unique_name_in_owner = true
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 1.1554327, -0.1779998, -1.1084765)
 billboard = 1
 render_priority = 1
-texture = ExtResource("2_1mwcr")
+sprite_frames = ExtResource("4_61tal")
+animation = &"idle"
+autoplay = "idle"
+speed_scale = 0.7
 
 [node name="Area3D" type="Area3D" parent="Interactibles/POI" unique_id=515941271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1554327, -0.1779998, -1.1084765)
@@ -39,6 +44,27 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/POI/Area3D" unique_id=1021550677]
+unique_name_in_owner = true
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_mcpl7")
+
+[node name="Path" type="Node3D" parent="Interactibles" unique_id=175051452]
+script = ExtResource("2_84pul")
+is_path = true
+scene_name = "shrines"
+
+[node name="Sprite3D" type="Sprite3D" parent="Interactibles/Path" unique_id=308156178]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 1.2791686, -0.007908925, 0.67462105)
+billboard = 1
+render_priority = 1
+texture = ExtResource("5_84pul")
+
+[node name="Area3D" type="Area3D" parent="Interactibles/Path" unique_id=1747406878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2791686, -0.007908925, 0.67462105)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Path/Area3D" unique_id=555535907]
 transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
 shape = SubResource("SphereShape3D_mcpl7")
 

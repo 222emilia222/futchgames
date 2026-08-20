@@ -1,6 +1,6 @@
 [gd_resource type="PanoramaSkyMaterial" format=3 uid="uid://c6h4g2wukj7nx"]
 
-[ext_resource type="Texture2D" uid="uid://84fw1my6p815" path="res://skyboxes/images/Wald_StruckTree.jpg" id="1_ncvps"]
+[ext_resource type="Texture2D" uid="uid://rjfds4stpt8h" path="res://skyboxes/images/Wald_Shrine.jpg" id="1_ncvps"]
 
 [resource]
 panorama = ExtResource("1_ncvps")
