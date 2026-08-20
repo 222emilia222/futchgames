@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://538his71e8x5"]
 
 [ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_brcad"]
+[ext_resource type="Script" uid="uid://l4jceqyrdemj" path="res://scripts/interactible.gd" id="2_00t12"]
 [ext_resource type="Material" uid="uid://duhk8p62yqelj" path="res://skyboxes/forest_4way.tres" id="2_brcad"]
+[ext_resource type="Texture2D" uid="uid://ctgdnk148ilax" path="res://sprites/path_sign.png" id="3_mca8f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rvev2"]
+radius = 0.24957761
 
 [sub_resource type="Sky" id="Sky_sb48q"]
 sky_material = ExtResource("2_brcad")
@@ -14,6 +19,63 @@ sky = SubResource("Sky_sb48q")
 script = ExtResource("1_brcad")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=978717232]
+
+[node name="Path" type="Node3D" parent="Interactibles" unique_id=642454918]
+script = ExtResource("2_00t12")
+is_path = true
+scene_name = "bushes"
+
+[node name="Sprite3D" type="Sprite3D" parent="Interactibles/Path" unique_id=1255491662]
+transform = Transform3D(0.0031782826, -0.0019640145, 0.02976643, 0.0038561183, 0.029710801, 0.0015486119, -0.029580882, 0.0036620353, 0.0034000948, 1.312253, -0.2391794, 0.1330424)
+render_priority = 1
+texture = ExtResource("3_mca8f")
+
+[node name="Area3D" type="Area3D" parent="Interactibles/Path" unique_id=2075775266]
+transform = Transform3D(0.9812813, 0.016336508, 0.19188821, -0.052574866, 0.98127115, 0.18531734, -0.18526673, -0.19193691, 0.96376175, 1.312253, -0.2391794, 0.1330424)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Path/Area3D" unique_id=2074706711]
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_rvev2")
+
+[node name="Path2" type="Node3D" parent="Interactibles" unique_id=572219543]
+script = ExtResource("2_00t12")
+is_path = true
+scene_name = "mat"
+
+[node name="Sprite3D" type="Sprite3D" parent="Interactibles/Path2" unique_id=87958805]
+transform = Transform3D(0.0031782826, -0.0019640145, 0.02976643, 0.0038561183, 0.029710801, 0.0015486119, -0.029580882, 0.0036620353, 0.0034000948, -1.5753248, -0.23917942, -1.2007872)
+render_priority = 1
+texture = ExtResource("3_mca8f")
+
+[node name="Area3D" type="Area3D" parent="Interactibles/Path2" unique_id=904214243]
+transform = Transform3D(0.9812813, 0.016336508, 0.19188821, -0.052574866, 0.98127115, 0.18531734, -0.18526673, -0.19193691, 0.96376175, -1.5753248, -0.23917942, -1.2007872)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Path2/Area3D" unique_id=1994557142]
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_rvev2")
+
+[node name="Path3" type="Node3D" parent="Interactibles" unique_id=764856015]
+script = ExtResource("2_00t12")
+is_path = true
+scene_name = "updown"
+
+[node name="Sprite3D" type="Sprite3D" parent="Interactibles/Path3" unique_id=1018813777]
+transform = Transform3D(-0.0154606365, 0.0033353288, -0.02549203, 0.0038561185, 0.029710805, 0.001548612, 0.025418473, -0.0024785954, -0.015740313, 1.2038352, -0.34069973, 1.2073765)
+render_priority = 1
+texture = ExtResource("3_mca8f")
+
+[node name="Area3D" type="Area3D" parent="Interactibles/Path3" unique_id=1262457769]
+transform = Transform3D(-0.96687186, -0.0964383, 0.23634563, -0.05257486, 0.9812711, 0.18531732, -0.24979118, 0.16675223, -0.9538335, 1.2038352, -0.34069973, 1.2073765)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Path3/Area3D" unique_id=810432336]
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_rvev2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=663013680]
 environment = SubResource("Environment_u44n3")

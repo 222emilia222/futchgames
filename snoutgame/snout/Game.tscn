@@ -20,7 +20,7 @@ places = Dictionary[String, String]({
 "lake": "res://scenes/lake.tscn",
 "mat": "res://scenes/forest_mat.tscn",
 "shrines": "res://scenes/forest_shrine.tscn",
-"start": "res://scenes/forest_wood.tscn",
+"start": "res://scenes/forest_paths.tscn",
 "stretching": "res://scenes/forest_stretching.tscn",
 "struck": "res://scenes/forest_struck.tscn",
 "tent": "res://scenes/forest_tent.tscn",

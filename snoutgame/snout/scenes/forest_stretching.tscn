@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://c55wyps32ckb4"]
 
 [ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_v5oin"]
+[ext_resource type="Script" uid="uid://l4jceqyrdemj" path="res://scripts/interactible.gd" id="2_qft61"]
 [ext_resource type="Material" uid="uid://diwhcag6tpjx4" path="res://skyboxes/forest_stretching.tres" id="2_v5oin"]
+[ext_resource type="Texture2D" uid="uid://ctgdnk148ilax" path="res://sprites/path_sign.png" id="3_s0v32"]
+[ext_resource type="Resource" uid="uid://bd8jafe3bua7t" path="res://dialogue/StretchingTree.dialogue" id="4_88q58"]
+[ext_resource type="SpriteFrames" uid="uid://xudbd8su8g5i" path="res://sprites/point_of_interest.tres" id="5_rw8nh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_88q58"]
+radius = 0.24957761
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fk57x"]
+radius = 0.24957761
 
 [sub_resource type="Sky" id="Sky_sb48q"]
 sky_material = ExtResource("2_v5oin")
@@ -14,6 +24,70 @@ sky = SubResource("Sky_sb48q")
 script = ExtResource("1_v5oin")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=978717232]
+
+[node name="Path" type="Node3D" parent="Interactibles" unique_id=1485650345]
+script = ExtResource("2_qft61")
+is_path = true
+scene_name = "wood"
+
+[node name="Sprite3D" type="Sprite3D" parent="Interactibles/Path" unique_id=1141308089]
+transform = Transform3D(0.023562685, 0, -0.01856879, 0, 0.02999999, 0, 0.01856879, 0, 0.023562685, -0.6287423, -0.18669178, 1.1703094)
+render_priority = 1
+texture = ExtResource("3_s0v32")
+
+[node name="Area3D" type="Area3D" parent="Interactibles/Path" unique_id=746992003]
+transform = Transform3D(-0.34096554, 0, -0.9400759, 0, 1, 0, 0.9400759, 0, -0.34096554, -0.6287423, -0.18669178, 1.1703094)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Path/Area3D" unique_id=1299062685]
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_88q58")
+
+[node name="Path2" type="Node3D" parent="Interactibles" unique_id=918591875]
+script = ExtResource("2_qft61")
+is_path = true
+scene_name = "dead"
+
+[node name="Sprite3D" type="Sprite3D" parent="Interactibles/Path2" unique_id=203329987]
+transform = Transform3D(-0.023651268, 0, 0.018455828, 0, 0.030000001, 0, -0.018455828, 0, -0.023651268, -0.9395329, -0.18669178, 0.47765255)
+render_priority = 1
+texture = ExtResource("3_s0v32")
+
+[node name="Area3D" type="Area3D" parent="Interactibles/Path2" unique_id=518693501]
+transform = Transform3D(0.33646327, 0, 0.9416967, 0, 1, 0, -0.9416967, 0, 0.33646327, -0.9395329, -0.18669178, 0.47765255)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/Path2/Area3D" unique_id=295429418]
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_88q58")
+
+[node name="POI" type="Node3D" parent="Interactibles" unique_id=1217487481]
+script = ExtResource("2_qft61")
+dialogue = ExtResource("4_88q58")
+interact_fov = 75.0
+interact_angle = Vector2(-6, -58)
+
+[node name="Animator" type="AnimatedSprite3D" parent="Interactibles/POI" unique_id=1281041988]
+unique_name_in_owner = true
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 1.5074143, 0.78407586, -0.23945042)
+billboard = 1
+render_priority = 1
+sprite_frames = ExtResource("5_rw8nh")
+animation = &"idle"
+autoplay = "idle"
+speed_scale = 0.7
+
+[node name="Area3D" type="Area3D" parent="Interactibles/POI" unique_id=1167285875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5074143, 0.78407586, -0.23945042)
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactibles/POI/Area3D" unique_id=1330310]
+unique_name_in_owner = true
+transform = Transform3D(0.78721964, 0, -0.6166727, 0, 1, 0, 0.6166727, 0, 0.78721964, 0, 0, 0)
+shape = SubResource("SphereShape3D_fk57x")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=663013680]
 environment = SubResource("Environment_u44n3")
