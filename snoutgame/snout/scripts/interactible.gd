@@ -6,6 +6,11 @@ extends Node
 @export var dialogue_cue: String
 @export var interact_fov: float
 @export var interact_angle: Vector2
+var is_interacting: bool
+var root_node: Node
+
+func _ready() -> void:
+	root_node = get_tree().root.get_child(1)
 
 func interact() -> void:
 	print("interacted with " + name)
@@ -15,12 +20,13 @@ func interact() -> void:
 	else:
 		#trigger corresponding dialogue, implement cue 
 		DialogueManager.show_dialogue_balloon(dialogue, "start")
-		#camera rotation and fov
+		is_interacting = true
 
 func _physics_process(delta: float) -> void:
-	if false: #after interacting
-		$Camera3D.rotation.y = $Camera3D.rotation.y.lerp(interact_angle.y, delta * %Game.camera_adj_speed)
-		$Camera3D.rotation.x = $Camera3D.rotation.x.lerp(interact_angle.y, delta * %Game.camera_adj_speed)
-		$Camera3D.fov = $Camera3D.fov.lerp(interact_fov, delta * %Game.camera_adj_speed)
-	if false: #after stop interacting
-		$Camera3D.fov = $Camera3D.fov.lerp(interact_fov, delta * %Game.game_fov)
+	pass
+	#if is_interacting: #after interacting
+		#$Camera.rotation.y = $Camera.rotation.y.lerp(interact_angle.y, delta * root_node.camera_adj_speed)
+		#$Camera.rotation.x = $Camera.rotation.x.lerp(interact_angle.y, delta * root_node.camera_adj_speed)
+		#$Camera.fov = $Camera.fov.lerp(interact_fov, delta * root_node.camera_adj_speed)
+	#else: #after stop interacting
+		#$Camera.fov = $Camera.fov.lerp(interact_fov, delta * root_node.game_fov)

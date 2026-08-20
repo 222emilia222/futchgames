@@ -1,0 +1,6 @@
+[gd_resource type="PanoramaSkyMaterial" format=3 uid="uid://6uc3tr1qbpk4"]
+
+[ext_resource type="Texture2D" uid="uid://2ody8yr2lkii" path="res://skyboxes/images/Wald_Bushes.jpg" id="1_elw1f"]
+
+[resource]
+panorama = ExtResource("1_elw1f")

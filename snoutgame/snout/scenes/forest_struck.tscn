@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://0np1xase27l4"]
+[gd_scene format=3 uid="uid://bl1jhgpml1tds"]
 
-[ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_05t0k"]
-[ext_resource type="Material" uid="uid://thpi5sfongh" path="res://skyboxes/forest_start.tres" id="2_020tr"]
+[ext_resource type="Script" uid="uid://dp8mo08s0au1j" path="res://scripts/level.gd" id="1_3e04b"]
+[ext_resource type="Material" uid="uid://b7vg0y4bio2x3" path="res://skyboxes/forest_struck.tres" id="2_3e04b"]
 
 [sub_resource type="Sky" id="Sky_sb48q"]
-sky_material = ExtResource("2_020tr")
+sky_material = ExtResource("2_3e04b")
 
 [sub_resource type="Environment" id="Environment_u44n3"]
 background_mode = 2
 sky = SubResource("Sky_sb48q")
 
 [node name="Level" type="Node3D" unique_id=569529277]
-script = ExtResource("1_05t0k")
+script = ExtResource("1_3e04b")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=978717232]
 

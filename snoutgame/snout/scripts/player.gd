@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	var dir_vect = Input.get_vector("down", "up", "right", "left")
 	rotate_y(dir_vect.y * rotation_speed)
-	%Camera3D.rotate_x(dir_vect.x * rotation_speed)
+	%Camera.rotate_x(dir_vect.x * rotation_speed)
 	if Input.is_action_just_pressed("action") and seeing_interactible:
 		%SeeCast.get_collider().get_parent().interact()
 

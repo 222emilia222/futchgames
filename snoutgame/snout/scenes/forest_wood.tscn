@@ -16,7 +16,7 @@ sky_material = ExtResource("2_p2x3r")
 background_mode = 2
 sky = SubResource("Sky_sb48q")
 
-[node name="Forest_Wood" type="Node3D" unique_id=569529277]
+[node name="Level" type="Node3D" unique_id=569529277]
 script = ExtResource("1_p2x3r")
 
 [node name="Interactibles" type="Node3D" parent="." unique_id=978717232]

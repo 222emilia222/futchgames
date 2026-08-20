@@ -9,7 +9,7 @@ func _ready() -> void:
 	var start_scene = load(places["start"])
 	var instance = start_scene.instantiate()
 	add_child(instance)
-	%Camera3D.fov = game_fov
+	%Camera.fov = game_fov
 
 func _process(_delta: float) -> void:
 	pass

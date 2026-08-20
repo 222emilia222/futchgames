@@ -14,7 +14,17 @@ script = ExtResource("1_t88pq")
 game_fov = 65.0
 camera_adj_speed = 1.0
 places = Dictionary[String, String]({
+"bushes": "res://scenes/forest_bushes.tscn",
+"dead": "res://scenes/forest_dead.tscn",
+"fourway": "res://scenes/forest_4way.tscn",
+"lake": "res://scenes/lake.tscn",
+"mat": "res://scenes/forest_mat.tscn",
+"shrines": "res://scenes/forest_shrine.tscn",
 "start": "res://scenes/forest_wood.tscn",
+"stretching": "res://scenes/forest_stretching.tscn",
+"struck": "res://scenes/forest_struck.tscn",
+"tent": "res://scenes/forest_tent.tscn",
+"updown": "res://scenes/forest_updown.tscn",
 "wood": "res://scenes/forest_wood.tscn"
 })
 
@@ -23,16 +33,16 @@ transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 script = ExtResource("2_sb48q")
 rotation_speed = 0.01
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1640407252]
+[node name="Camera" type="Camera3D" parent="Player" unique_id=1640407252]
 unique_name_in_owner = true
 fov = 65.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D" unique_id=1656024671]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera" unique_id=1656024671]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4660952)
 extra_cull_margin = 3000.0
 mesh = SubResource("PlaneMesh_i3fui")
 
-[node name="SeeCast" type="RayCast3D" parent="Player/Camera3D" unique_id=1040941807]
+[node name="SeeCast" type="RayCast3D" parent="Player/Camera" unique_id=1040941807]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -100)
