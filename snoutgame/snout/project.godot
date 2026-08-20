@@ -21,7 +21,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 
 [dialogue_manager]
 
-runtime/balloon_path="res:///balloon.tscn"
+runtime/balloon_path="uid://c8jddpu8n3eju"
 
 [display]
 

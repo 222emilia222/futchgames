@@ -12,7 +12,7 @@ orientation = 2
 [node name="Game" type="Node3D" unique_id=1139268457]
 script = ExtResource("1_t88pq")
 game_fov = 65.0
-camera_adj_speed = 1.0
+camera_adj_speed = 2.0
 places = Dictionary[String, String]({
 "bushes": "res://scenes/forest_bushes.tscn",
 "dead": "res://scenes/forest_dead.tscn",

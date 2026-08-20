@@ -10,6 +10,7 @@ func _ready() -> void:
 	var instance = start_scene.instantiate()
 	add_child(instance)
 	%Camera.fov = game_fov
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func _process(_delta: float) -> void:
 	pass
@@ -21,3 +22,7 @@ func load_scene(key: String) -> void:
 		var scene = load(places[key])
 		add_child(scene)
 		current_scene = scene
+
+func _on_dialogue_ended(_resource: DialogueResource) -> void:
+	print("on dialogue ended signal got through")
+	get_child(0).lerp_fov(game_fov)

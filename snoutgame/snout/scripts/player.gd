@@ -3,9 +3,6 @@ extends Node3D
 @export var rotation_speed: float
 var seeing_interactible: bool
 
-func _ready() -> void:
-	pass # Replace with function body.
-
 func _process(_delta: float) -> void:
 	pass
 
@@ -25,3 +22,8 @@ func _physics_process(_delta: float) -> void:
 		if target != null and target.get_parent().has_method("interact"):
 			%InteractHint.show()
 			seeing_interactible = true
+
+func lerp_fov(target_fov: float) -> void:
+	var tween := create_tween()
+	tween.tween_property(%Camera, "fov", target_fov, get_parent().camera_adj_speed)
+	#abs(target_fov - camera.fov)
