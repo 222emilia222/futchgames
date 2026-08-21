@@ -79,6 +79,8 @@ func _input(_event: InputEvent) -> void:
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	
+	dialogue_label.started_typing.connect(AudioManager.ref._on_new_line)
 
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
@@ -175,7 +177,6 @@ func apply_dialogue_line() -> void:
 
 ## Go to the next line
 func next(next_id: String) -> void:
-	AudioManager.ref._on_new_line()
 	var new_block = %DialogueBlock.duplicate()
 	%BlockList.add_child(new_block)
 	%BlockList.move_child(new_block,-1)

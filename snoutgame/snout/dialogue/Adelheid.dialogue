@@ -1,0 +1,28 @@
+~ start
+Wolfram: „Oh, welch entzückend Weib! Und ein Schnauz‘ noch feiner als jede, die ich in mein‘ Leben lang je zu Gesicht bekommen durft!“
+Erzähler: „Das entzückend Weib hat seinerseits noch kein' Kenntnis von dem Ritter neben ihr gemacht.“
+- Sprich sie an.....
+	Wolfram: „Grüße sie, Weggefährtin! Welch Missstand bringt ein‘ SchnauzPracht wie Sie in den Wunschelwald?“
+	Adelheid: „Oh, Sie haben mich erschreckt! Mit welch edlem Ritter habe ich es hier zutun?“
+	Wolfram: [speed=1.4]„ICH, JA WAHRLICH ICH BIN DER EHRENMANN VON WEIT HER! VOM HAGENTHALE KOMME ICH UM HIER EINEM MAßLOS UNRECHT ENTGEGENZUWIRKEN![speed=1]“
+	Adelheid: „Oh was eine Freud‘! Da erquickts mir das Herz, bei solch loyalem Rittertum.“
+	- Singe ihr ein Minnelied vor.
+		Wolfram: [wave][wait=0.5][speed=0.5] „Dû bist mîn, ich bin dîn
+		[wave][speed=0.5]des solt dû gewis sîn
+		[wave][speed=0.5]dû bist beslozzen in mînem herzen
+		[wave][speed=0.5]verlorn ist daz slüzzelîn
+		[wave][speed=0.5]dû muost immer drinne sîn“
+		Adelheid: Oh, welch Frevel entgegnet mir denn da! Ein hässlich‘ Schnauz, will begehren, das Herzele mein!
+		Wolfram: ...[speed=0.8]Was blüht mir da? [speed=1]Missachtung! Verunglimpfung! Welch eine Schmähung, welch Ehrverletzung erlaubt sich ein Miststück, ein Luder wie Sie!
+		Adelheid: Was fällt Ihnen da ein, einen edlen Ritter habe ich vor mir geglaubt! Jetzt ist die Maske gefallen, Sie Schroffpatz, Sie Raubündel, Sie Flachnasendödel!
+		Wolfram: Oh, weh mir…wie bedauerlich…welch Schnauze schön ist mir entgangen…
+		- Lass sie ziehen… => END
+		- Frag noch nach dem Verbrecher!
+		~ info
+		Wolfram: Oh Adelheid, du Vornehme, sag mir noch eins bevor mich die Welt weiterzieht: ist dir dies‘ Gestalt bekannt?
+		Adelheid: Soll dies sein eine Trickserei? Tadellos erkenne ich die GrausSchnauz‘, brauch‘ ich doch bloß geradewegs Ihnen ins Antlitz zu blicken!
+		Wolfram: [speed=1.4]OH WEHHH, VERSCHMÄHT SEI DIES‘ ANKLAG‘ GEGEN DIE MEINIGE PERSON!!!![speed=1]
+		- Schnell weg hier! => END
+	- Konzentration… Du wolltest eigentlich fragen, ob sie den Verbrecher kennt… => info
+- Was eine Ablenkung, geh lieber weiter auf die Suche!
+=> END

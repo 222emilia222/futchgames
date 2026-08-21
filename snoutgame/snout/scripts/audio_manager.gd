@@ -8,6 +8,8 @@ var music_player: AudioStreamPlayer
 var atmo_player: AudioStreamPlayer
 var atmo_playback: AudioStreamPlayback
 static var ref: AudioManager
+var wind_id: int
+var rustle_id: int
 
 func _ready() -> void:
 	%AudioStreamPlayer.play()
@@ -23,9 +25,13 @@ func _on_new_line() -> void:
 	sfx_playback.play_stream(sfx["impact_light"])
 
 func play_atmo(is_final_level: bool) -> void:
-	atmo_playback.play_stream(sfx["wind_loop"])
+	wind_id = atmo_playback.play_stream(sfx["wind_loop"])
 	if !is_final_level:
-		atmo_playback.play_stream(sfx["rustle_loop"])
+		rustle_id = atmo_playback.play_stream(sfx["rustle_loop"])
+
+func pause_atmo() -> void:
+	atmo_playback.stop_stream(wind_id)
+	atmo_playback.stop_stream(rustle_id)
 
 #region singleton
 func _singleton_check() -> void:

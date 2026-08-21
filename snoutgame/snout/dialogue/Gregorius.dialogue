@@ -1,0 +1,26 @@
+~ start
+Wolfram: Oh, wer bäumt sich denn hier vor mir auf? Ich kann ‘es Angesicht kaum erkennen vor lauter üppig Scheppermetall!
+Gregorius: Ich bins, Gregorius der Gewaltige, der edle Herr des Wunschelwalds, ich arbeite im Namen der Schöpfer, und bin der größte – [wait=2] oh weh! Welch Geschwür sitzt dir tugendhaftem Mann denn im Gesicht!
+Kann es sein, der Wunschelwolf hat dich gekriegt?
+Wolfram: Gewiss nicht, was sprichst du Gewaltiger da? Welch Geschwür? Jesus Maria, lass dies kein‘ Fluch sein…
+Gregorius: Welch Geschwür fragst du, Grütznaserich! [wait=0.5]HA[wait=0.5]HA[wait=0.5]HA[wait=0.5] Eine Schafsnase, ein Riesenross steigt dir empor, im Antlitz mittendrin!!!
+Wolfram: Welch steinern, welch gefühlsarm, welch engherzig Mann sich mir offenbart! Du, mitleidlos und unsanft, du verbirgst doch dein Rhinozeros hinter der Metallfratze! Du scheuer Lügenbeutel!
+Gregorius: HA[wait=1]HA[wait=1]HA[wait=1]HA…[wait=0.5] Mit Wichteln wie dir ist nicht zu diskutieren… Je schrankenloser der Tumult, desto weniger verbirgt sich unter der Oberfläche… Ha, du Wichtel, du, mach aus dem Staub dich, oder ich schieb deine elend‘ Schnauz‘ so tief hinter dein‘ Augen, dass du nicht wissen kannst mehr wo oben und unten!
+- Bevor du gehst in Schmach, frag noch nach dem Verbrecher.
+- Dein Ehre steht auf dem Spiel! Los, verteidig' dich!
+	Wolfram: ...
+Wolfram: Wohl oder übel werde ich geschlagen geben werden mich
+A-A-Aber… k-kann ich unter Umständen noch… also… eine Sache zur Aufklärung… fragen?
+Wolfram: …H-h-habe ich tatsächlich einen Grütznaserich… Eine Schafsnase, ein Riesenross, in meinigem Antlitz… Oh, Gregorius, du Großer, du Gewaltiger, du mein Ritter, mein heldenhaftes Vorbild, [speed=0.5]sprich zu mir die Wahrheit!
+Gregorius: Haha, wie amüsant… Nein, natürlich nicht, du erbärmlicher Wichtel, Glanz und Ruhm steht dir ins Gesicht geschrieben! Ein Feldherr groß wirst du einst sein, mit Volk und Gefolge, alle haben sie Schnauzen wie deinesgleichen. Ich wage mich zu sagen, mit sofortiger Ergebenheit würde ich mich deiner Leitung anschließen, wenn ich nicht bereits selbst die meinigen Kolonnen in den Krieg führen müsste…
+Wolfram: Oh, welch Balsam erklingt in meinem Ohr! Sag mir, Gregorius, was du sprichst, ist es die Wahrheit?
+Gregorius: HA[wait=1]HA[wait=1]HA[wait=1]HA[wait=1]HA…[wait=0.5] DU BIST UND BLEIBST EIN ERBÄRMLICHER WICHTEL MIT NASERICH SO SCHEUSLICH, LÄNDER UND STAATEN WISSEN SCHON MEILENWEIT ENTFERNT BESSER DIR AUSZUWEICHEN, WEIL DEIN GRUNZNASERICH IHNEN DIE WARNUNG AUSSPRICHT.
+Wolfram: ICH WUSSTE ES… :,( 
+Du Bestie der Dominanz, du Obrigkeitsdusel, leg doch deine hässliche Metallfratze ab, wenn du mutig doch so bist!! Oder hast du etwa ein Gerheimnis zu verbergen… 
+Wie etwa einen Schnanuzerich wie den meinen! Du bist es doch, der dies Verbrechen begangen hat und von dem nun alle Spuren verschluckt sind.
+Gregorius: Ach, kleiner Jüngling… Ich habe keine Mühe in meinem Leibe übrig für deinen Wahn und deine Spielereien. 
+Ich bitte ausdrücklich, ab nun an mit meiner Vertretung zu sprechen.
+Wolfram: A-aber wo ist…?
+Ross: [speed=0.6]Wiiiiiieehhhaa
+Wolfram: Scheuslich Vieh, geh beiseite!
+=> END

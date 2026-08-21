@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bgywmiotslp5u"]
 
 [ext_resource type="Script" uid="uid://dhlixlcfeahfr" path="res://scripts/gamemanager.gd" id="1_t88pq"]
+[ext_resource type="Resource" uid="uid://by0wcw6wcwchv" path="res://dialogue/Intro.dialogue" id="2_lvtmh"]
 [ext_resource type="Script" uid="uid://b5n6hivldi6ym" path="res://scripts/player.gd" id="2_sb48q"]
 [ext_resource type="Material" uid="uid://ctfqw1o6f1esb" path="res://shaders/dither_background.tres" id="3_t88pq"]
 [ext_resource type="Theme" uid="uid://dbxb6jt0q8810" path="res://theme/DefaultTheme.tres" id="4_sb48q"]
@@ -39,6 +40,7 @@ places = Dictionary[String, String]({
 "updown": "res://scenes/forest_updown.tscn",
 "wood": "res://scenes/forest_wood.tscn"
 })
+intro = ExtResource("2_lvtmh")
 
 [node name="Player" type="Node3D" parent="." unique_id=390887633]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
