@@ -175,6 +175,7 @@ func apply_dialogue_line() -> void:
 
 ## Go to the next line
 func next(next_id: String) -> void:
+	AudioManager.ref._on_new_line()
 	var new_block = %DialogueBlock.duplicate()
 	%BlockList.add_child(new_block)
 	%BlockList.move_child(new_block,-1)

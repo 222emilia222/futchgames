@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cca67ul3hxtqf"]
+
+[ext_resource type="AudioStream" uid="uid://ddsy5bmb5uwbm" path="res://audio/260821_creak1.mp3" id="1_cnyg4"]
+[ext_resource type="AudioStream" uid="uid://c3i2thfl2mhj1" path="res://audio/260821_creak2.mp3" id="2_hwmdi"]
+[ext_resource type="AudioStream" uid="uid://b7ahroi75272p" path="res://audio/260821_creak3.mp3" id="3_kk3fm"]
+[ext_resource type="AudioStream" uid="uid://dh6eb88tve4qx" path="res://audio/260821_creak4.mp3" id="4_11gba"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_cnyg4")
+stream_1/stream = ExtResource("2_hwmdi")
+stream_2/stream = ExtResource("3_kk3fm")
+stream_3/stream = ExtResource("4_11gba")

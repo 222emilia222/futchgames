@@ -4,10 +4,22 @@
 [ext_resource type="Script" uid="uid://b5n6hivldi6ym" path="res://scripts/player.gd" id="2_sb48q"]
 [ext_resource type="Material" uid="uid://ctfqw1o6f1esb" path="res://shaders/dither_background.tres" id="3_t88pq"]
 [ext_resource type="Theme" uid="uid://dbxb6jt0q8810" path="res://theme/DefaultTheme.tres" id="4_sb48q"]
+[ext_resource type="Script" uid="uid://dl81mgwl4mhmn" path="res://scripts/audio_manager.gd" id="5_t88pq"]
+[ext_resource type="AudioStream" uid="uid://bpm4iifixtcmq" path="res://audio/260821_footsteps_long.mp3" id="6_2vekm"]
+[ext_resource type="AudioStream" uid="uid://dwgqrh4436sfl" path="res://audio/260821_atmo_breeze.mp3" id="6_r0x5m"]
+[ext_resource type="AudioStream" uid="uid://bh7s0b1s08bkx" path="res://audio/260821_atmo_leaves.mp3" id="7_3mrqo"]
+[ext_resource type="AudioStream" uid="uid://om43f63f61g0" path="res://audio/260821_atmo_wind.mp3" id="7_joorw"]
+[ext_resource type="AudioStream" uid="uid://bhpcnxfo8vgy8" path="res://audio/260821_footsteps_short.mp3" id="7_yx171"]
+[ext_resource type="AudioStream" uid="uid://31djqix76v22" path="res://audio/260821_impact_heavy.mp3" id="9_gwjdr"]
+[ext_resource type="AudioStream" uid="uid://b5jidpqdqpaky" path="res://audio/260821_impact_light.mp3" id="10_lvtmh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i3fui"]
 material = ExtResource("3_t88pq")
 orientation = 2
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_lvtmh"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_yyih5"]
 
 [node name="Game" type="Node3D" unique_id=1139268457]
 script = ExtResource("1_t88pq")
@@ -68,3 +80,28 @@ theme = ExtResource("4_sb48q")
 theme_override_font_sizes/font_size = 30
 text = " PRESS  'X'  TO  INTERACT "
 horizontal_alignment = 1
+
+[node name="AudioControl" type="Node" parent="." unique_id=582594973]
+script = ExtResource("5_t88pq")
+sfx = Dictionary[String, AudioStream]({
+"breeze_loop": ExtResource("6_r0x5m"),
+"footsteps": ExtResource("6_2vekm"),
+"footsteps_short": ExtResource("7_yx171"),
+"impact_heavy": ExtResource("9_gwjdr"),
+"impact_light": ExtResource("10_lvtmh"),
+"rustle_loop": ExtResource("7_3mrqo"),
+"wind_loop": ExtResource("7_joorw")
+})
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AudioControl" unique_id=816928261]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_lvtmh")
+max_polyphony = 5
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="AudioControl" unique_id=749051119]
+unique_name_in_owner = true
+
+[node name="AtmoStreamPlayer" type="AudioStreamPlayer" parent="AudioControl" unique_id=40411795]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_yyih5")
+max_polyphony = 3
