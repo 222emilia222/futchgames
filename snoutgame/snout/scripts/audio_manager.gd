@@ -25,9 +25,11 @@ func _on_new_line() -> void:
 	sfx_playback.play_stream(sfx["impact_light"])
 
 func play_atmo(is_final_level: bool) -> void:
-	wind_id = atmo_playback.play_stream(sfx["wind_loop"])
 	if !is_final_level:
 		rustle_id = atmo_playback.play_stream(sfx["rustle_loop"])
+		wind_id = atmo_playback.play_stream(sfx["wind_loop"])
+	else:
+		atmo_playback.stop_stream(rustle_id)
 
 func pause_atmo() -> void:
 	atmo_playback.stop_stream(wind_id)

@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bhpcnxfo8vgy8" path="res://audio/260821_footsteps_short.mp3" id="7_yx171"]
 [ext_resource type="AudioStream" uid="uid://31djqix76v22" path="res://audio/260821_impact_heavy.mp3" id="9_gwjdr"]
 [ext_resource type="AudioStream" uid="uid://b5jidpqdqpaky" path="res://audio/260821_impact_light.mp3" id="10_lvtmh"]
+[ext_resource type="AudioStream" uid="uid://d2gfksh3j6jfg" path="res://audio/260821_footsteps_running.mp3" id="14_yyih5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i3fui"]
 material = ExtResource("3_t88pq")
@@ -88,6 +89,7 @@ script = ExtResource("5_t88pq")
 sfx = Dictionary[String, AudioStream]({
 "breeze_loop": ExtResource("6_r0x5m"),
 "footsteps": ExtResource("6_2vekm"),
+"footsteps_running": ExtResource("14_yyih5"),
 "footsteps_short": ExtResource("7_yx171"),
 "impact_heavy": ExtResource("9_gwjdr"),
 "impact_light": ExtResource("10_lvtmh"),

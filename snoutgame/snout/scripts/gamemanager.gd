@@ -28,9 +28,15 @@ func load_scene(key: String) -> void:
 	if places.has(key):
 		current_scene.queue_free()
 		#transition
-		sound.pause_atmo()
-		sound.sfx_playback.play_stream(sound.sfx["footsteps"])
-		await get_tree().create_timer(sound.sfx["footsteps"].get_length() + 0.1).timeout
+		var footstep_key = "footsteps"
+		if key == "lake":
+			print("got to the lake")
+			is_final_level = true
+			footstep_key = "footsteps_running"
+		else:
+			sound.pause_atmo()
+		sound.sfx_playback.play_stream(sound.sfx[footstep_key])
+		await get_tree().create_timer(sound.sfx[footstep_key].get_length() + 0.1).timeout
 		#after transition
 		var scene = load(places[key])
 		var instance = scene.instantiate()
